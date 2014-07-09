@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dtsAlbaranCargaProMaestro" targetNamespace="http://tempuri.org/dtsAlbaranCargaProMaestro.xsd" xmlns:mstns="http://tempuri.org/dtsAlbaranCargaProMaestro.xsd" xmlns="http://tempuri.org/dtsAlbaranCargaProMaestro.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="LAConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LAConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.La_Andaluza_Almacen.My.MySettings.GlobalReference.Default.LAConnectionString1" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dtsAlbaranCargaProMaestro" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dtsAlbaranCargaProMaestro" msprop:Generator_UserDSName="dtsAlbaranCargaProMaestro">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AlbaranCargaProMaestro" msprop:Generator_TableClassName="AlbaranCargaProMaestroDataTable" msprop:Generator_RowEvArgName="AlbaranCargaProMaestroRowChangeEvent" msprop:Generator_TableVarName="tableAlbaranCargaProMaestro" msprop:Generator_TablePropName="AlbaranCargaProMaestro" msprop:Generator_RowDeletingName="AlbaranCargaProMaestroRowDeleting" msprop:Generator_RowChangingName="AlbaranCargaProMaestroRowChanging" msprop:Generator_RowEvHandlerName="AlbaranCargaProMaestroRowChangeEventHandler" msprop:Generator_RowDeletedName="AlbaranCargaProMaestroRowDeleted" msprop:Generator_UserTableName="AlbaranCargaProMaestro" msprop:Generator_RowChangedName="AlbaranCargaProMaestroRowChanged" msprop:Generator_RowClassName="AlbaranCargaProMaestroRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AlbaranCargaProMaestroID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnAlbaranCargaProMaestroID" msprop:Generator_ColumnPropNameInRow="AlbaranCargaProMaestroID" msprop:Generator_ColumnPropNameInTable="AlbaranCargaProMaestroIDColumn" msprop:Generator_UserColumnName="AlbaranCargaProMaestroID" type="xs:int" />
+              <xs:element name="Numero" msprop:Generator_ColumnVarNameInTable="columnNumero" msprop:Generator_ColumnPropNameInRow="Numero" msprop:Generator_ColumnPropNameInTable="NumeroColumn" msprop:Generator_UserColumnName="Numero" type="xs:int" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ResponsableCargaID" msprop:Generator_ColumnVarNameInTable="columnResponsableCargaID" msprop:Generator_ColumnPropNameInRow="ResponsableCargaID" msprop:Generator_ColumnPropNameInTable="ResponsableCargaIDColumn" msprop:Generator_UserColumnName="ResponsableCargaID" type="xs:int" minOccurs="0" />
+              <xs:element name="Observaciones" msprop:Generator_ColumnVarNameInTable="columnObservaciones" msprop:Generator_ColumnPropNameInRow="Observaciones" msprop:Generator_ColumnPropNameInTable="ObservacionesColumn" msprop:Generator_UserColumnName="Observaciones" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reserva1" msprop:Generator_ColumnVarNameInTable="columnReserva1" msprop:Generator_ColumnPropNameInRow="Reserva1" msprop:Generator_ColumnPropNameInTable="Reserva1Column" msprop:Generator_UserColumnName="Reserva1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reserva2" msprop:Generator_ColumnVarNameInTable="columnReserva2" msprop:Generator_ColumnPropNameInRow="Reserva2" msprop:Generator_ColumnPropNameInTable="Reserva2Column" msprop:Generator_UserColumnName="Reserva2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reserva3" msprop:Generator_ColumnVarNameInTable="columnReserva3" msprop:Generator_ColumnPropNameInRow="Reserva3" msprop:Generator_ColumnPropNameInTable="Reserva3Column" msprop:Generator_UserColumnName="Reserva3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:AlbaranCargaProMaestro" />
+      <xs:field xpath="mstns:AlbaranCargaProMaestroID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
