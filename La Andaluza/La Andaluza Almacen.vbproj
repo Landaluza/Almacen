@@ -146,6 +146,34 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administracion\albaranes provisionales\albran\DBO_AlbaranesNoDefinitivos.vb" />
+    <Compile Include="Administracion\albaranes provisionales\albran\frmAlbaranesNoDefinitivos.Designer.vb">
+      <DependentUpon>frmAlbaranesNoDefinitivos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\albaranes provisionales\albran\frmAlbaranesNoDefinitivos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\albaranes provisionales\albran\frmEntAlbaranesNoDefinitivos.Designer.vb">
+      <DependentUpon>frmEntAlbaranesNoDefinitivos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\albaranes provisionales\albran\frmEntAlbaranesNoDefinitivos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\albaranes provisionales\albran\spAlbaranesNoDefinitivos.vb" />
+    <Compile Include="Administracion\albaranes provisionales\linea\DBO_AlbaranesCargaMaestroLinea.vb" />
+    <Compile Include="Administracion\albaranes provisionales\linea\frmAlbaranesCargaMaestroLinea.Designer.vb">
+      <DependentUpon>frmAlbaranesCargaMaestroLinea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\albaranes provisionales\linea\frmAlbaranesCargaMaestroLinea.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\albaranes provisionales\linea\frmEntAlbaranesCargaMaestroLinea.Designer.vb">
+      <DependentUpon>frmEntAlbaranesCargaMaestroLinea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\albaranes provisionales\linea\frmEntAlbaranesCargaMaestroLinea.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\albaranes provisionales\linea\spAlbaranesCargaMaestroLinea.vb" />
     <Compile Include="Administracion\Personal\Empleados\Tipos_usuarios\DBO_TiposUsuarios.vb" />
     <Compile Include="Administracion\Personal\Empleados\Tipos_usuarios\spTiposUsuarios.vb" />
     <Compile Include="Administracion\Personal\Empleados\Usuarios\DBO_Usuarios.vb" />
@@ -392,6 +420,18 @@
     <Compile Include="Produccion\palets tipos\spPaletsTipos.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Administracion\albaranes provisionales\albran\frmAlbaranesNoDefinitivos.resx">
+      <DependentUpon>frmAlbaranesNoDefinitivos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\albaranes provisionales\albran\frmEntAlbaranesNoDefinitivos.resx">
+      <DependentUpon>frmEntAlbaranesNoDefinitivos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\albaranes provisionales\linea\frmAlbaranesCargaMaestroLinea.resx">
+      <DependentUpon>frmAlbaranesCargaMaestroLinea.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\albaranes provisionales\linea\frmEntAlbaranesCargaMaestroLinea.resx">
+      <DependentUpon>frmEntAlbaranesCargaMaestroLinea.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bases\engine\GUIstandar.resx">
       <DependentUpon>GUIstandar.vb</DependentUpon>
     </EmbeddedResource>
@@ -522,6 +562,18 @@
     </None>
     <None Include="Resources\window_new.ico" />
     <None Include="Resources\window_new_3.ico" />
+    <Content Include="Administracion\albaranes provisionales\albran\sql\AlbaranesNoDefinitivosBatch.sql" />
+    <Content Include="Administracion\albaranes provisionales\albran\sql\AlbaranesNoDefinitivosDelete.sql" />
+    <Content Include="Administracion\albaranes provisionales\albran\sql\AlbaranesNoDefinitivosInsert.sql" />
+    <Content Include="Administracion\albaranes provisionales\albran\sql\AlbaranesNoDefinitivosSelect.sql" />
+    <Content Include="Administracion\albaranes provisionales\albran\sql\AlbaranesNoDefinitivosSelectDgv.sql" />
+    <Content Include="Administracion\albaranes provisionales\albran\sql\AlbaranesNoDefinitivosUpdate.sql" />
+    <Content Include="Administracion\albaranes provisionales\linea\sql\AlbaranesCargaMaestroLineaBatch.sql" />
+    <Content Include="Administracion\albaranes provisionales\linea\sql\AlbaranesCargaMaestroLineaDelete.sql" />
+    <Content Include="Administracion\albaranes provisionales\linea\sql\AlbaranesCargaMaestroLineaInsert.sql" />
+    <Content Include="Administracion\albaranes provisionales\linea\sql\AlbaranesCargaMaestroLineaSelect.sql" />
+    <Content Include="Administracion\albaranes provisionales\linea\sql\AlbaranesCargaMaestroLineaSelectDgv.sql" />
+    <Content Include="Administracion\albaranes provisionales\linea\sql\AlbaranesCargaMaestroLineaUpdate.sql" />
     <Content Include="Resources\application-exit-3_256.png" />
     <Content Include="Resources\emblem-documents.png" />
     <None Include="Resources\scanner-barcode.ico" />

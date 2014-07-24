@@ -49,7 +49,7 @@ Public Class DataBase
 
             If server = LOCAL Then
                 Config.connectionString = "User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"
-                Name = "VMDESARROLLO\SQLEXPRESS"
+                Name = My.Computer.Name & "\SQLEXPRESS" '"VMDESARROLLO\SQLEXPRESS"
             Else
                 If My.Computer.Name = "MAMVAIO" Then
                     Config.connectionString = "User ID=mamvaio\mam;Trusted_Connection=True;"

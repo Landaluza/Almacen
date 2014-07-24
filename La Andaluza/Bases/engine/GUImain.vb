@@ -448,5 +448,10 @@ Public Class GUImain
         Dim frm As New EscaneoSCC1
         añadirPestaña(CType(frm, Form))
     End Sub
+
+    Private Sub AlbaranesProvisionalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AlbaranesProvisionalesToolStripMenuItem.Click
+        Dim frm As New frmAlbaranesNoDefinitivos
+        añadirPestaña(CType(frm, Form))
+    End Sub
 End Class
 

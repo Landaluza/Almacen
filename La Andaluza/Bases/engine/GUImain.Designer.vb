@@ -35,6 +35,8 @@ Partial Class GUImain
         Me.lReportBug = New System.Windows.Forms.Label()
         Me.lServ = New System.Windows.Forms.Label()
         Me.msMenu = New System.Windows.Forms.MenuStrip()
+        Me.EntradasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalidasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.cmsNotificaciones = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MensajesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -61,8 +63,7 @@ Partial Class GUImain
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.cmsNotificacionesOperaciones = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.EntradasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SalidasToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AlbaranesProvisionalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.mAgenda.SuspendLayout()
         Me.msMenu.SuspendLayout()
@@ -202,13 +203,25 @@ Partial Class GUImain
         Me.msMenu.BackColor = System.Drawing.SystemColors.Control
         Me.msMenu.GripMargin = New System.Windows.Forms.Padding(2)
         Me.msMenu.ImageScalingSize = New System.Drawing.Size(22, 22)
-        Me.msMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntradasToolStripMenuItem1, Me.SalidasToolStripMenuItem1})
+        Me.msMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EntradasToolStripMenuItem1, Me.SalidasToolStripMenuItem1, Me.AlbaranesProvisionalesToolStripMenuItem})
         Me.msMenu.Location = New System.Drawing.Point(0, 0)
         Me.msMenu.MinimumSize = New System.Drawing.Size(1092, 25)
         Me.msMenu.Name = "msMenu"
         Me.msMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
         Me.msMenu.Size = New System.Drawing.Size(1092, 25)
         Me.msMenu.TabIndex = 14
+        '
+        'EntradasToolStripMenuItem1
+        '
+        Me.EntradasToolStripMenuItem1.Name = "EntradasToolStripMenuItem1"
+        Me.EntradasToolStripMenuItem1.Size = New System.Drawing.Size(64, 21)
+        Me.EntradasToolStripMenuItem1.Text = "Entradas"
+        '
+        'SalidasToolStripMenuItem1
+        '
+        Me.SalidasToolStripMenuItem1.Name = "SalidasToolStripMenuItem1"
+        Me.SalidasToolStripMenuItem1.Size = New System.Drawing.Size(55, 21)
+        Me.SalidasToolStripMenuItem1.Text = "Salidas"
         '
         'NotifyIcon1
         '
@@ -460,17 +473,11 @@ Partial Class GUImain
         'BackgroundWorker1
         '
         '
-        'EntradasToolStripMenuItem1
+        'AlbaranesProvisionalesToolStripMenuItem
         '
-        Me.EntradasToolStripMenuItem1.Name = "EntradasToolStripMenuItem1"
-        Me.EntradasToolStripMenuItem1.Size = New System.Drawing.Size(64, 21)
-        Me.EntradasToolStripMenuItem1.Text = "Entradas"
-        '
-        'SalidasToolStripMenuItem1
-        '
-        Me.SalidasToolStripMenuItem1.Name = "SalidasToolStripMenuItem1"
-        Me.SalidasToolStripMenuItem1.Size = New System.Drawing.Size(55, 21)
-        Me.SalidasToolStripMenuItem1.Text = "Salidas"
+        Me.AlbaranesProvisionalesToolStripMenuItem.Name = "AlbaranesProvisionalesToolStripMenuItem"
+        Me.AlbaranesProvisionalesToolStripMenuItem.Size = New System.Drawing.Size(143, 21)
+        Me.AlbaranesProvisionalesToolStripMenuItem.Text = "Albaranes provisionales"
         '
         'GUImain
         '
@@ -552,7 +559,8 @@ Partial Class GUImain
     Protected WithEvents LAgenda As System.Windows.Forms.Label
     Private WithEvents mAgenda As System.Windows.Forms.ContextMenuStrip
     Private WithEvents AsdToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EntradasToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SalidasToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Protected WithEvents AlbaranesProvisionalesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Protected WithEvents EntradasToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Protected WithEvents SalidasToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
 End Class
