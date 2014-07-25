@@ -1,4 +1,5 @@
-﻿Public Class AgnadirAcarga
+﻿Public Class AgnadirAcargaGrabada
+
     Private spAlamacen As spAlmacenPalets
     'Dim ctlPal As New ctlPaletsProducidos
     'Dim spPaletsProducidos As New spPaletsProducidos
@@ -14,14 +15,14 @@
     Public Event BeforeScan(ByRef sender As Object, ByVal scc As String)
     Public EventHandled As Boolean
     Private loteOriginal As String
-    Private spPaletsProducidos As spPaletsProducidos
+    Private spPaletsProducidos2 As spPaletsProducidos2
     Private dtb As DataBase
     Public Sub New(ByVal MaestroProID As Integer)
         InitializeComponent()
 
         spAlamacen = New spAlmacenPalets
         Me.codigoMaestro = MaestroProID.ToString
-        spPaletsProducidos = New spPaletsProducidos
+        spPaletsProducidos2 = New spPaletsProducidos2
         dtb = New DataBase(Config.Server)
     End Sub
 
@@ -59,13 +60,13 @@
                     txtPesoPalet.Text = "0"
                     ' hay que añadir el tipo de palet
                     If ctlAlbDet.GuardarAlbaranCargaProviDetalle(Convert.ToInt32(Me.codigoMaestro), _
-                                                               Convert.ToInt32(txtSCC.Text), _
-                                                               Convert.ToInt32(Tabla.Rows(0).Item("CodigoQS")), _
+                                                              Convert.ToInt32(txtSCC.Text), _
+                                                              Convert.ToInt32(Tabla.Rows(0).Item("CodigoQS")), _
                                                               txtDescripcion.Text, _
                                                               Convert.ToInt32(txtCajas.Text), _
                                                               33, _
                                                                txtLote.Text, _
-                                                                Convert.ToInt32(Me.cboTipoPalet.SelectedValue), _
+                                                               Convert.ToInt32(Me.cboTipoPalet.SelectedValue), _
                                                               txtObsEnvasado.Text, _
                                                               "Reserva1", _
                                                               "Reserva2", _
@@ -86,7 +87,7 @@
                     messagebox.show("Hubo un problema al realizar las operaciones. Detalles:" & Environment.NewLine & Environment.NewLine, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
             Else
-                messagebox.show("Este SSCC esta repetido", "Alerta", MessageBoxButtons.OK , MessageBoxIcon.Exclamation )
+                messagebox.show("Este SSCC esta repetido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 borrarTextos()
             End If
         End If
@@ -104,10 +105,14 @@
     End Sub
 
     Private Sub txtSCCEscaneado_Validated(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles txtSCCEscaneado.Validating
+
+
+
         rellenarForm()
     End Sub
 
     Private Sub rellenarForm()
+
         Dim LongitudOK As Boolean = True
         btnOK.Enabled = True
         Try
@@ -153,13 +158,13 @@
                     btnOK.Enabled = True
 
 
-                    Tabla = dtb.Consultar("SelectSCC " & Me.txtSCC.Text)
+                    Tabla = dtb.Consultar("exec SelectSCC " & Me.txtSCC.Text, False)
 
 
                     If Tabla.Rows.Count > 0 Then
                         'Compruebo que el palets este en almacen, es decir que le campo EnAlmacen = True, por si se ha dado salida anteriormente.
-                        If Convert.ToBoolean(Tabla.Rows(0).Item(4)) Then
-                            If spPaletsProducidos.estaCargado(Convert.ToInt32(txtSCC.Text)) Then
+                        If Convert.ToBoolean(Tabla.Rows(0).Item(4)) = True Then
+                            If spPaletsProducidos2.estaCargado(txtSCC.Text, dtb) Then
                                 btnOK.Enabled = False
                                 MessageBox.Show("Este palet figura en una carga. AVISAR A MIGUEL ANGEL", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                                 txtObsCarga.Text = "Palet Cargado."
@@ -219,13 +224,13 @@
                                     Me.txtLote.Font = New System.Drawing.Font(Me.txtLote.Font.FontFamily.Name, 72)
                                 End If
 
-                                If If(Tabla.Rows(0).Item(7) Is Nothing, 0, Convert.ToInt32(Tabla.Rows(0).Item(7))) = 3 Then
+                                If Convert.ToInt32(Tabla.Rows(0).Item(7)) = 3 Then
                                     Me.panNoConforme.Visible = True
                                 Else
                                     Me.panNoConforme.Visible = False
                                 End If
 
-                                txtFecha.Text = Convert.ToString(Tabla.Rows(0).Item(0)).Substring(0, Len(Convert.ToString(Tabla.Rows(0).Item(0))) - 8)
+                                txtFecha.Text = Convert.ToString(Tabla.Rows(0).Item(0)).Substring(0, Len(Tabla.Rows(0).Item(0)) - 8)
                                 txtDescripcion.Text = Convert.ToString(Tabla.Rows(0).Item(1))
                                 txtCajas.Text = If(Convert.ToString(Tabla.Rows(0).Item(2)) = "", "0", Convert.ToString(Tabla.Rows(0).Item(2)))
                                 txtLote.Text = lotes
@@ -283,7 +288,7 @@
         'Para evitar se escanee por error en este campo
         If txtSCC.Text.Length > 6 Then
             txtSCC.Text = txtSCCEscaneado.Text.Substring(15, 5)
-            e.Cancel = True        
+            e.Cancel = True
         End If
     End Sub
 

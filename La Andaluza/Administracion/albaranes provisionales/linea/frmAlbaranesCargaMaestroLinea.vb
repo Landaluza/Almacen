@@ -3,7 +3,7 @@ Public Class frmAlbaranesCargaMaestroLinea
     Implements Queriable
 
     Private dboAlbaranesCargaMaestroLinea As DBO_AlbaranesCargaMaestroLinea
-
+    Private frm As AgnadirAcargaGrabada
     Public Sub New(Optional ByVal MaestroID As Integer = 0)
         MyBase.new(New spAlbaranesCargaMaestroLinea(), MaestroID.ToString)
         InitializeComponent()
@@ -13,14 +13,16 @@ Public Class frmAlbaranesCargaMaestroLinea
     End Sub
 
     Private Sub Insert_Before() Handles MyBase.BeforeInsert
-        Dim frm As New AgnadirAcarga()
-        If frm.ShowDialog() <> Windows.Forms.DialogResult.Cancel Then
-            dgvFill()
-        End If
+        frm = New AgnadirAcargaGrabada(Convert.ToInt32(Me.m_MaestroID))
+        AddHandler frm.AfterSave, AddressOf recargar
+        frm.ShowDialog()
 
         EventHandeld = True
     End Sub
 
+    Private Sub recargar(ByRef sender As Object)
+        dgvFill()
+    End Sub
     Private Sub modify_Before() Handles MyBase.BeforeModify
         EventHandeld = True
     End Sub

@@ -163,6 +163,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administracion\albaranes provisionales\albran\spAlbaranesNoDefinitivos.vb" />
+    <Compile Include="Administracion\albaranes provisionales\linea\AgnadirAcargaGrabada.Designer.vb">
+      <DependentUpon>AgnadirAcargaGrabada.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\albaranes provisionales\linea\AgnadirAcargaGrabada.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Administracion\albaranes provisionales\linea\DBO_AlbaranesCargaMaestroLinea.vb" />
     <Compile Include="Administracion\albaranes provisionales\linea\frmAlbaranesCargaMaestroLinea.Designer.vb">
       <DependentUpon>frmAlbaranesCargaMaestroLinea.vb</DependentUpon>
@@ -377,10 +383,10 @@
     <Compile Include="Produccion\Almacen\Movimientos\AlmacenEntradasSalidasMovimientos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Produccion\Almacen\Movimientos\AgnadirAcarga.Designer.vb">
-      <DependentUpon>AgnadirAcarga.vb</DependentUpon>
+    <Compile Include="Produccion\Almacen\Movimientos\AgnadirAcargaEnCurso.Designer.vb">
+      <DependentUpon>AgnadirAcargaEnCurso.vb</DependentUpon>
     </Compile>
-    <Compile Include="Produccion\Almacen\Movimientos\AgnadirAcarga.vb">
+    <Compile Include="Produccion\Almacen\Movimientos\AgnadirAcargaEnCurso.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Produccion\Almacen\Movimientos\EscaneoSCC1.Designer.vb">
@@ -428,6 +434,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\albaranes provisionales\albran\frmEntAlbaranesNoDefinitivos.resx">
       <DependentUpon>frmEntAlbaranesNoDefinitivos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\albaranes provisionales\linea\AgnadirAcargaGrabada.resx">
+      <DependentUpon>AgnadirAcargaGrabada.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\albaranes provisionales\linea\frmAlbaranesCargaMaestroLinea.resx">
       <DependentUpon>frmAlbaranesCargaMaestroLinea.vb</DependentUpon>
@@ -509,8 +518,8 @@
     <EmbeddedResource Include="Produccion\Almacen\Movimientos\AlmacenEntradasSalidasMovimientos.resx">
       <DependentUpon>AlmacenEntradasSalidasMovimientos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Produccion\Almacen\Movimientos\AgnadirAcarga.resx">
-      <DependentUpon>AgnadirAcarga.vb</DependentUpon>
+    <EmbeddedResource Include="Produccion\Almacen\Movimientos\AgnadirAcargaEnCurso.resx">
+      <DependentUpon>AgnadirAcargaEnCurso.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Produccion\Almacen\Movimientos\EscaneoSCC1.resx">
       <DependentUpon>EscaneoSCC1.vb</DependentUpon>
