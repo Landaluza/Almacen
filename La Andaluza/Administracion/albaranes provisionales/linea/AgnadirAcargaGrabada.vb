@@ -6,9 +6,9 @@
     Private Tabla As DataTable
     Private O_Item As ListViewItem
 
-    Private ctlAlb As New ctlAlbaranCargaProMaestro
-    Private clsAlbDet As New clsAlbaranesCargaProviDetalles
-    Private ctlAlbDet As New ctlAlbaranesCargaProviDetalles
+    Private ctlAlb As ctlAlbaranCargaProMaestro
+    Private clsAlbDet As clsAlbaranesCargaProviDetalles
+    Private ctlAlbDet As ctlAlbaranesCargaProviDetalles
     Private codigoMaestro As String
     Public Event AfterSave(ByRef sender As Object)
     Public Event AfterAdd(ByRef sender As Object)
@@ -24,6 +24,9 @@
         Me.codigoMaestro = MaestroProID.ToString
         spPaletsProducidos2 = New spPaletsProducidos2
         dtb = New DataBase(Config.Server)
+        ctlAlb = New ctlAlbaranCargaProMaestro
+        clsAlbDet = New clsAlbaranesCargaProviDetalles
+        ctlAlbDet = New ctlAlbaranesCargaProviDetalles
     End Sub
 
     Private Sub EscaneoSCC_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -48,10 +51,10 @@
 
                 Try
 
-                    Dim Linea As String = "PaletsProducidosSelectArticuloCodigoQSBySCC " & txtSCC.Text
+                    Dim Linea As String = "exec PaletsProducidosSelectArticuloCodigoQSBySCC " & txtSCC.Text
 
                     ctlAlbDet.SetAlbaranCargaProviDetalleID(0)
-                    Tabla = dtb.Consultar(Linea)
+                    Tabla = dtb.Consultar(Linea, False)
 
 
 
@@ -84,7 +87,7 @@
                     End If
                 Catch ex As Exception
                     dtb.CancelarTransaccion()
-                    messagebox.show("Hubo un problema al realizar las operaciones. Detalles:" & Environment.NewLine & Environment.NewLine, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Hubo un problema al realizar las operaciones. Detalles:" & Environment.NewLine & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
             Else
                 messagebox.show("Este SSCC esta repetido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
