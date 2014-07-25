@@ -42,7 +42,7 @@
             messagebox.show("No has escaneado el palet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
 
-            If True Then 'revisar que el palet esta deisponible
+            If IsNumeric(txtSCC.Text) Then 'revisar que el palet esta deisponible
 
                 'Compruebo que no supere el maximo de palets o kilos que admite el camión.
 
@@ -56,7 +56,9 @@
                     ctlAlbDet.SetAlbaranCargaProviDetalleID(0)
                     Tabla = dtb.Consultar(Linea, False)
 
-
+                    If Tabla Is Nothing Then
+                        Throw New Exception("No se pudo recuperar los datos")
+                    End If
 
 
                     'Para que no sume el peso del palet
@@ -64,9 +66,9 @@
                     ' hay que añadir el tipo de palet
                     If ctlAlbDet.GuardarAlbaranCargaProviDetalle(Convert.ToInt32(Me.codigoMaestro), _
                                                               Convert.ToInt32(txtSCC.Text), _
-                                                              Convert.ToInt32(Tabla.Rows(0).Item("CodigoQS")), _
+                                                             If(Convert.IsDBNull(Tabla.Rows(0).Item("CodigoQS")), 0, Convert.ToInt32(Tabla.Rows(0).Item("CodigoQS"))), _
                                                               txtDescripcion.Text, _
-                                                              Convert.ToInt32(txtCajas.Text), _
+                                                              If(IsNumeric(txtCajas.Text), Convert.ToInt32(txtCajas.Text), 0), _
                                                               33, _
                                                                txtLote.Text, _
                                                                Convert.ToInt32(Me.cboTipoPalet.SelectedValue), _
@@ -90,7 +92,7 @@
                     MessageBox.Show("Hubo un problema al realizar las operaciones. Detalles:" & Environment.NewLine & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
             Else
-                messagebox.show("Este SSCC esta repetido", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+                MessageBox.Show("Este SSCC es incorrecto", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 borrarTextos()
             End If
         End If
