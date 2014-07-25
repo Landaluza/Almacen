@@ -1,6 +1,9 @@
 Public Class ctlAlbaranesCargaProviDetalles
     Private clsAlbDet As clsAlbaranesCargaProviDetalles
 
+    Public Sub New()
+        clsAlbDet = New clsAlbaranesCargaProviDetalles
+    End Sub
     Public Function GetAlbaranCargaProviDetalleID() As Integer
         Return clsAlbDet._AlbaranCargaProviDetalleID
     End Function

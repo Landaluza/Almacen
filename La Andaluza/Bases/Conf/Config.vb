@@ -31,7 +31,7 @@
     'Public Shared PrintPreviewDialogEtiquetas As PrintPreviewDialog
 
     Public Shared Sub Cargar_Ajustes_Predeterminados()
-        Config.Server = DataBase.LOCAL
+        Config.Server = DataBase.SERVIDOR
         Config.MailReportPass = "Administracion2008"
         Config.HelpUrl = "http://192.168.1.106/AyudaLA/index.php"
         Config.ventasPath = "Z:\Informatica\La Andaluza app\ExcelFile\Book1.xlsx"
