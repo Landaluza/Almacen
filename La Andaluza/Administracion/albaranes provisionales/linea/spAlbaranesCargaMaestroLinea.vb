@@ -8,7 +8,7 @@ Public Class spAlbaranesCargaMaestroLinea
                       "[dbo].[AlbaranesCargaMaestroLineaUpdate]", _
                       "[dbo].[AlbaranesCargaMaestroLineaDelete]", _
                       "[dbo].[AlbaranesCargaMaestroLineaSelectDgv]", _
-                      "[dbo].[AlbaranesCargaMaestroLineaSelectDgvBy]")
+                      "[dbo].[AlbaranesCargaMaestroLineaSelectDgv]")
     End Sub
 
     Public Overloads Function Select_Record(ByVal AlbaranCargaProviDetalleID As Integer, ByRef dtb As DataBase) As DBO_AlbaranesCargaMaestroLinea
@@ -23,7 +23,17 @@ Public Class spAlbaranesCargaMaestroLinea
         Dim dbo As New DBO_AlbaranesCargaMaestroLinea
         dbo.searchKey = dbo.item("AlbaranCargaProviDetalleID")
         dbo.searchKey.value = AlbaranCargaProviDetalleID
-        Return MyBase.DeleteProcedure(CType(dbo, DataBussines), dtb)
+
+        dtb.EmpezarTransaccion()
+
+        If MyBase.DeleteProcedure(CType(dbo, DataBussines), dtb) Then
+            dtb.TerminarTransaccion()
+            Return True
+        Else
+            dtb.CancelarTransaccion()
+            Return False
+        End If
+
     End Function
 
 End Class

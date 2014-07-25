@@ -30,11 +30,7 @@ Public Class frmEntAlbaranesNoDefinitivos
     End Sub
 
     Overrides Sub SetValores() Implements Savable.setValores
-        If (Me.modoDeApertura = INSERCION) Then
-            Me.m_DBO_AlbaranesNoDefinitivos = New dbo_AlbaranesNoDefinitivos
-        Else
-            Me.m_DBO_AlbaranesNoDefinitivos = CType(dbo, DBO_AlbaranesNoDefinitivos)
-        End If
+        Me.m_DBO_AlbaranesNoDefinitivos = CType(dbo, DBO_AlbaranesNoDefinitivos)
 
         txtNumero.Text = m_DBO_AlbaranesNoDefinitivos.Numero.ToString
         dtpFecha.Value = m_DBO_AlbaranesNoDefinitivos.Fecha
@@ -55,6 +51,9 @@ Public Class frmEntAlbaranesNoDefinitivos
         chbc1.Checked = m_DBO_AlbaranesNoDefinitivos.c1
         chbc2.Checked = m_DBO_AlbaranesNoDefinitivos.c2
         txtObservacionControl.Text = m_DBO_AlbaranesNoDefinitivos.ObservacionControl
+
+        Dim frm As New frmAlbaranesCargaMaestroLinea(Me.m_DBO_AlbaranesNoDefinitivos.Numero)
+        Engine_LA.FormEnPestaña(frm, panLineas)
     End Sub
 
     Protected Overrides Function GetValores() As Boolean Implements Savable.getValores
@@ -118,8 +117,5 @@ Public Class frmEntAlbaranesNoDefinitivos
 
     Public Shadows Sub guardar(Optional ByRef trans As SqlClient.SqlTransaction = Nothing) Implements Savable.Guardar
         MyBase.Guardar(New DataBase(Config.Server))
-    End Sub
-    Private Sub frmEntAlbaranesNoDefinitivos_Shown(sender As System.Object, e As System.EventArgs) Handles MyBase.Shown
-        DetailedSimpleForm.centerIn(CType(Me.tlpMiddle, Control), Me)
     End Sub
 End Class

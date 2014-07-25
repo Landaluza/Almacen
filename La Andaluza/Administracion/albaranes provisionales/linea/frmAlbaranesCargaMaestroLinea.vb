@@ -8,21 +8,21 @@ Public Class frmAlbaranesCargaMaestroLinea
         MyBase.new(New spAlbaranesCargaMaestroLinea(), MaestroID.ToString)
         InitializeComponent()
         dboAlbaranesCargaMaestroLinea = New DBO_AlbaranesCargaMaestroLinea
-        MyBase.newRegForm = CType(New frmEntAlbaranesCargaMaestroLinea(GridSimpleForm.ACCION_INSERTAR, CType(sp, spAlbaranesCargaMaestroLinea)), DetailedSimpleForm)
+        MyBase.newRegForm = Nothing
+        MyBase.butModificar.Enabled = False
     End Sub
 
     Private Sub Insert_Before() Handles MyBase.BeforeInsert
-        newRegForm.SetDataBussinesObject(CType(Me.dboAlbaranesCargaMaestroLinea, databussines))
+        Dim frm As New AgnadirAcarga()
+        If frm.ShowDialog() <> Windows.Forms.DialogResult.Cancel Then
+            dgvFill()
+        End If
+
+        EventHandeld = True
     End Sub
 
     Private Sub modify_Before() Handles MyBase.BeforeModify
-        dboAlbaranesCargaMaestroLinea = CType(sp, spAlbaranesCargaMaestroLinea).Select_Record(CType(dgvGeneral.CurrentRow.Cells("Id").Value, Integer), dtb)
-        If Not dboAlbaranesCargaMaestroLinea Is Nothing Then
-            newRegForm.SetDataBussinesObject(CType(Me.dboAlbaranesCargaMaestroLinea, databussines))
-        Else
-            MyBase.EventHandeld = True
-            Messagebox.show("No se pudo recuperar los datos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        End If
+        EventHandeld = True
     End Sub
 
     Protected Overrides Sub BindDataSource() Implements Queriable.dataGridViewFill
@@ -33,21 +33,24 @@ Public Class frmAlbaranesCargaMaestroLinea
             With dgvGeneral
                 .DataSource = GeneralBindingSource
                 .Columns("Id").Visible = False
-                .FormatoColumna("AlbaranCargaProviMaestroID", TiposColumna.Miles, 50)
+                .Columns("AlbaranCargaProviMaestroID").Visible = False
+                .Columns("UnidadMedidaID").Visible = False
+                .Columns("Lote").Visible = False
+                .Columns("TipoPaletID").Visible = False
+                .Columns("Observaciones").Visible = False
+                .Columns("Reserva1").Visible = False
+                .Columns("Reserva2").Visible = False
+                .Columns("Reserva3").Visible = False
+                .Columns("LoteAlternativo").Visible = False
+
                 .FormatoColumna("SCC", TiposColumna.Miles, 50)
                 .FormatoColumna("CodigoQS", TiposColumna.Miles, 50)
-                .FormatoColumna("AticuloDescripcion", TiposColumna.Izquierda, True)
+                .FormatoColumna("AticuloDescripcion", "Descripcion", TiposColumna.Izquierda, True)
                 .FormatoColumna("Cajas", TiposColumna.Miles, 50)
-                .FormatoColumna("UnidadMedidaID", TiposColumna.Miles, 50)
-                .FormatoColumna("Lote", TiposColumna.Izquierda, True)
-                .FormatoColumna("TipoPaletID", TiposColumna.Miles, 50)
-                .FormatoColumna("Observaciones", TiposColumna.Izquierda, True)
-                .FormatoColumna("Reserva1", TiposColumna.Izquierda, True)
-                .FormatoColumna("Reserva2", TiposColumna.Izquierda, True)
-                .FormatoColumna("Reserva3", TiposColumna.Izquierda, True)
-                .FormatoColumna("LoteAlternativo", TiposColumna.Izquierda, True)
             End With
         End If
+
+
 
     End Sub
 

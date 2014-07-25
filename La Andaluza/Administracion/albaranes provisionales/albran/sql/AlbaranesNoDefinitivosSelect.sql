@@ -7,33 +7,32 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[AlbaranesNoDefinitivosSelect]
-      @AlbaranCargaMaestroID int
+      @AlbaranCargaProMaestroID int
 AS 
 BEGIN
-SELECT
-      AlbaranCargaMaestroID
-     ,AlbaranCargaProMaestroID
-     ,Fecha
-     ,ClienteID
-     ,SerieQSID
-     ,NumeroQS
-     ,AlmacenSalidaQSID
-     ,AgenciaID
-     ,PorteFormaPagoID
-     ,PorteImporte
-     ,Matricula
-     ,Conductor
-     ,ConductorDNI
-     ,ResponsableCargaID
-     ,ResponsableAdministracionID
-     ,HoraLlegada
-     ,HoraSalida
-     ,Observaciones
-     ,Reserva1
-     ,Reserva2
-     ,Reserva3
-FROM
-     [dbo].[AlbaranesCargaMaestro]
+SELECT [AlbaranCargaProMaestroID]
+      ,[Numero]
+      ,[Fecha]
+      ,[ResponsableCargaID]
+      ,[Observaciones]
+      ,[Reserva1]
+      ,[Reserva2]
+      ,[Reserva3]
+      ,[FechaModificacion]
+      ,[UsuarioModificacion]
+      ,[e1]
+      ,[e2]
+      ,[e3]
+      ,[e4]
+      ,[e5]
+      ,[e6]
+      ,[h1]
+      ,[m1]
+      ,[m2]
+      ,[c1]
+      ,[c2]
+      ,[ObservacionControl]
+  FROM [dbo].[AlbaranCargaProMaestro]
 WHERE
-    [AlbaranCargaMaestroID] = @AlbaranCargaMaestroID
+    [AlbaranCargaProMaestroID] = @AlbaranCargaProMaestroID
 End

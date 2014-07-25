@@ -13,6 +13,10 @@ BEGIN
 
 SET NOCOUNT ON
 
+update paletsproducidos set enAlmacen = 'true' where scc = (select scc  
+															FROM [dbo].[AlbaranesCargaProviDetalles]
+															WHERE
+																[AlbaranCargaProviDetalleID] = @AlbaranCargaProviDetalleID)
 
 DELETE FROM [dbo].[AlbaranesCargaProviDetalles]
 WHERE

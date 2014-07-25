@@ -14,7 +14,7 @@ Public Class frmAlbaranesNoDefinitivos
     End Sub
 
     Private Sub Insert_Before() Handles MyBase.BeforeInsert
-        newRegForm.SetDataBussinesObject(CType(Me.dboAlbaranesNoDefinitivos, databussines))
+        Me.EventHandeld = True
     End Sub
 
     Private Sub modify_Before() Handles MyBase.BeforeModify

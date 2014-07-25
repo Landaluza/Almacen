@@ -6,7 +6,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [dbo].[AlbaranesCargaMaestroLineaSelectDgv]
+CREATE PROCEDURE [dbo].[AlbaranesCargaMaestroLineaSelectDgv] @AlbaranCargaProMaestroID int
 AS 
 BEGIN
 SELECT
@@ -26,4 +26,5 @@ SELECT
      ,[dbo].[AlbaranesCargaProviDetalles].[LoteAlternativo]
 FROM
      [dbo].[AlbaranesCargaProviDetalles]
+where [AlbaranCargaProviMaestroID]=@AlbaranCargaProMaestroID
 End

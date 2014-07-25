@@ -95,7 +95,10 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DgvFilterPopup, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="DgvFilterPopup, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Bases\ZLibrerias\DgvFilterPopup.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>False</EmbedInteropTypes>
       <Private>True</Private>
@@ -374,10 +377,10 @@
     <Compile Include="Produccion\Almacen\Movimientos\AlmacenEntradasSalidasMovimientos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Produccion\Almacen\Movimientos\Copy of AgnadirAcarga.Designer.vb">
-      <DependentUpon>Copy of AgnadirAcarga.vb</DependentUpon>
+    <Compile Include="Produccion\Almacen\Movimientos\AgnadirAcarga.Designer.vb">
+      <DependentUpon>AgnadirAcarga.vb</DependentUpon>
     </Compile>
-    <Compile Include="Produccion\Almacen\Movimientos\Copy of AgnadirAcarga.vb">
+    <Compile Include="Produccion\Almacen\Movimientos\AgnadirAcarga.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Produccion\Almacen\Movimientos\EscaneoSCC1.Designer.vb">
@@ -506,8 +509,8 @@
     <EmbeddedResource Include="Produccion\Almacen\Movimientos\AlmacenEntradasSalidasMovimientos.resx">
       <DependentUpon>AlmacenEntradasSalidasMovimientos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Produccion\Almacen\Movimientos\Copy of AgnadirAcarga.resx">
-      <DependentUpon>Copy of AgnadirAcarga.vb</DependentUpon>
+    <EmbeddedResource Include="Produccion\Almacen\Movimientos\AgnadirAcarga.resx">
+      <DependentUpon>AgnadirAcarga.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Produccion\Almacen\Movimientos\EscaneoSCC1.resx">
       <DependentUpon>EscaneoSCC1.vb</DependentUpon>
@@ -562,18 +565,11 @@
     </None>
     <None Include="Resources\window_new.ico" />
     <None Include="Resources\window_new_3.ico" />
-    <Content Include="Administracion\albaranes provisionales\albran\sql\AlbaranesNoDefinitivosBatch.sql" />
-    <Content Include="Administracion\albaranes provisionales\albran\sql\AlbaranesNoDefinitivosDelete.sql" />
-    <Content Include="Administracion\albaranes provisionales\albran\sql\AlbaranesNoDefinitivosInsert.sql" />
     <Content Include="Administracion\albaranes provisionales\albran\sql\AlbaranesNoDefinitivosSelect.sql" />
     <Content Include="Administracion\albaranes provisionales\albran\sql\AlbaranesNoDefinitivosSelectDgv.sql" />
-    <Content Include="Administracion\albaranes provisionales\albran\sql\AlbaranesNoDefinitivosUpdate.sql" />
-    <Content Include="Administracion\albaranes provisionales\linea\sql\AlbaranesCargaMaestroLineaBatch.sql" />
     <Content Include="Administracion\albaranes provisionales\linea\sql\AlbaranesCargaMaestroLineaDelete.sql" />
-    <Content Include="Administracion\albaranes provisionales\linea\sql\AlbaranesCargaMaestroLineaInsert.sql" />
     <Content Include="Administracion\albaranes provisionales\linea\sql\AlbaranesCargaMaestroLineaSelect.sql" />
     <Content Include="Administracion\albaranes provisionales\linea\sql\AlbaranesCargaMaestroLineaSelectDgv.sql" />
-    <Content Include="Administracion\albaranes provisionales\linea\sql\AlbaranesCargaMaestroLineaUpdate.sql" />
     <Content Include="Resources\application-exit-3_256.png" />
     <Content Include="Resources\emblem-documents.png" />
     <None Include="Resources\scanner-barcode.ico" />
