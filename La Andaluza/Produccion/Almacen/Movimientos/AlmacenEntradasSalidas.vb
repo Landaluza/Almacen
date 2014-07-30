@@ -37,7 +37,8 @@
             Dim frm As New AlmacenEntradasSalidasMovimientos(txtSCC.Text, chkSalida.Checked)
             frm.ShowDialog()
             Me.TodoOk = frm.todook
-            If TodoOK Then
+            If TodoOk Then
+                If txtCajas.Text = "" Then txtCajas.Text = "0"
                 'Añado el palet a la Tabla
                 Dim m_DBO_PaletAlmacenEntrada As New DBO_PaletsAlmacenEntradas
                 m_DBO_PaletAlmacenEntrada.PaletAlmacenEntradaID = 0 'Para que grabe nuevo registro

@@ -591,7 +591,7 @@
                                             Return
                                         Else
                                             NotificarPaletSinContenidos()
-                                            btnOK.Enabled = False
+                                            btnOK.Enabled = True
                                         End If
                                     End If
 
