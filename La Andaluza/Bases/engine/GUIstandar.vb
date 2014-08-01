@@ -31,7 +31,6 @@
 
     Public Overrides Sub stopGUI()
         Try
-            'LAengine.guardarMenu(Me.tsCustomMenu)
             Me.TimerNotificaciones.Stop()
             Me.TimerNotificaciones.Enabled = False
             Me.TimerNotificaciones.Dispose()
@@ -42,69 +41,54 @@
     End Sub
 
     Public Shadows Sub actualizarnotificaciones()
-
         Dim notificacion As DataTable
-      
-                Me.cmsNotificaciones.Items.Clear()
 
-                Dim nOC As Integer = LAengine.comprobarNumeroOC
-                Dim nPed As Integer = LAengine.comprobarNumeroPedidos
+        Me.cmsNotificaciones.Items.Clear()
 
-                Dim sms2 As New ToolStripMenuItem
-                sms2.Text = "Pedidos: " & nPed & "  Ordenes de carga: " & nOC
-                sms2.Name = "tsnEscan"
-                sms2.Image = My.Resources.scanner_barcode
-                Me.cmsNotificaciones.Items.Add(sms2)
-                AddHandler sms2.Click, AddressOf Escanear
+        Dim nOC As Integer = LAengine.comprobarNumeroOC
+        Dim nPed As Integer = LAengine.comprobarNumeroPedidos
 
-                'If nOC + nPed > 0 Then
-                '    Me.PanNotificaciones.Visible = True
-                '    Me.lMensajeNotificacion.Text = "Pedidos: " & nPed & "|  Ordenes de carga: " & nOC
-                '    AddHandler lMensajeNotificacion.Click, AddressOf tsmEscaneoSCC_Click
-                'End If
+        Dim sms2 As New ToolStripMenuItem
+        sms2.Text = "Pedidos: " & nPed & "  Ordenes de carga: " & nOC
+        sms2.Name = "tsnEscan"
+        sms2.Image = My.Resources.scanner_barcode
+        Me.cmsNotificaciones.Items.Add(sms2)
+        AddHandler sms2.Click, AddressOf Escanear
 
-                notificacion = LAengine.comprobarNotificaciones
+        notificacion = LAengine.comprobarNotificaciones
 
 
-                If notificacion.Rows.Count > 0 Then
-                    Dim separador As New ToolStripSeparator
-                    Me.cmsNotificaciones.Items.Add(separador)
+        If notificacion.Rows.Count > 0 Then
+            Dim separador As New ToolStripSeparator
+            Me.cmsNotificaciones.Items.Add(separador)
             MyBase.actualizarNotificaciones(notificacion.Rows.Count.ToString)
 
-                    For Each row As DataRow In notificacion.Rows
-                        Dim sms As New ToolStripMenuItem
+            For Each row As DataRow In notificacion.Rows
+                Dim sms As New ToolStripMenuItem
                 sms.Text = row.Item(0).ToString
-                        sms.Image = My.Resources.emblem_documents
-                        Me.cmsNotificaciones.Items.Add(sms)
-                        AddHandler sms.Click, AddressOf lMensajes_Click
-                    Next
+                sms.Image = My.Resources.emblem_documents
+                Me.cmsNotificaciones.Items.Add(sms)
+                AddHandler sms.Click, AddressOf lMensajes_Click
+            Next
 
-                    Me.lMensajes.Enabled = True
+            Me.lMensajes.Enabled = True
 
-                    Dim frm As New frmMensajesPendientes(lMensajes, Me)
+            Dim frm As New frmMensajesPendientes(lMensajes, Me)
 
-                    resetearMenuNotificaciones(True)
+            resetearMenuNotificaciones(True)
             Me.frmNews.actualizarNotificacion(CType(frm, Form))
-                Else
-                    resetearMenuNotificaciones(False)
-                    lMensajes.Enabled = False
-                End If          
-           
-
+        Else
+            resetearMenuNotificaciones(False)
+            lMensajes.Enabled = False
+        End If
     End Sub
 
     Protected Sub TimerNotificaciones_Tick(sender As System.Object, e As System.EventArgs) Handles TimerNotificaciones.Tick
         actualizarnotificaciones()
-
     End Sub
 
     Private Sub GUIstandar_Shown(sender As System.Object, e As System.EventArgs) Handles MyBase.Shown
-        ' If Not Me.controlador Is Nothing Then
-
-
         BackgroundWorker1.RunWorkerAsync()
-        'End If
     End Sub
-
 
 End Class

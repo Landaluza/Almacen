@@ -26,18 +26,6 @@ Public Class FrmInicio
     End Sub
 
     Private Sub iniciar()
-
-        If My.Computer.Name = "MAM1" Or My.Computer.Name = "GERENTE1" Or My.Computer.Name = "MAM2-PC" Or My.Computer.Name = "MAMVAIO" Then
-            If txtLogin.Text.Length = 0 And txtPassword.Text.Length = 0 Then
-                txtLogin.Text = "mam"
-                txtPassword.Text = "trucha0121"
-            End If
-        End If
-
-        If txtLogin.Text = "mamdev" Then
-            txtLogin.Text = txtLogin.Text.Replace("mamdev", "mam")
-        End If
-
         If comprobarCampos() Then
             Me.Enabled = False
             If Not Me.BackgroundWorker1.IsBusy Then
@@ -46,7 +34,6 @@ Public Class FrmInicio
         Else
             MessageBox.Show("Error. Los datos no son correctos", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
-
     End Sub
 
     Private Function comprobarCampos() As Boolean
@@ -94,86 +81,16 @@ Public Class FrmInicio
         Me.BringToFront()
     End Sub
 
-    'Private Sub btnPass_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnPass.Click
-    '    recuperarContraseña()
-    'End Sub
-
-    'Private Sub lPass_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lPass.Click
-    '    recuperarContraseña()
-    'End Sub
-
-    'Private Sub recuperarContraseña()
-    '    Dim longitud As Integer
-    '    Dim semilla As Integer = datetime.now.Millisecond
-    '    Dim rnd As Random
-
-    '    rnd = New Random(semilla)
-    '    longitud = 6
-
-    '    Dim s As New System.Text.StringBuilder(longitud)
-    '    For i As Integer = 1 To longitud
-    '        Dim c As Char = ChrW(rnd.Next(97, 123))
-
-    '        s.Append(c)
-    '    Next
-
-    '    Dim spUsuarios As New spUsuarios
-    '    dtb.EmpezarTransaccion()
-
-    '    Try
-    '        Dim dbo_usuarios As DBO_Usuarios = spUsuarios.select_record_by_usuario(Me.txtLogin.Text, BD.transaction)
-
-    '        If dbo_usuarios.email IsNot String.Empty Then
-
-    '            Dim frm As New frmEntrada("Introduzca su dirección de correo", "La dirección debe coincidir con la que introdujo para su usuario")
-    '            frm.ShowDialog()
-
-    '            If frm.Result = dbo_usuarios.email Then
-    '                dbo_usuarios.cryptedPassword = s.ToString
-    '                spUsuarios.Grabar(dbo_usuarios, dtb.transaction)
-
-    '                Dim cuerpo As String = "Su nueva contraseña es: " & dbo_usuarios.cryptedPassword
-
-    '                If Mail.notificarUsuario(s.ToString, Me.txtLogin.Text) Then
-    '                    dtb.TerminarTransaccion()
-    '                    MessageBox.Show("Recuperación de contraseñas completada, revise su correo", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '                Else
-    '                    dtb.CancelarTransaccion()
-    '                    MessageBox.Show("no se pudo recuperar la contraseñas", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '                End If
-
-    '            Else
-    '                dtb.CancelarTransaccion()
-    '                MessageBox.Show("Los datos no coinciden. Vuelva a intetarlo o pongase en contacto con el administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-    '            End If
-    '        Else
-    '            dtb.CancelarTransaccion()
-    '            MessageBox.Show("EL usuario no contiene información sobre su correo. Pongase en contacto con el administrador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-    '        End If
-    '    Catch ex As Exception
-    '        dtb.CancelarTransaccion()
-    '        MessageBox.Show("Error recuperando la contraseña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-    '    End Try
-    'End Sub
-
     Private Sub FrmInicio_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         If Not Me.Gform Is Nothing Then Me.Gform.stopGUI()
         Environment.Exit(0)
     End Sub
 
-    Private Sub txtLogin_Enter(sender As System.Object, e As System.EventArgs) Handles txtLogin.Enter
+    Private Sub txtLogin_Enter(sender As System.Object, e As System.EventArgs) Handles txtLogin.Enter, txtLogin.Click
         Me.txtLogin.SelectAll()
     End Sub
 
-    Private Sub txtPassword_Enter(sender As System.Object, e As System.EventArgs) Handles txtPassword.Enter
-        Me.txtPassword.SelectAll()
-    End Sub
-
-    Private Sub txtLogin_Click(sender As System.Object, e As System.EventArgs) Handles txtLogin.Click
-        Me.txtLogin.SelectAll()
-    End Sub
-
-    Private Sub txtPassword_Click(sender As System.Object, e As System.EventArgs) Handles txtPassword.Click
+    Private Sub txtPassword_Enter(sender As System.Object, e As System.EventArgs) Handles txtPassword.Enter, txtPassword.Click
         Me.txtPassword.SelectAll()
     End Sub
 

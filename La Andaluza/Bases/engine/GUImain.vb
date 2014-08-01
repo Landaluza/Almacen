@@ -7,32 +7,12 @@ Public Class GUImain
     Protected frmNews As frmNews
     Protected Event extras_showed()
 
-    'Public Sub New()
-    '    MyBase.new()
-    '    ' This call is required by the designer.
-    '    InitializeComponent()
-
-    '    ' Add any initialization after the InitializeComponent() call.
-    '    LAengine = New Engine_LA(Me)        
-    '    Me.Icon = My.Resources.LogoBandejaLa21
-    '    Me.NotifyIcon1 = New NotifyIcon
-    '    Me.NotifyIcon1.Icon = My.Resources.LogoBandejaLa21
-    '    Me.NotifyIcon1.Visible = True
-    '    Me.NotifyIcon1.ContextMenuStrip = Me.cmsNotificaciones
-    'End Sub
-
     Public Sub New()
-
         InitializeComponent()
-
-        ' Environment.Exit(69)
     End Sub
     Public Sub New(ByRef frm As FrmInicio)
         InitializeComponent()
-        'segundaSesion = False
         LAengine = New Engine_LA(Me)
-        'Me.frmNews = New frmNews
-        'añadirPestañaSinCierre(frmNews)
         Me.Icon = My.Resources.LogoBandejaLa21
         Me.frmIni = frm
 
@@ -42,37 +22,24 @@ Public Class GUImain
 
     End Sub
 
-
-#Region "Funciones y Subrutinas"
-
-    Public Sub CambiarSesion()
-        Dim frm As New frmEspera("Cerrando sesión")
-        frm.Show()
-        stopGUI()
-        FrmInicio.Show()
-        frm.Close()
-        Me.Hide()
-    End Sub
+    'Public Sub CambiarSesion()
+    '    Dim frm As New frmEspera("Cerrando sesión")
+    '    frm.Show()
+    '    stopGUI()
+    '    FrmInicio.Show()
+    '    frm.Close()
+    '    Me.Hide()
+    'End Sub
 
     Public Overridable Sub terminarDeIniciar(ByVal tablausada As String, ByVal ServidorUsado As String, ByVal UsuarioUsado As String, ByVal usua As String)
-
-        
-        
         Me.NotifyIcon1.Visible = True
 
         Me.ToolTip1.SetToolTip(Me.lServ, "Usuario: " & UsuarioUsado & Environment.NewLine & "Base de datos: " & tablausada & Environment.NewLine & "Servidor: " & ServidorUsado)
         Me.ToolTip1.SetToolTip(Me.lUser, "Usuario conectado: " & usua & Environment.NewLine & "click para acceder a la configuración de usuario")
-
-
-
     End Sub
-#End Region
-
-
 
     Public Sub cerrarPestaña(sender As Object, e As FormClosedEventArgs)
         Try
-            'Me.TabControl1.SelectedTab.Controls.Clear()
             Me.TabControl1.TabPages.Remove(Me.TabControl1.SelectedTab)
             LAengine.volverApestañaPrevia()
         Catch ex As Exception
