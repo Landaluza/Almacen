@@ -191,8 +191,8 @@
     <Compile Include="Administracion\Proveedores1\PedidosProveedores\PedidosProveedoresDocumentos1\spPedidosProveedoresDocumentos1.vb" />
     <Compile Include="Administracion\Proveedores1\PedidosProveedores\PedidosProveedoresMaestros\DBO_PedidosProveedoresMaestros.vb" />
     <Compile Include="Administracion\Proveedores1\PedidosProveedores\PedidosProveedoresMaestros\spPedidosProveedoresMaestros.vb" />
-    <Compile Include="Bases\Clases\FechaQs.vb" />
     <Compile Include="Bases\Clases\Mail.vb" />
+    <Compile Include="Bases\Clases\Pantalla.vb" />
     <Compile Include="Bases\Conf\Components\DataGridViewPrintDocument.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -261,7 +261,6 @@
     <Compile Include="Bases\Clases\Calendar.vb" />
     <Compile Include="Bases\Clases\MicrosoftOfficeExporter.vb" />
     <Compile Include="Bases\Clases\Printer.vb" />
-    <Compile Include="Bases\Clases\SMS.vb" />
     <Compile Include="Bases\Sesion\FrmInicio - Copia %282%29.Designer.vb">
       <DependentUpon>FrmInicio - Copia %282%29.vb</DependentUpon>
     </Compile>
@@ -290,7 +289,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Bases\Clases\Web.vb" />
     <Compile Include="Bases\BD\DataBase.vb" />
     <Compile Include="Bases\engine\Engine_LA.vb" />
     <Compile Include="Bases\engine\frmMensajesPendientes.Designer.vb">
@@ -326,8 +324,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bases\Clases\File.vb" />
-    <Compile Include="Bases\Clases\NativeMethods.vb" />
-    <Compile Include="Bases\Clases\Pantalla.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
