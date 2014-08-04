@@ -328,8 +328,6 @@
     <Compile Include="Bases\Clases\File.vb" />
     <Compile Include="Bases\Clases\NativeMethods.vb" />
     <Compile Include="Bases\Clases\Pantalla.vb" />
-    <Compile Include="Bases\Clases\Consola.vb" />
-    <Compile Include="Bases\Clases\Encriptacion.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
