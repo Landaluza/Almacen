@@ -16,7 +16,7 @@
 
     Public Sub New(ByRef frm As GUImain)
         conf = New Config
-        tabAdm = New TabManager(frm.TabControl1, frm.TabControl2, frm)
+        tabAdm = New TabManager(frm.TabControl1, frm)
         notificador = New Notificador
         Me.frmGui = frm
 
@@ -34,12 +34,8 @@
         Me.tabAdm.añadirPestañaAutonoma(form)
     End Sub
 
-    Public Sub volverApestañaPrevia(Optional ByVal secundario As Boolean = False)
-        If secundario Then
-            Me.tabAdm.volverApestañaPrevia2()
-        Else
-            Me.tabAdm.volverApestañaPrevia()
-        End If
+    Public Sub volverApestañaPrevia()
+        Me.tabAdm.volverApestañaPrevia()
     End Sub
 
     Public Shared Sub FormEnPestaña(ByVal mObjeto As Form, ByVal mPanel As Panel)

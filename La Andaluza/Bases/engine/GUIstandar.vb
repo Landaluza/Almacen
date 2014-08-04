@@ -19,9 +19,6 @@
     Public Overrides Sub terminarDeIniciar(ByVal tablausada As String, ByVal ServidorUsado As String, ByVal UsuarioUsado As String, ByVal usua As String)
         MyBase.terminarDeIniciar(tablausada, ServidorUsado, UsuarioUsado, usua)
 
-        AddHandler tsNavegacion.MouseEnter, AddressOf ToolStripLabel1_ClicknoFocus
-        AddHandler Me.SplitContainer1.Panel1.MouseLeave, AddressOf ToolStripLabel1_ClicknoFocus
-
         TimerNotificaciones.Enabled = True
         TimerNotificaciones.Start()
         Me.Show()
