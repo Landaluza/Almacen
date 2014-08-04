@@ -196,7 +196,6 @@
     <Compile Include="Bases\Conf\Components\DataGridViewPrintDocument.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Bases\Conf\Ruta.vb" />
     <Compile Include="Bases\Dependencias\FrmAHeredarEntOld.Designer.vb">
       <DependentUpon>FrmAHeredarEntOld.vb</DependentUpon>
     </Compile>
