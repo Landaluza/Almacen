@@ -115,7 +115,6 @@
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
       <Private>True</Private>
@@ -133,7 +132,6 @@
     <Reference Include="System.Drawing">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms">
       <Private>True</Private>
     </Reference>
@@ -253,7 +251,6 @@
     <Compile Include="Bases\Form\GridSimpleForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bases\Interfaces\BotleForm.vb" />
     <Compile Include="Bases\DataBase\StoredProcedureComp.vb" />
     <Compile Include="Bases\Sesion\Autorizacion\frmAutorizacion.Designer.vb">
       <DependentUpon>frmAutorizacion.vb</DependentUpon>
@@ -317,7 +314,6 @@
     <Compile Include="Bases\Interfaces\Queriable.vb" />
     <Compile Include="Bases\Interfaces\Savable.vb" />
     <Compile Include="Bases\DataBase\StoredProcedure.vb" />
-    <Compile Include="Bases\Interfaces\wizardable.vb" />
     <Compile Include="Bases\engine\SplashScreen1.Designer.vb">
       <DependentUpon>SplashScreen1.vb</DependentUpon>
     </Compile>
