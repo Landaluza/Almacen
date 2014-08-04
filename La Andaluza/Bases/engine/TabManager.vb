@@ -44,10 +44,6 @@
         myTabPage.Name = form.Text
         myTabPage.Tag = PESTAÑA_SIN_CIERRE
         tabControl.SelectedTab = myTabPage
-
-        'Dim f As Form = form
-        'AddHandler f.FormClosed, AddressOf frmGui.cerrarPestaña
-
     End Sub
 
     Public Sub añadirPestaña(ByRef form As Form)

@@ -49,7 +49,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>141</ApplicationRevision>
+    <ApplicationRevision>142</ApplicationRevision>
     <ApplicationVersion>2014.2.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -199,6 +199,18 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Bases\Conf\Ruta.vb" />
+    <Compile Include="Bases\Dependencias\FrmAHeredarEntOld.Designer.vb">
+      <DependentUpon>FrmAHeredarEntOld.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Dependencias\FrmAHeredarEntOld.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bases\Dependencias\FrmAheredarOld.Designer.vb">
+      <DependentUpon>FrmAheredarOld.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Dependencias\FrmAheredarOld.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Bases\engine\GUIstandar.Designer.vb">
       <DependentUpon>GUIstandar.vb</DependentUpon>
     </Compile>
@@ -283,12 +295,6 @@
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Bases\Clases\Web.vb" />
-    <Compile Include="Bases\Ayuda\frmayuda.Designer.vb">
-      <DependentUpon>frmayuda.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Bases\Ayuda\frmayuda.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Bases\BD\DataBase.vb" />
     <Compile Include="Bases\engine\Engine_LA.vb" />
     <Compile Include="Bases\engine\frmMensajesPendientes.Designer.vb">
@@ -306,18 +312,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bases\Conf\Config.vb" />
-    <Compile Include="Bases\Dependencias\FrmAheredarOld.Designer.vb">
-      <DependentUpon>FrmAheredarOld.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Bases\Dependencias\FrmAheredarOld.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bases\Dependencias\FrmAHeredarEntOld.Designer.vb">
-      <DependentUpon>FrmAHeredarEntOld.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Bases\Dependencias\FrmAHeredarEntOld.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Bases\DataBase\DataBussines.vb" />
     <Compile Include="Bases\DataBase\DataBussinesParameter.vb" />
     <Compile Include="Bases\Interfaces\Queriable.vb" />
@@ -446,6 +440,15 @@
     <EmbeddedResource Include="Administracion\albaranes provisionales\linea\frmEntAlbaranesCargaMaestroLinea.resx">
       <DependentUpon>frmEntAlbaranesCargaMaestroLinea.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Bases\Dependencias\FrmAHeredarEntOld.resx">
+      <DependentUpon>FrmAHeredarEntOld.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bases\Dependencias\FrmAheredarOld.es.resx">
+      <DependentUpon>FrmAheredarOld.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bases\Dependencias\FrmAheredarOld.resx">
+      <DependentUpon>FrmAheredarOld.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bases\engine\GUIstandar.resx">
       <DependentUpon>GUIstandar.vb</DependentUpon>
     </EmbeddedResource>
@@ -481,23 +484,11 @@
     <EmbeddedResource Include="Noticias\Visor\frmNoticias2.resx">
       <DependentUpon>frmNoticias2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bases\Ayuda\frmayuda.resx">
-      <DependentUpon>frmayuda.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bases\engine\frmMensajesPendientes.resx">
       <DependentUpon>frmMensajesPendientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bases\Form\Dialogos\frmEntrada.resx">
       <DependentUpon>frmEntrada.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bases\Dependencias\FrmAheredarOld.es.resx">
-      <DependentUpon>FrmAheredarOld.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bases\Dependencias\FrmAheredarOld.resx">
-      <DependentUpon>FrmAheredarOld.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bases\Dependencias\FrmAHeredarEntOld.resx">
-      <DependentUpon>FrmAHeredarEntOld.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bases\engine\SplashScreen1.resx">
       <DependentUpon>SplashScreen1.vb</DependentUpon>

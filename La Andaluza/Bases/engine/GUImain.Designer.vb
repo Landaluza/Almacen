@@ -29,7 +29,6 @@ Partial Class GUImain
         Me.mAgenda = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.AsdToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.lPersonalSinFin = New System.Windows.Forms.Label()
-        Me.lAyuda = New System.Windows.Forms.Label()
         Me.lUser = New System.Windows.Forms.Label()
         Me.lMensajes = New System.Windows.Forms.Label()
         Me.lReportBug = New System.Windows.Forms.Label()
@@ -62,7 +61,6 @@ Partial Class GUImain
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel1.Controls.Add(Me.LAgenda)
         Me.Panel1.Controls.Add(Me.lPersonalSinFin)
-        Me.Panel1.Controls.Add(Me.lAyuda)
         Me.Panel1.Controls.Add(Me.lUser)
         Me.Panel1.Controls.Add(Me.lMensajes)
         Me.Panel1.Controls.Add(Me.lReportBug)
@@ -80,7 +78,7 @@ Partial Class GUImain
         Me.LAgenda.Dock = System.Windows.Forms.DockStyle.Left
         Me.LAgenda.ForeColor = System.Drawing.SystemColors.ControlText
         Me.LAgenda.Image = Global.La_Andaluza_Almacen.My.Resources.Resources.accessories_dictionary
-        Me.LAgenda.Location = New System.Drawing.Point(62, 0)
+        Me.LAgenda.Location = New System.Drawing.Point(31, 0)
         Me.LAgenda.Name = "LAgenda"
         Me.LAgenda.Size = New System.Drawing.Size(31, 21)
         Me.LAgenda.TabIndex = 64
@@ -111,18 +109,6 @@ Partial Class GUImain
         Me.lPersonalSinFin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.ToolTip1.SetToolTip(Me.lPersonalSinFin, "Existen empleados con turnos sin finalizar. Click para ver detalles")
         Me.lPersonalSinFin.Visible = False
-        '
-        'lAyuda
-        '
-        Me.lAyuda.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lAyuda.Dock = System.Windows.Forms.DockStyle.Left
-        Me.lAyuda.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.lAyuda.Image = Global.La_Andaluza_Almacen.My.Resources.Resources.help_2
-        Me.lAyuda.Location = New System.Drawing.Point(31, 0)
-        Me.lAyuda.Name = "lAyuda"
-        Me.lAyuda.Size = New System.Drawing.Size(31, 21)
-        Me.lAyuda.TabIndex = 62
-        Me.ToolTip1.SetToolTip(Me.lAyuda, "ayuda sobre la ventana activa")
         '
         'lUser
         '
@@ -329,7 +315,6 @@ Partial Class GUImain
     Protected WithEvents cmsNotificacionesOperaciones As System.Windows.Forms.ContextMenuStrip
     Protected WithEvents lMensajes As System.Windows.Forms.Label
     Protected WithEvents tsPetañalateral As System.Windows.Forms.ToolStripButton
-    Protected WithEvents lAyuda As System.Windows.Forms.Label
     Protected WithEvents NotificarErrorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Public WithEvents TabControl1 As System.Windows.Forms.TabControl
     Protected WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker

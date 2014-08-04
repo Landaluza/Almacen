@@ -16,7 +16,6 @@
     Public Shared MailPass As String
     Public Shared MailReportAddress As String
     Public Shared MailReportPass As String
-    Public Shared HelpUrl As String
     Public Shared UsuariosProductos As Integer() = {2, 3, 21}
 
     Public Shared connectionString As String
@@ -33,7 +32,6 @@
     Public Shared Sub Cargar_Ajustes_Predeterminados()
         Config.Server = DataBase.SERVIDOR
         Config.MailReportPass = "Administracion2008"
-        Config.HelpUrl = "http://192.168.1.106/AyudaLA/index.php"
         Config.ventasPath = "Z:\Informatica\La Andaluza app\ExcelFile\Book1.xlsx"
         Config.MailReportAddress = "administracion@landaluza.es"
         Config.MailClientHost = "smtp.1and1.es"
@@ -59,27 +57,14 @@
         End Get
     End Property
 
-    'Public Function CargarMenuPersonal() As Collection
-    '    Dim mydocpath As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "menu.obj"
-    '    Dim f As New File
-    '    Dim obj As Collection = f.loadObject(mydocpath)
-    '    Return obj
-    'End Function
-
     Public Function checkFiles() As Boolean
         Try
             If System.IO.File.Exists(ventasPath) = True Then
                 ventaslocalPath = Application.StartupPath & "\ExcelFile\Book1.xlsx"
 
                 If System.IO.File.Exists(ventaslocalPath) = True Then
-                    'Dim sourceFile As New System.IO.FileInfo(ventasPath)
-                    'Dim destFile As New System.IO.FileInfo(ventaslocalPath)
-
-                    'If destFile.LastWriteTime >= sourceFile.LastWriteTime Then
                     System.IO.File.Delete(ventaslocalPath)
                     System.IO.File.Copy(ventasPath, ventaslocalPath)
-                    'End If
-
                 Else
                     System.IO.File.Copy(ventasPath, ventaslocalPath)
                 End If

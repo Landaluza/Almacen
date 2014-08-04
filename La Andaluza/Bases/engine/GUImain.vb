@@ -22,15 +22,6 @@ Public Class GUImain
 
     End Sub
 
-    'Public Sub CambiarSesion()
-    '    Dim frm As New frmEspera("Cerrando sesión")
-    '    frm.Show()
-    '    stopGUI()
-    '    FrmInicio.Show()
-    '    frm.Close()
-    '    Me.Hide()
-    'End Sub
-
     Public Overridable Sub terminarDeIniciar(ByVal tablausada As String, ByVal ServidorUsado As String, ByVal UsuarioUsado As String, ByVal usua As String)
         Me.NotifyIcon1.Visible = True
 
@@ -46,64 +37,6 @@ Public Class GUImain
         End Try
     End Sub
 
-    Protected Sub TabControl1_MouseUp(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles TabControl1.MouseUp
-        If Convert.ToByte(TabControl1.SelectedTab.Tag) <> TabManager.PESTAÑA_SIN_CIERRE Then
-            'If .SelectedTab.Text.EndsWith("   x") Then
-            Dim ItemRect As Rectangle = TabControl1.GetTabRect(TabControl1.SelectedIndex)
-            If ItemRect.Contains(e.Location) Then
-                If e.Location.X > (ItemRect.Right - GUImain.LAengine.Target_Cerrar_Pestana.Width) Then
-                    ' Code you want to happen when the x is selected.
-                    TabControl1.TabPages.Remove(TabControl1.SelectedTab)
-                    ' cerrarPestaña()
-                    LAengine.volverApestañaPrevia()
-                End If
-            End If
-            'End If
-        End If
-    End Sub
-
-    Protected Sub TabControl1_MouseMove(sender As System.Object, e As System.Windows.Forms.MouseEventArgs) Handles TabControl1.MouseMove
-
-        If e.Button = Windows.Forms.MouseButtons.Left Then          
-            CType(sender, TabControl).DoDragDrop(Me.TabControl1.SelectedTab, DragDropEffects.Copy)
-
-        Else
-            Try
-                    If Not Convert.ToByte(TabControl1.SelectedTab.Tag) = TabManager.PESTAÑA_SIN_CIERRE Then
-                    Dim ItemRect As Rectangle = TabControl1.GetTabRect(TabControl1.SelectedIndex)
-                        If ItemRect.Contains(e.Location) Then
-                            If e.Location.X > (ItemRect.Right - GUImain.LAengine.Target_Cerrar_Pestana.Width) Then
-                                Dim df As Graphics = Me.TabControl1.CreateGraphics
-                                df.DrawRectangle(Pens.LightSteelBlue, New Rectangle(ItemRect.Right - 15, 5, 11, 11))
-                                df.Dispose()
-                            End If
-                        End If
-                    End If
-            Catch ex As Exception
-            End Try
-        End If
-    End Sub
-
-
-    Protected Function findToolStripItem(ByVal text As String, tool As ToolStrip) As ToolStripItem
-        For Each t As ToolStripItem In tool.Items
-            If t.Text = text Then
-                Return t
-            End If
-        Next
-        Return Nothing
-    End Function
-
-    Protected Sub ToolStrip2_DragEnter(sender As System.Object, e As System.Windows.Forms.DragEventArgs)
-        e.Effect = DragDropEffects.Copy
-    End Sub
-
-    Protected Sub TabControl1_DragEnter(sender As System.Object, e As System.Windows.Forms.DragEventArgs) Handles TabControl1.DragEnter
-        e.Effect = DragDropEffects.Copy
-    End Sub
-
-   
-
     Protected Sub FrmPrincipal_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         Me.stopGUI()
     End Sub
@@ -117,10 +50,8 @@ Public Class GUImain
     End Sub
 
     Protected Sub FrmPrincipal_FormClosed(sender As System.Object, e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
-
         Environment.Exit(0)
     End Sub
-
 
     Protected Sub lReportBug_Click_1(sender As System.Object, e As System.EventArgs) Handles lReportBug.Click
         LAengine.reportarError(Me)
@@ -177,17 +108,6 @@ Public Class GUImain
         LAengine.añadirPestañaAutonoma(CType(frm, Form))
     End Sub
 
-    Protected Sub lAyuda_Click(sender As System.Object, e As System.EventArgs) Handles lAyuda.Click
-        Dim url As String = Config.HelpUrl & "?cat=" & Me.TabControl1.SelectedTab.Text.Replace(TabManager.CIERRE_PESTAÑA, "").Replace(" ", "_")
-        LAengine.ayuda(url)
-
-    End Sub
-
-    Shared Sub OpenHelp(ByVal categoria As String)
-        Dim url As String = Config.HelpUrl & "?cat=" & categoria
-        LAengine.ayuda(url)
-    End Sub
-
     Shared Sub añadirPestañaSinCierre(ByRef frmEnt As Form)
         LAengine.añadirPestañasinCierre(frmEnt)
     End Sub
@@ -204,24 +124,9 @@ Public Class GUImain
         reportBug(Nothing, Nothing)
     End Sub
 
-
-    'protected Sub cambiar_sesion()
-    '    ini = New FrmInicio
-    '    If ini.ShowDialog() = Windows.Forms.DialogResult.OK Then
-    '        Me.Controls.Remove(msMenu)
-    '        msMenu = LAengine.AdministrarPermisosFormulario()
-    '        Me.Controls.Add(msMenu)
-    '    End If
-    'End Sub
-
     Private Sub cargarExtras(ByVal sender As System.Object, _
       ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
-        'AddHandler tsNavegacion.MouseEnter, AddressOf ToolStripLabel1_Click
-        'AddHandler Me.SplitContainer1.Panel1.MouseLeave, AddressOf ToolStripLabel1_Click
-
-        'calculo del tamaño del cierre de las pestañas
-        'TabTarget = CreateGraphics.MeasureString(" x", TabControl1.Font)
         GUImain.LAengine.Target_Cerrar_Pestana = CreateGraphics.MeasureString(TabManager.CIERRE_PESTAÑA, TabControl1.Font)
 
     End Sub
@@ -234,7 +139,6 @@ Public Class GUImain
         End If
 
     End Sub
-
 
     Private Sub LAgenda_Click(sender As System.Object, e As System.EventArgs) Handles LAgenda.Click
         mAgenda.Show(LAgenda, LAgenda.Location)
@@ -258,7 +162,6 @@ Public Class GUImain
             Next
         End If
     End Sub
-
 
     Protected Sub EntradasToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles EntradasToolStripMenuItem1.Click
         Dim frm As New AlmacenEntradasSalidas
