@@ -56,6 +56,7 @@ Public Class frmNoticias2
                 .DataSource = GeneralBindingSource
                 .Columns("Id").Visible = False
                 .Columns("Texto").Visible = False
+                .Columns("Vigente").Visible = False
                 .FormatoColumna("Titulo", TiposColumna.Izquierda, True, 2)
                 .FormatoColumna("Fecha", TiposColumna.FechaCorta, 100, 1)
 
