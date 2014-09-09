@@ -1,6 +1,6 @@
 ﻿Public Class Config
     'Public Const SOCKET_PORT As Integer = 8090
-    'Public Const SOCKET_SERVER_IP As String = "192.168.1.47"
+    'Public Const SOCKET_SERVER_IP As String = "192.168.10.47"
 
     Public Shared Server As Integer
     Public Shared QS_Sesion As String
