@@ -24,10 +24,6 @@
     Private Shared ventaslocalPath As String
     Private Shared versionApp As String
 
-    'Public Shared documentoImpresoraEtiquetas As System.Drawing.Printing.PrintDocument
-    'Public Shared PrintDialogEtiquetas As PrintDialog
-    'Public Shared PageSetupDialogEtiquetas As PageSetupDialog
-    'Public Shared PrintPreviewDialogEtiquetas As PrintPreviewDialog
 
     Public Shared Sub Cargar_Ajustes_Predeterminados()
         Config.Server = DataBase.SERVIDOR

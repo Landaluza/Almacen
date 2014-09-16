@@ -85,7 +85,7 @@ Partial Class frmEntNoticias2
         Me.Controls.Add(Me.txtTitulo)
         Me.Controls.Add(Me.txtTexto)
         Me.Cursor = System.Windows.Forms.Cursors.Default
-        Me.MinimumSize = New System.Drawing.Size(440, 186)
+        Me.MinimumSize = New System.Drawing.Size(0, 0)
         Me.Name = "frmEntNoticias2"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Noticias2"

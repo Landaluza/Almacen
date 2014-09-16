@@ -27,7 +27,7 @@ Partial Class frmPaletsAlmacenEntradas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.ClientSize = New System.Drawing.Size(629, 567)
         Me.Margin = New System.Windows.Forms.Padding(5)
-        Me.MinimumSize = New System.Drawing.Size(635, 588)
+        Me.MinimumSize = New System.Drawing.Size(0, 0)
         Me.Name = "frmPaletsAlmacenEntradas"
         Me.Text = "Entradas de palets"
         CType(Me.GeneralBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
