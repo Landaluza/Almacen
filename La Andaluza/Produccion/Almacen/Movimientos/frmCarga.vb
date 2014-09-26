@@ -768,8 +768,8 @@
             Me.SplitContainer1.Panel2Collapsed = True
         End If
 
-        DetailedSimpleForm.centerVerticalyIn(CType(Button4, Control), SplitContainer1.Panel1)
-        DetailedSimpleForm.centerVerticalyIn(CType(Button5, Control), SplitContainer1.Panel2)
+        Pantalla.centerVerticalyIn(CType(Button4, Control), SplitContainer1.Panel1)
+        Pantalla.centerVerticalyIn(CType(Button5, Control), SplitContainer1.Panel2)
     End Sub
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
@@ -782,8 +782,8 @@
             Me.SplitContainer1.Panel1Collapsed = True
         End If
 
-        DetailedSimpleForm.centerVerticalyIn(CType(Button4, Control), SplitContainer1.Panel1)
-        DetailedSimpleForm.centerVerticalyIn(CType(Button5, Control), SplitContainer1.Panel2)
+        Pantalla.centerVerticalyIn(CType(Button4, Control), SplitContainer1.Panel1)
+        Pantalla.centerVerticalyIn(CType(Button5, Control), SplitContainer1.Panel2)
     End Sub
 
 
@@ -792,12 +792,12 @@
     End Sub
 
     Private Sub Panel7_Resize(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Panel7.Resize
-        DetailedSimpleForm.centerHorizontalyIn(CType(Me.Label1, Control), Me.Panel7)
+        Pantalla.centerHorizontalyIn(CType(Me.Label1, Control), Me.Panel7)
     End Sub
 
     Private Sub TabPage3_Resize(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TabPage3.Resize
-        DetailedSimpleForm.centerVerticalyIn(CType(Button4, Control), SplitContainer1.Panel1)
-        DetailedSimpleForm.centerVerticalyIn(CType(Button5, Control), SplitContainer1.Panel2)
+        Pantalla.centerVerticalyIn(CType(Button4, Control), SplitContainer1.Panel1)
+        Pantalla.centerVerticalyIn(CType(Button5, Control), SplitContainer1.Panel2)
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick

@@ -604,7 +604,7 @@ Public Class EscaneoSCC1
     End Sub
 
     Private Sub EscaneoSCC1_Resize(sender As System.Object, e As System.EventArgs) Handles MyBase.Resize
-        DetailedSimpleForm.centerVerticalyIn(PanCbtn, PanBtn)
+        Pantalla.centerVerticalyIn(PanCbtn, PanBtn)
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick

@@ -49,7 +49,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>151</ApplicationRevision>
+    <ApplicationRevision>152</ApplicationRevision>
     <ApplicationVersion>2014.2.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -191,6 +191,12 @@
     <Compile Include="Administracion\Proveedores1\PedidosProveedores\PedidosProveedoresDocumentos1\spPedidosProveedoresDocumentos1.vb" />
     <Compile Include="Administracion\Proveedores1\PedidosProveedores\PedidosProveedoresMaestros\DBO_PedidosProveedoresMaestros.vb" />
     <Compile Include="Administracion\Proveedores1\PedidosProveedores\PedidosProveedoresMaestros\spPedidosProveedoresMaestros.vb" />
+    <Compile Include="Bases\Clases\glassPanel.Designer.vb">
+      <DependentUpon>glassPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\Clases\glassPanel.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Bases\Clases\Mail.vb" />
     <Compile Include="Bases\Clases\Pantalla.vb" />
     <Compile Include="Bases\Conf\Components\DataGridViewPrintDocument.vb">
@@ -422,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\albaranes provisionales\linea\frmEntAlbaranesCargaMaestroLinea.resx">
       <DependentUpon>frmEntAlbaranesCargaMaestroLinea.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bases\Clases\glassPanel.resx">
+      <DependentUpon>glassPanel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bases\Dependencias\FrmAHeredarEntOld.resx">
       <DependentUpon>FrmAHeredarEntOld.vb</DependentUpon>
