@@ -213,8 +213,9 @@
 
     Shared Function mostrarDialogo(frm As Form) As DialogResult
         Dim glass As New glassPanel
+        glass.Text = frm.Text
         glass.Show()
-
+        glass.FormBorderStyle = FormBorderStyle.None
         Dim result As DialogResult = frm.ShowDialog
         glass.Close()
         Return result
