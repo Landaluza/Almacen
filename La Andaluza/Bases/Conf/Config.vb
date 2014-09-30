@@ -23,7 +23,7 @@
     Private Shared ventasPath As String
     Private Shared ventaslocalPath As String
     Private Shared versionApp As String
-
+    Public Shared activeScreen As Integer
 
     Public Shared Sub Cargar_Ajustes_Predeterminados()
         Config.Server = DataBase.SERVIDOR
@@ -33,6 +33,7 @@
         Config.MailClientHost = "smtp.1and1.es"
         Config.QS_Sesion = "Sesión A - [24 x 80]"
         'Config.QS_Sesion = "Sesión A"
+        activeScreen = 0
     End Sub
 
     Public Shared ReadOnly Property Version_seriada As String
