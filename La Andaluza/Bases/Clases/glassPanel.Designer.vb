@@ -31,7 +31,8 @@ Partial Class glassPanel
         Me.BackColor = System.Drawing.Color.DimGray
         Me.ClientSize = New System.Drawing.Size(1115, 513)
         Me.ControlBox = False
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "glassPanel"
         Me.Opacity = 0.6R
         Me.ShowIcon = False
