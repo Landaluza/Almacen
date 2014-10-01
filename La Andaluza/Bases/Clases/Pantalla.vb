@@ -52,9 +52,7 @@
             AddHandler form.ResizeEnd, AddressOf glass.recolocar
             AddHandler form.ResizeBegin, AddressOf glass.ocultar
 
-            Dim result As DialogResult = form.ShowDialog
-            glass.Close()
-            Return result
+            Return glass.ShowDialog
 
         Else
             form.Show()
