@@ -33,7 +33,7 @@
         Config.MailClientHost = "smtp.1and1.es"
         Config.QS_Sesion = "Sesión A - [24 x 80]"
         'Config.QS_Sesion = "Sesión A"
-        activeScreen = 0
+        Config.load()
     End Sub
 
     Public Shared ReadOnly Property Version_seriada As String
@@ -100,5 +100,29 @@
             Case Else
                 Config.versionApp = "LA Almacen " & Convert.ToString(My.Application.Info.Version).Substring(0, 7) '& " -- " & String.Format("Version {0}", NumeroVersion())
         End Select
+    End Sub
+
+    Public Shared Sub save()
+        Dim options As New UserOptions
+        Dim fil As New File
+
+        options.Screen = Config.activeScreen
+        Try
+            fil.saveObject(CType(options, Object), Environment.SpecialFolder.MyDocuments & "options.opt")
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Public Shared Sub load()
+        Dim fil As New File
+        Dim opt As UserOptions
+
+        Try
+            opt = CType(fil.loadObject(Environment.SpecialFolder.MyDocuments & "options.opt"), UserOptions)
+            Config.activeScreen = opt.Screen
+        Catch ex As Exception
+            Config.activeScreen = 0
+        End Try
     End Sub
 End Class

@@ -39,6 +39,7 @@ Public Class GUImain
 
     Protected Sub FrmPrincipal_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
         Me.stopGUI()
+        Config.save()
     End Sub
 
     Public Overridable Sub stopGUI()
