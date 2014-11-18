@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xrml="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <assemblyIdentity name="La Andaluza Almacen.application" version="2014.2.1.164" publicKeyToken="0000000000000000" language="es-ES" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <assemblyIdentity name="La Andaluza Almacen.application" version="2014.2.1.165" publicKeyToken="0000000000000000" language="es-ES" processorArchitecture="msil" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <description asmv2:publisher="La Andaluza" asmv2:product="La Andaluza Almacen" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" co.v1:createDesktopShortcut="true">
     <subscription>
@@ -15,13 +15,13 @@
   </compatibleFrameworks>
   <dependency>
     <dependentAssembly dependencyType="install" codebase="La Andaluza Almacen.exe.manifest" size="11202">
-      <assemblyIdentity name="La Andaluza Almacen.exe" version="2014.2.1.164" publicKeyToken="0000000000000000" language="es-ES" processorArchitecture="msil" type="win32" />
+      <assemblyIdentity name="La Andaluza Almacen.exe" version="2014.2.1.165" publicKeyToken="0000000000000000" language="es-ES" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>H4YZuYoAUEZ4UYPD4syyHNn8tH3LE0JKzaMvJqTg+GI=</dsig:DigestValue>
+        <dsig:DigestValue>t0mt1B+H/c2dRfGGKf4e5jLJ1aWV8ntz7MXFILeX63U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
