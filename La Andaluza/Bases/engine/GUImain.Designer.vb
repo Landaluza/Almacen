@@ -233,7 +233,6 @@ Partial Class GUImain
         'TabControl1
         '
         Me.TabControl1.AllowDrop = True
-        Me.TabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
         Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TabControl1.Location = New System.Drawing.Point(0, 30)
         Me.TabControl1.Name = "TabControl1"
@@ -278,7 +277,7 @@ Partial Class GUImain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1042, 682)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.TabControl1)

@@ -541,19 +541,19 @@
                 Case Is = 20
                     Select Case txtSCCEscaneado.Text.Substring(2, 1)
                         Case Is = "1" ' Coviran
-                            txtSCC.Text = txtSCCEscaneado.Text.Substring(14, 5)
+                            txtSCC.Text = txtSCCEscaneado.Text.Substring(13, 5)
                         Case Is = "0" 'Resto
-                            txtSCC.Text = txtSCCEscaneado.Text.Substring(15, 5)
+                            txtSCC.Text = txtSCCEscaneado.Text.Substring(14, 5)
                     End Select
 
                 Case Is = 26 'Desarrollo de Marcas, Spar, Vivo....
-                    txtSCC.Text = txtSCCEscaneado.Text.Substring(15, 5)
+                    txtSCC.Text = txtSCCEscaneado.Text.Substring(14, 5)
 
                 Case Is = 28 'Articulos con fecha caducidad 15 + 5 + (17) + AAMMDD  Este el el formato requerido por Mercadona
-                    txtSCC.Text = txtSCCEscaneado.Text.Substring(15, 5)
+                    txtSCC.Text = txtSCCEscaneado.Text.Substring(14, 5)
 
                 Case Is = 29 'Monodosis
-                    txtSCC.Text = txtSCCEscaneado.Text.Substring(15, 5)
+                    txtSCC.Text = txtSCCEscaneado.Text.Substring(14, 5)
 
                 Case Else
                     MessageBox.Show("Numero de digitos erroneo", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
