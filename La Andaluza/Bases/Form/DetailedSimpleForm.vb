@@ -9,9 +9,9 @@ Public Class DetailedSimpleForm
     Public Const VISION As Byte = 99
     Protected sp As StoredProcedure
     Protected dbo As DataBussines
-    Protected Event beforeShown()
-    Protected Event afterShown()
-    Public Shadows Event afterSave()
+    Protected Event beforeShown(sender As Object, e As EventArgs)
+    Protected Event afterShown(sender As Object, e As EventArgs)
+    Public Shadows Event afterSave(sender As Object, e As EventArgs)
 
     Protected evitarCerrarSinGuardar As Boolean
 
@@ -136,7 +136,7 @@ Public Class DetailedSimpleForm
                 Try
                     If sp.Grabar(dbo, transactDtb) Then
                         evitarCerrarSinGuardar = False
-                        RaiseEvent afterSave()
+                        RaiseEvent afterSave(Nothing, Nothing)
 
                         Me.Close()
                     Else
@@ -221,11 +221,11 @@ Public Class DetailedSimpleForm
     End Sub
 
     Private Sub FrmAHeredarEnt_Shown(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Shown
-        RaiseEvent beforeShown()
+        RaiseEvent beforeShown(Me, Nothing)
         setValores()
         Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.Default
         Me.Cursor = Cursors.Default
-        RaiseEvent afterShown()
+        RaiseEvent afterShown(Me, Nothing)
     End Sub
 
     Public Shared Sub centerIn(ByRef c2 As Panel, ByRef c1 As Control)
@@ -266,7 +266,7 @@ Public Class DetailedSimpleForm
     End Sub
 
     Protected Sub saved()
-        RaiseEvent afterSave()
+        RaiseEvent afterSave(Nothing, Nothing)
     End Sub
 
     Private Sub butGuardar_Click(sender As System.Object, e As System.EventArgs) Handles butGuardar.Click

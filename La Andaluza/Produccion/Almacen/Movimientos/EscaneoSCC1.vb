@@ -163,7 +163,7 @@ Public Class EscaneoSCC1
         End Try
     End Sub
 
-    Private Sub dgvFill()
+    Private Sub dgvFill(sender As Object, e As EventArgs)
         dgvFill(False)
     End Sub
 
@@ -316,13 +316,13 @@ Public Class EscaneoSCC1
         End If
     End Sub
 
-    Private Sub cerrarPestaña(ByRef sender As Object)
+    Private Sub cerrarPestaña(sender As Object, e As EventArgs)
         If Me.TabControl2.SelectedTab.Text <> "Carga provisional" Then
             Dim selected As Integer = Me.TabControl2.SelectedIndex
             Me.TabControl2.SelectedIndex = 0
             Me.TabControl2.TabPages.RemoveAt(selected)
             Me.TabControl2.Refresh()
-            dgvFill()
+            dgvFill(Nothing, Nothing)
         Else
             Dim frm As frmCarga = CType(sender, frmCarga)
             frm.Codigo = "0"
@@ -370,7 +370,7 @@ Public Class EscaneoSCC1
     End Sub
 
  
-    Private Sub comprobarPedido(ByRef sender As Object)
+    Private Sub comprobarPedido(sender As Object, e As EventArgs)
         Dim frm As frmCarga = CType(sender, frmCarga)
         Dim row As DataGridViewRow
         frm.EventHandled = True
@@ -461,7 +461,7 @@ Public Class EscaneoSCC1
                     'Dim frm As New frmSugerenciaCarga(Me.dgvPedidos.CurrentRow.Cells("PedidoClienteMaestroID").Value, Me.dgvPedidos.CurrentRow.Cells("Palets").Value, "Pedido: " & Me.dgvPedidos.CurrentRow.Cells("Numero").Value & ", " & "Cliente: " & Me.dgvPedidos.CurrentRow.Cells("Cliente").Value)
                     Dim frm As New frmSugerenciaCarga(Me.dgvPedidos.CurrentRow.Cells("Palets").Value.ToString, "Pedido: " & Me.dgvPedidos.CurrentRow.Cells("Numero").Value.ToString & ", " & "Cliente: " & Me.dgvPedidos.CurrentRow.Cells("Cliente").Value.ToString)
                     frm.ShowDialog()
-                    dgvFill()
+                    dgvFill(Nothing, Nothing)
                 End If
             End If
         End If
@@ -475,7 +475,7 @@ Public Class EscaneoSCC1
                         Me.Cursor = Cursors.WaitCursor
                         Dim frm As New frmSugerenciaCarga(Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value.ToString, "Orden de Carga: " & Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString)
                         frm.ShowDialog()
-                        dgvFill()
+                        dgvFill(Nothing, Nothing)
                     End If
                 Case dgvOrdenesCarga.Columns("e").Index
                     If Not IsDBNull(Me.dgvOrdenesCarga.CurrentRow.Cells("ruta").Value) Then
@@ -538,7 +538,7 @@ Public Class EscaneoSCC1
     Private Sub DarPrioridadAltaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DarPrioridadAltaToolStripMenuItem.Click
         Try
             Me.dgvPedidos.CurrentRow.Cells("orden").Value = 1
-            dgvFill()
+            dgvFill(Nothing, Nothing)
         Catch ex As Exception
         End Try        
     End Sub

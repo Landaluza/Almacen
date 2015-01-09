@@ -14,7 +14,7 @@
     <framework targetVersion="4.5.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="La Andaluza Almacen.exe.manifest" size="11202">
+    <dependentAssembly dependencyType="install" codebase="Application Files\La Andaluza Almacen_2014_2_1_169\La Andaluza Almacen.exe.manifest" size="11202">
       <assemblyIdentity name="La Andaluza Almacen.exe" version="2014.2.1.169" publicKeyToken="0000000000000000" language="es-ES" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>

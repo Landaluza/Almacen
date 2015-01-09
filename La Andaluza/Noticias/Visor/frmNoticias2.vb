@@ -74,6 +74,6 @@ Public Class frmNoticias2
     End Sub
 
     Public Sub refrescar()
-        dgvFill()
+        dgvFill(Nothing, Nothing)
     End Sub
 End Class

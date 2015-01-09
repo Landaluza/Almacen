@@ -20,8 +20,8 @@ Public Class frmAlbaranesCargaMaestroLinea
         EventHandeld = True
     End Sub
 
-    Private Sub recargar(ByRef sender As Object)
-        dgvFill()
+    Private Sub recargar(sender As Object, e As EventArgs)
+        dgvFill(Nothing, Nothing)
     End Sub
     Private Sub modify_Before() Handles MyBase.BeforeModify
         EventHandeld = True

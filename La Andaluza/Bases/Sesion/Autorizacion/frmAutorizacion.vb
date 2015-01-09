@@ -2,8 +2,8 @@
     Private resultado As DialogResult
     Private sp As spAutorizacion
     Private embebido As Boolean
-    Public Event verificado()
-    Public Event cancelado()
+    Public Event verificado(sender As Object, e As EventArgs)
+    Public Event cancelado(sender As Object, e As EventArgs)
 
     Public ReadOnly Property Retorno As DialogResult
         Get
@@ -27,7 +27,7 @@
 
     Private Sub btnCancelar_Click(sender As System.Object, e As System.EventArgs) Handles btnCancelar.Click
         Me.Close()
-        RaiseEvent cancelado()
+        RaiseEvent cancelado(Nothing, Nothing)
     End Sub
 
     Private Sub btnAceptar_Click(sender As System.Object, e As System.EventArgs) Handles btnAceptar.Click
@@ -39,7 +39,7 @@
         If Me.sp.verificarUsuario(Config.User, Me.txtPassword.Text) Then
             Me.lError.Visible = False
             Me.resultado = Windows.Forms.DialogResult.OK
-            RaiseEvent verificado()
+            RaiseEvent verificado(Nothing, Nothing)
         Else
             Me.lError.Visible = True
             Me.resultado = Windows.Forms.DialogResult.Cancel

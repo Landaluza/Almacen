@@ -10,9 +10,9 @@
     Private NumeroPedido As String
     Private loteOriginal As String
 
-    Public Event BeforeSave(ByRef sender As Object)
-    Public Event AfterSave(ByRef sender As Object)
-    Public Event AfterAdd()
+    Public Event BeforeSave(sender As Object, e As EventArgs)
+    Public Event AfterSave(sender As Object, e As EventArgs)
+    Public Event AfterAdd(sender As Object, e As EventArgs)
     Public Event BeforeScan(ByRef sender As Object, ByVal scc As String)
     Public EventHandled As Boolean
 
@@ -269,7 +269,7 @@
                 'Para que no sume el peso del palet
                 txtPesoPalet.Text = "0"
                 ActualizarContadoresPalets()
-                RaiseEvent AfterAdd()
+                RaiseEvent AfterAdd(Nothing, Nothing)
 
             End If
         End If
@@ -325,7 +325,7 @@
                 'dgvTotales.DataSource = RealizarConsulta("SumCajasByArticulo " & Me.codigoMaestro)
                 txtPesoPalet.Text = "0"
                 ActualizarContadoresPalets()
-                RaiseEvent AfterAdd()
+                RaiseEvent AfterAdd(Nothing, Nothing)
             Else
                 MessageBox.Show("No se pudo realizar la operación, si el problema persiste contacte con el administrador", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
@@ -340,7 +340,7 @@
             Return
         End If
 
-        RaiseEvent BeforeSave(Me)
+        RaiseEvent BeforeSave(Me, Nothing)
         If Not EventHandled Then
             'En la tabla existe un campo Numero, lo cree para tener un control de los albaranes ya que el campo ID que tambien es AutoNumerico, lo maneja SQl
             ' y puede ser que falten numeros porque se han borrado algun registro.
@@ -477,7 +477,7 @@
                 MessageBox.Show("Hubo un problema al realizar las operaciones. Detalles:" & Environment.NewLine & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Finally
                 If resultado Then
-                    RaiseEvent AfterSave(Me)
+                    RaiseEvent AfterSave(Me, Nothing)
 
                     If extra <> 0 Then
                         Me.Close()

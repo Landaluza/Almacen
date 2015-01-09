@@ -9,8 +9,8 @@
     Private clsAlbDet As New clsAlbaranesCargaProviDetalles
     Private ctlAlbDet As New ctlAlbaranesCargaProviDetalles
     Private codigoMaestro As String
-    Public Event AfterSave(ByRef sender As Object)
-    Public Event AfterAdd(ByRef sender As Object)
+    Public Event AfterSave(sender As Object, e As EventArgs)
+    Public Event AfterAdd(sender As Object, e As EventArgs)
     Public Event BeforeScan(ByRef sender As Object, ByVal scc As String)
     Public EventHandled As Boolean
     Private loteOriginal As String
@@ -75,7 +75,7 @@
                         DBO_PaletsProducidos.EnAlmacen = False
                         sp.Grabar(CType(DBO_PaletsProducidos, DataBussines), dtb)
                         dtb.TerminarTransaccion()
-                        RaiseEvent AfterSave(Me)
+                        RaiseEvent AfterSave(Me, Nothing)
                         Me.Close()
                     Else
                         dtb.CancelarTransaccion()

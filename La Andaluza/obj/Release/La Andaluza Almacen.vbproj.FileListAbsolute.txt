@@ -55,5 +55,3 @@ C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza A
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.application
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.exe
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.pdb
-C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\bin\Release\La Andaluza Almacen.exe.CodeAnalysisLog.xml
-C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\bin\Release\La Andaluza Almacen.exe.lastcodeanalysissucceeded

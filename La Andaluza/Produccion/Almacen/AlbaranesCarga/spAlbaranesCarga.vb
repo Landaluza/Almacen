@@ -124,7 +124,7 @@ Public Class spAlbaranesCarga
 
             Return MaxID
         Catch ex As Exception
-            Throw ex   
+            Throw
         End Try
     End Function
 End Class

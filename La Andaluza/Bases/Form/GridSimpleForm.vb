@@ -22,8 +22,8 @@ Public Class gridsimpleform
     Public Event BeforeInsert(ByRef sender As Object, ByRef target As DetailedSimpleForm)
     Public Event AfterModify(ByRef sender As Object, ByRef target As DetailedSimpleForm)
     Public Event BeforeModify(ByRef sender As Object, ByRef target As DetailedSimpleForm)
-    Public Event AfterView(ByRef sender As Object, ByRef target As DetailedSimpleForm)
-    Public Event BeforeView(ByRef sender As Object, ByRef target As DetailedSimpleForm)
+    'Public Event AfterView(ByRef sender As Object, ByRef target As DetailedSimpleForm)
+    'Public Event BeforeView(ByRef sender As Object, ByRef target As DetailedSimpleForm)
     Private handled As Boolean
 
     Protected Property EventHandeld As Boolean
@@ -72,7 +72,7 @@ Public Class gridsimpleform
 
         dgvGeneral.FormatoGeneral()
 
-        dgvFill()
+        dgvFill(Nothing, Nothing)
     End Sub
 
 
@@ -188,7 +188,7 @@ Public Class gridsimpleform
     Overridable Sub Ver()
         Me.Cursor = Cursors.WaitCursor
         Me.handled = False
-        RaiseEvent BeforeView(Me, Me.newRegForm)
+        ' RaiseEvent BeforeView(Me, Me.newRegForm)
         If Not Me.handled Then
             Try
                 If Me.butVer.Enabled Then Action(ACCION_VER)
@@ -196,7 +196,7 @@ Public Class gridsimpleform
                 messagebox.show("Error al ver el registro. Detalles:" & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
 
-            RaiseEvent AfterView(Me, Me.newRegForm)
+            'RaiseEvent AfterView(Me, Me.newRegForm)
         End If
         Me.Cursor = Cursors.Default
     End Sub
@@ -327,7 +327,7 @@ Public Class gridsimpleform
     End Sub
 
     Protected Sub Deleted(ByRef sender As Object, ByRef target As gridsimpleform) Handles Me.AfterDelete
-        dgvFill()
+        dgvFill(Nothing, Nothing)
     End Sub
 
     Private Sub ImprimirToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ImprimirToolStripMenuItem.Click
@@ -342,7 +342,7 @@ Public Class gridsimpleform
     End Sub
 
     Private Sub butRefrescar_Click(sender As System.Object, e As System.EventArgs) Handles butRefrescar.Click
-        dgvFill()
+        dgvFill(Nothing, Nothing)
     End Sub
 
     Protected Sub ExportarAExcel(ByVal MANY As String, ByVal p2 As String, ByRef dataGridView As DataGridView)
@@ -367,7 +367,7 @@ Public Class gridsimpleform
         End If
     End Sub
 
-    Protected Sub dgvFill()
+    Protected Sub dgvFill(sender As Object, e As EventArgs)
         If Not BackgroundWorker1.IsBusy Then
             dgvGeneral.Cursor = Cursors.WaitCursor
             BackgroundWorker1.RunWorkerAsync()
