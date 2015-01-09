@@ -3,7 +3,7 @@
     Private tabAdm As TabManager
     Private previousTab As TabPage
     Private notificador As Notificador
-    Private frmGui As GUImain
+    Private frmGui As GUI
 
     Public Property Target_Cerrar_Pestana As SizeF
         Set(value As SizeF)
@@ -14,7 +14,7 @@
         End Get
     End Property
 
-    Public Sub New(ByRef frm As GUImain)
+    Public Sub New(ByRef frm As GUI)
         conf = New Config
         tabAdm = New TabManager(frm.TabControl1, frm)
         notificador = New Notificador

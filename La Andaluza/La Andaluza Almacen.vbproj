@@ -53,7 +53,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>168</ApplicationRevision>
+    <ApplicationRevision>169</ApplicationRevision>
     <ApplicationVersion>2014.2.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -219,22 +219,16 @@
     <Compile Include="Bases\Dependencias\FrmAheredarOld.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bases\engine\GUIstandar.Designer.vb">
-      <DependentUpon>GUIstandar.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Bases\engine\GUIstandar.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Bases\engine\frmNews.Designer.vb">
       <DependentUpon>frmNews.vb</DependentUpon>
     </Compile>
     <Compile Include="Bases\engine\frmNews.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bases\engine\GUImain.Designer.vb">
-      <DependentUpon>GUImain.vb</DependentUpon>
+    <Compile Include="Bases\engine\GUI.Designer.vb">
+      <DependentUpon>GUI.vb</DependentUpon>
     </Compile>
-    <Compile Include="Bases\engine\GUImain.vb">
+    <Compile Include="Bases\engine\GUI.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bases\Extensiones\ComboBoxExtension.vb" />
@@ -446,14 +440,11 @@
     <EmbeddedResource Include="Bases\Dependencias\FrmAheredarOld.resx">
       <DependentUpon>FrmAheredarOld.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bases\engine\GUIstandar.resx">
-      <DependentUpon>GUIstandar.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Bases\engine\frmNews.resx">
       <DependentUpon>frmNews.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Bases\engine\GUImain.resx">
-      <DependentUpon>GUImain.vb</DependentUpon>
+    <EmbeddedResource Include="Bases\engine\GUI.resx">
+      <DependentUpon>GUI.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bases\Form\DetailedSimpleForm.resx">
       <DependentUpon>DetailedSimpleForm.vb</DependentUpon>

@@ -1,21 +1,13 @@
 ﻿Public Class frmMensajesPendientes
     Private notificador As Notificador
     Private ico As Label
-    Private frm As GUIstandar
+    Private frm As GUI
 
-    Public Sub New(ByRef ico As Label, ByRef frm As GUIstandar)
+    Public Sub New(ByRef ico As Label, ByRef frm As GUI)
         InitializeComponent()
 
         Me.ico = ico
         Me.frm = frm
-        notificador = New Notificador
-    End Sub
-
-    Public Sub New(ByRef ico As Label, ByRef frm As GUImain)
-        InitializeComponent()
-
-        Me.ico = ico
-        Me.frm = CType(frm, GUIstandar)
         notificador = New Notificador
     End Sub
     

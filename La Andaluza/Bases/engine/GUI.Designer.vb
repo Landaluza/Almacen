@@ -1,5 +1,5 @@
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class GUImain
+Partial Class GUI
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -23,7 +23,7 @@ Partial Class GUImain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GUImain))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(GUI))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.LAgenda = New System.Windows.Forms.Label()
         Me.mAgenda = New System.Windows.Forms.ContextMenuStrip(Me.components)
@@ -49,6 +49,7 @@ Partial Class GUImain
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.cmsNotificacionesOperaciones = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         Me.mAgenda.SuspendLayout()
         Me.msMenu.SuspendLayout()
@@ -325,5 +326,6 @@ Partial Class GUImain
     Protected WithEvents EntradasToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Protected WithEvents SalidasToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Protected WithEvents Panel1 As System.Windows.Forms.Panel
+    Protected WithEvents Timer1 As System.Windows.Forms.Timer
 
 End Class

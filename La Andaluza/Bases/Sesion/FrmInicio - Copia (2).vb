@@ -2,14 +2,14 @@ Public Class FrmInicio
     'Private ctrSes As New ctlUsuarios
     'Public Const CAMBIO_SESION As Integer = 0
     'Public Const acceso As Integer = 1    
-    Private Gform As GUIstandar
+    Private Gform As GUI
     Private Calendar As Calendar
     Public Sub New()
 
         InitializeComponent()
         Calendar = New Calendar
         Calendar.testDateTime = False
-        Me.Gform = New GUIstandar(Me)
+        Me.Gform = New GUI(Me)
         AddHandler Gform.FormClosed, AddressOf cerrar
     End Sub
 

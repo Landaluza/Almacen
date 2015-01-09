@@ -1,5 +1,5 @@
 
-Public Class GUImain
+Public Class GUI
     Inherits Form
 
     Protected Shared LAengine As Engine_LA
@@ -20,6 +20,15 @@ Public Class GUImain
         Me.NotifyIcon1.Icon = My.Resources.scanner_barcode1
         Me.NotifyIcon1.ContextMenuStrip = Me.cmsNotificaciones
 
+        Me.Text = Config.Version_seriada
+        SalidasToolStripMenuItem1_Click(Nothing, Nothing)
+        EntradasToolStripMenuItem1_Click(Nothing, Nothing)
+
+        Me.SuspendLayout()
+        Me.frmNews = New frmNews
+        añadirPestañaSinCierre(CType(frmNews, Form))
+        cargarAgenda()
+        Me.ResumeLayout()
     End Sub
 
     Public Overridable Sub terminarDeIniciar(ByVal tablausada As String, ByVal ServidorUsado As String, ByVal UsuarioUsado As String, ByVal usua As String)
@@ -27,6 +36,12 @@ Public Class GUImain
 
         Me.ToolTip1.SetToolTip(Me.lServ, "Usuario: " & UsuarioUsado & Environment.NewLine & "Base de datos: " & tablausada & Environment.NewLine & "Servidor: " & ServidorUsado)
         Me.ToolTip1.SetToolTip(Me.lUser, "Usuario conectado: " & usua & Environment.NewLine & "click para acceder a la configuración de usuario")
+
+        Timer1.Enabled = True
+        Timer1.Start()
+        Me.Show()
+
+        Me.actualizarnotificaciones()
     End Sub
 
     Public Sub cerrarPestaña(sender As Object, e As FormClosedEventArgs)
@@ -43,6 +58,13 @@ Public Class GUImain
     End Sub
 
     Public Overridable Sub stopGUI()
+        Try
+            Me.Timer1.Stop()
+            Me.Timer1.Enabled = False
+            Me.Timer1.Dispose()
+        Catch ex As Exception
+        End Try
+
         Try
             Me.NotifyIcon1.Visible = False
             Me.NotifyIcon1.Dispose()
@@ -64,14 +86,10 @@ Public Class GUImain
 
     Protected Sub Escanear(sender As Object, e As EventArgs)
         Dim frm As New EscaneoSCC1
-        GUImain.añadirPestaña_standar(CType(frm, Form)) 'frm.ShowDialog()
+        GUI.añadirPestaña_standar(CType(frm, Form)) 'frm.ShowDialog()
     End Sub
 
-    Protected Sub actualizarNotificaciones(ByVal text As String)
-        If text <> "" Then
-            Me.NotifyIcon1.ShowBalloonTip(36000000, "Nuevas notificaciones", "Tiene " & text & " notificacioens nuevas", ToolTipIcon.Info)
-        End If
-    End Sub
+    
 
     Protected Sub resetearMenuNotificaciones(mensaje As Boolean)
         If Not mensaje Then
@@ -156,7 +174,7 @@ Public Class GUImain
     Private Sub cargarExtras(ByVal sender As System.Object, _
       ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
-        GUImain.LAengine.Target_Cerrar_Pestana = CreateGraphics.MeasureString(TabManager.CIERRE_PESTAÑA, TabControl1.Font)
+        GUI.LAengine.Target_Cerrar_Pestana = CreateGraphics.MeasureString(TabManager.CIERRE_PESTAÑA, TabControl1.Font)
 
     End Sub
 
@@ -205,6 +223,63 @@ Public Class GUImain
     Private Sub AlbaranesProvisionalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AlbaranesProvisionalesToolStripMenuItem.Click
         Dim frm As New frmAlbaranesNoDefinitivos
         añadirPestaña(CType(frm, Form))
+    End Sub
+
+
+    Protected Sub actualizarNotificaciones(ByVal text As String)
+        If text <> "" Then
+            Me.NotifyIcon1.ShowBalloonTip(36000000, "Nuevas notificaciones", "Tiene " & text & " notificacioens nuevas", ToolTipIcon.Info)
+        End If
+    End Sub
+    Public Sub actualizarnotificaciones()
+        Dim notificacion As DataTable
+
+        Me.cmsNotificaciones.Items.Clear()
+
+        Dim nOC As Integer = LAengine.comprobarNumeroOC
+        Dim nPed As Integer = LAengine.comprobarNumeroPedidos
+
+        Dim sms2 As New ToolStripMenuItem
+        sms2.Text = "Pedidos: " & nPed & "  Ordenes de carga: " & nOC
+        sms2.Name = "tsnEscan"
+        sms2.Image = My.Resources.scanner_barcode
+        Me.cmsNotificaciones.Items.Add(sms2)
+        AddHandler sms2.Click, AddressOf Escanear
+
+        notificacion = LAengine.comprobarNotificaciones
+
+
+        If notificacion.Rows.Count > 0 Then
+            Dim separador As New ToolStripSeparator
+            Me.cmsNotificaciones.Items.Add(separador)
+            actualizarNotificaciones(notificacion.Rows.Count.ToString)
+
+            For Each row As DataRow In notificacion.Rows
+                Dim sms As New ToolStripMenuItem
+                sms.Text = row.Item(0).ToString
+                sms.Image = My.Resources.emblem_documents
+                Me.cmsNotificaciones.Items.Add(sms)
+                AddHandler sms.Click, AddressOf lMensajes_Click
+            Next
+
+            Me.lMensajes.Enabled = True
+
+            Dim frm As New frmMensajesPendientes(lMensajes, Me)
+
+            resetearMenuNotificaciones(True)
+            Me.frmNews.actualizarNotificacion(CType(frm, Form))
+        Else
+            resetearMenuNotificaciones(False)
+            lMensajes.Enabled = False
+        End If
+    End Sub
+
+    Protected Sub TimerNotificaciones_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
+        actualizarNotificaciones()
+    End Sub
+
+    Private Sub GUIstandar_Shown(sender As System.Object, e As System.EventArgs) Handles Me.Shown
+        BackgroundWorker1.RunWorkerAsync()
     End Sub
 End Class
 

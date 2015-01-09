@@ -17,7 +17,6 @@ C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\bin\Release\System.Window
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\bin\Release\System.Xml.dll
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\bin\Release\office.dll
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\bin\Release\Microsoft.Vbe.Interop.dll
-C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.vbprojResolveAssemblyReference.cache
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmAlbaranesNoDefinitivos.resources
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmEntAlbaranesNoDefinitivos.resources
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.AgnadirAcargaGrabada.resources
@@ -26,9 +25,8 @@ C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_A
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.glassPanel.resources
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.FrmAHeredarEntOld.resources
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.FrmAheredarOld.resources
-C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.GUIstandar.resources
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmNews.resources
-C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.GUImain.resources
+C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.GUI.resources
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.DetailedSimpleForm.resources
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmEspera.resources
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.gridsimpleform.resources
@@ -57,3 +55,5 @@ C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza A
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.application
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.exe
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.pdb
+C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\bin\Release\La Andaluza Almacen.exe.CodeAnalysisLog.xml
+C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\bin\Release\La Andaluza Almacen.exe.lastcodeanalysissucceeded

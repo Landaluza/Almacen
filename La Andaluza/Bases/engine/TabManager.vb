@@ -9,9 +9,9 @@
     Private previousTab As TabPage
     Private previousTab2 As TabPage
     Private tabControl As System.Windows.Forms.TabControl
-    Private frmGui As GUImain
+    Private frmGui As GUI
 
-    Public Sub New(ByRef tc As TabControl, ByRef frm As GUImain)
+    Public Sub New(ByRef tc As TabControl, ByRef frm As GUI)
         Me.tabControl = tc
         frmGui = frm
         AddHandler Me.tabControl.Deselecting, AddressOf Me.TabControl_Deselecting
