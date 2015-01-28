@@ -44,17 +44,17 @@
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
+    <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <TargetCulture>es-ES</TargetCulture>
     <ProductName>La Andaluza Almacen</ProductName>
     <PublisherName>La Andaluza</PublisherName>
-    <MinimumRequiredVersion>1.0.0.20</MinimumRequiredVersion>
+    <MinimumRequiredVersion>2015.1.1.5</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>170</ApplicationRevision>
-    <ApplicationVersion>2014.2.1.%2a</ApplicationVersion>
+    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationVersion>2015.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -391,6 +391,8 @@
     <Compile Include="Produccion\Almacen\Movimientos\frmSugerenciaCarga.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Produccion\Almacen\Movimientos\Orden.vb" />
+    <Compile Include="Produccion\Almacen\Movimientos\Pediso.vb" />
     <Compile Include="Produccion\Almacen\Movimientos\spAlmacenPalets.vb" />
     <Compile Include="Produccion\Almacen\Movimientos\spEntradasAlmacen.vb" />
     <Compile Include="Produccion\Almacen\OrdenesCarga\DBO_OrdenesCarga.vb" />

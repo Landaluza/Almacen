@@ -13,13 +13,14 @@ Public Class EscaneoSCC1
     Private frmCargas As Collection
     ''Private WithEvents WinSockServer As New WinSockServer()
     Private frmEmergencia As frmCarga
-    Private dtb As DataBase
 
+    Private pedido As Pedido
+    Private orden As Orden
 
     Public Sub New()
         InitializeComponent()
         frmCargas = New Collection
-        dtb = New DataBase(Config.Server)
+
         ctlAlb = New ctlAlbaranCargaProMaestro
         clsAlbDet = New clsAlbaranesCargaProviDetalles
         ctlAlbDet = New ctlAlbaranesCargaProviDetalles
@@ -30,7 +31,7 @@ Public Class EscaneoSCC1
     End Sub
 
     Private Sub EscaneoSCC_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.Cursor = Cursors.WaitCursor        
+
         Me.ToolTip1.SetToolTip(btnup, "Muestra/oculta los paneles")
         Me.ToolTip1.SetToolTip(btnDown, "Muestra/oculta los paneles")
         dgvFill(True)
@@ -168,52 +169,17 @@ Public Class EscaneoSCC1
     End Sub
 
     Private Sub dgvFill(ByVal addcolumns As Boolean)
-        Me.Cursor = Cursors.WaitCursor
-        Dim row As DataGridViewRow
-        Dim c As DataGridViewImageCell
 
+        Me.orden = New Orden
+        Me.pedido = New Pedido
+        Me.orden.addColumns = addcolumns
         dgvPedidosFill()
-        If addcolumns Then agnadirColumnasPedidos()
 
-        Dim palets As String = ""
-        Dim nPalets As Integer = 0
 
-        For Each row In dgvPedidos.Rows
-            row.Height = Convert.ToInt32(row.Height * 1.5)
-            If Not IsDBNull(row.Cells("Palets").Value) Then
-                palets = palets & row.Cells("Palets").Value.ToString & ", "
-                nPalets += Split(row.Cells("Palets").Value.ToString, ", ").Count
-            End If
 
-            If Convert.ToInt32(row.Cells("terminado").Value) = 0 Then
-                c = CType(row.Cells("s"), DataGridViewImageCell)
-                c.Value = My.Resources.package_halfgreen
-                c.ToolTipText = "Faltan contenidos para completar la orden de carga. Cantidad de cajas pendiente:" & row.Cells("pendiente").Value.ToString
-            Else
-                c = CType(row.Cells("s"), DataGridViewImageCell)
-                c.Value = My.Resources.package_green
-                c.ToolTipText = "La orden de carga esta completa"
-            End If
-        Next
 
-        If palets.Length > 0 And palets.Contains(",") Then palets = palets.Substring(0, palets.Length - 2)
-
-        dgvOrdenesCargafill(palets, nPalets.ToString)
-        If addcolumns Then agnadirColumnasOrdenes()
-
-        For Each row In dgvOrdenesCarga.Rows
-            row.Height = Convert.ToInt32(row.Height * 1.5)
-
-            If If(row.Cells("terminado").Value Is Nothing, 0, Convert.ToInt32(row.Cells("terminado").Value)) = 0 Then
-                c = CType(row.Cells("s"), DataGridViewImageCell)
-                c.Value = My.Resources.package_halfgreen
-                c.ToolTipText = "Faltan contenidos para completar la orden de carga. Cantidad de cajas pendiente:" & row.Cells("pendiente").Value.ToString
-            Else
-                c = CType(row.Cells("s"), DataGridViewImageCell)
-                c.Value = My.Resources.package_green
-                c.ToolTipText = "La orden de carga esta completa"
-            End If
-        Next
+        
+   
 
 
 
@@ -244,76 +210,35 @@ Public Class EscaneoSCC1
         '    End If
         'Next
 
-        Me.Cursor = Cursors.Default
+
     End Sub
 
     Private Sub dgvOrdenesCargafill(ByVal palets As String, ByVal nPalets As String)
-        Dim dt As DataTable = dtb.Consultar("OrdenesDeCargaByDiaServicio '" & palets & "'," & nPalets)
-
-        dgvOrdenesCarga.DataSource = dt
-        If Not dtb Is Nothing Then
-            With dgvOrdenesCarga
-
-                If Not .DataSource Is Nothing Then
-                    .Columns("OrdenCargaId").Visible = False
-                    .Columns("terminado").Visible = False
-                    .Columns("pendiente").Visible = False
-                    .Columns("ruta").Visible = False
-                    .FormatoColumna("fecha", "Fecha", TiposColumna.Izquierda, 99)
-                    .FormatoColumna("Observaciones", TiposColumna.Izquierda, True)
-                    .FormatoColumna("Palets", TiposColumna.Izquierda, True)
-                    .FormatoGeneral()
-                End If
-            End With
-        End If
+        bwOrdenes.RunWorkerAsync()
     End Sub
 
     Private Sub dgvPedidosFill()
-        Dim row As DataGridViewRow
-        Dim orden As String = ""
-        Dim ordenIds As String = ""
-        Dim nPaletsOrden As Integer = 0
+        Dim row As DataGridViewRow        
 
         For Each row In dgvPedidos.Rows
             row.Height = Convert.ToInt32(row.Height * 1.5)
             If Not IsDBNull(row.Cells("orden").Value) Then
-                orden = orden & If(row.Cells("orden").Value Is Nothing, "9999", row.Cells("orden").Value.ToString) & ", "
+                Me.pedido.orden = Me.pedido.orden & If(row.Cells("orden").Value Is Nothing, "9999", row.Cells("orden").Value.ToString) & ", "
             Else
-                orden = orden & "9999, "
+                Me.pedido.orden = Me.pedido.orden & "9999, "
             End If
-            ordenIds = ordenIds & row.Cells("PedidoClienteMaestroID").Value.ToString & ", "
-            nPaletsOrden += 1
+            Me.pedido.ordenIds = Me.pedido.ordenIds & row.Cells("PedidoClienteMaestroID").Value.ToString & ", "
+            Me.pedido.nPaletsOrden += 1
         Next
 
-        If orden <> "" Then
-            orden = orden.Substring(0, orden.Length - 2)
-            ordenIds = ordenIds.Substring(0, ordenIds.Length - 2)
+        If Me.pedido.orden <> "" Then
+            Me.pedido.orden = Me.pedido.orden.Substring(0, Me.pedido.orden.Length - 2)
+            Me.pedido.ordenIds = Me.pedido.ordenIds.Substring(0, Me.pedido.ordenIds.Length - 2)
         End If
 
-        Dim dt As DataTable = dtb.Consultar("PedidosClientesByDiaServicio2 '" & orden & "', '" & ordenIds & "', " & nPaletsOrden)
+        Me.bwPedidos.RunWorkerAsync()
 
-        dgvPedidos.DataSource = dt
-        If Not dt Is Nothing Then
-            With dgvPedidos
-                .DataSource = dt
-                If Not .DataSource Is Nothing Then
-                    Try
-                        .Columns("PedidoClienteMaestroID").Visible = False
-                        .Columns("clienteID").Visible = False
-                        .Columns("orden").Visible = False
-                        .Columns("terminado").Visible = False
-                        .Columns("pendiente").Visible = False
-                        .FormatoColumna("Cliente", TiposColumna.Izquierda, 295)
-                        .FormatoColumna("Numero", TiposColumna.Miles, 90)
-                        .FormatoColumna("Procedencia", TiposColumna.Izquierda, True)
-                        .FormatoColumna("Observaciones", TiposColumna.Izquierda, True)
-                        .FormatoColumna("Palets", TiposColumna.Izquierda, True)
-                        .FormatoGeneral()
-                    Catch ex As Exception
-                    End Try
-                End If
-            End With
-        End If
+       
     End Sub
 
     Private Sub cerrarPestaña(sender As Object, e As EventArgs)
@@ -441,13 +366,13 @@ Public Class EscaneoSCC1
 
 
     Private Sub EscaneoSCC1_Shown(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Shown
-        abrirPestañas()
+        '        abrirPestañas()
         Dim st As DataGridViewCellStyle = dgvPedidos.DefaultCellStyle
         st.SelectionBackColor = Color.LimeGreen
         st.SelectionForeColor = Color.White
         dgvPedidos.DefaultCellStyle = st
         Me.Timer1.Start()
-        Me.Cursor = Cursors.Default
+
     End Sub
 
     Private Sub dgvPedidos_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvPedidos.CellClick
@@ -457,8 +382,6 @@ Public Class EscaneoSCC1
 
             If e.ColumnIndex = dgvPedidos.Columns("+").Index Then
                 If Not IsDBNull(Me.dgvPedidos.CurrentRow.Cells("Palets").Value) Then
-                    Me.Cursor = Cursors.WaitCursor
-                    'Dim frm As New frmSugerenciaCarga(Me.dgvPedidos.CurrentRow.Cells("PedidoClienteMaestroID").Value, Me.dgvPedidos.CurrentRow.Cells("Palets").Value, "Pedido: " & Me.dgvPedidos.CurrentRow.Cells("Numero").Value & ", " & "Cliente: " & Me.dgvPedidos.CurrentRow.Cells("Cliente").Value)
                     Dim frm As New frmSugerenciaCarga(Me.dgvPedidos.CurrentRow.Cells("Palets").Value.ToString, "Pedido: " & Me.dgvPedidos.CurrentRow.Cells("Numero").Value.ToString & ", " & "Cliente: " & Me.dgvPedidos.CurrentRow.Cells("Cliente").Value.ToString)
                     frm.ShowDialog()
                     dgvFill(Nothing, Nothing)
@@ -472,7 +395,7 @@ Public Class EscaneoSCC1
             Select Case (e.ColumnIndex)
                 Case dgvOrdenesCarga.Columns("+").Index
                     If (Not IsDBNull(Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value)) And Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value.ToString <> " Sin información, revisar excel. " Then
-                        Me.Cursor = Cursors.WaitCursor
+
                         Dim frm As New frmSugerenciaCarga(Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value.ToString, "Orden de Carga: " & Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString)
                         frm.ShowDialog()
                         dgvFill(Nothing, Nothing)
@@ -608,15 +531,115 @@ Public Class EscaneoSCC1
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
-        Me.Cursor = Cursors.WaitCursor
+
         dgvFill(False)
-        Me.Cursor = Cursors.Default
+
     End Sub
 
     Private Sub btnRefrescar_Click(sender As System.Object, e As System.EventArgs) Handles btnRefrescar.Click
-        Me.Cursor = Cursors.WaitCursor
+
         dgvFill(False)
-        Me.Cursor = Cursors.Default
+
     End Sub
 
+    Private Sub bwOrdenes_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bwOrdenes.DoWork
+        Me.orden.cargar_datos()
+    End Sub
+
+    Private Sub bwOrdenes_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bwOrdenes.RunWorkerCompleted
+       
+
+        dgvOrdenesCarga.DataSource = orden.datasource
+        If Not orden.datasource Is Nothing Then
+            With dgvOrdenesCarga
+
+                If Not .DataSource Is Nothing Then
+                    .Columns("OrdenCargaId").Visible = False
+                    .Columns("terminado").Visible = False
+                    .Columns("pendiente").Visible = False
+                    .Columns("ruta").Visible = False
+                    .FormatoColumna("fecha", "Fecha", TiposColumna.Izquierda, 99)
+                    .FormatoColumna("Observaciones", TiposColumna.Izquierda, True)
+                    .FormatoColumna("Palets", TiposColumna.Izquierda, True)
+                    .FormatoGeneral()
+                End If
+            End With
+        End If
+
+        If Me.orden.addColumns Then agnadirColumnasOrdenes()
+
+        Dim c As DataGridViewImageCell
+
+        For Each row As DataGridViewRow In dgvOrdenesCarga.Rows
+            row.Height = Convert.ToInt32(row.Height * 1.5)
+
+            If If(row.Cells("terminado").Value Is Nothing, 0, Convert.ToInt32(row.Cells("terminado").Value)) = 0 Then
+                c = CType(row.Cells("s"), DataGridViewImageCell)
+                c.Value = My.Resources.package_halfgreen
+                c.ToolTipText = "Faltan contenidos para completar la orden de carga. Cantidad de cajas pendiente:" & row.Cells("pendiente").Value.ToString
+            Else
+                c = CType(row.Cells("s"), DataGridViewImageCell)
+                c.Value = My.Resources.package_green
+                c.ToolTipText = "La orden de carga esta completa"
+            End If
+        Next
+
+        If Me.orden.addColumns Then abrirPestañas()
+    End Sub
+
+    Private Sub bwPedidos_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bwPedidos.DoWork
+        Me.pedido.cargar_datos()
+    End Sub
+
+    Private Sub bwPedidos_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bwPedidos.RunWorkerCompleted
+        dgvPedidos.DataSource = Me.pedido.datasource
+        If Not Me.pedido.datasource Is Nothing Then
+            With dgvPedidos
+                .DataSource = Me.pedido.datasource
+                If Not .DataSource Is Nothing Then
+                    Try
+                        .Columns("PedidoClienteMaestroID").Visible = False
+                        .Columns("clienteID").Visible = False
+                        .Columns("orden").Visible = False
+                        .Columns("terminado").Visible = False
+                        .Columns("pendiente").Visible = False
+                        .FormatoColumna("Cliente", TiposColumna.Izquierda, 295)
+                        .FormatoColumna("Numero", TiposColumna.Miles, 90)
+                        .FormatoColumna("Procedencia", TiposColumna.Izquierda, True)
+                        .FormatoColumna("Observaciones", TiposColumna.Izquierda, True)
+                        .FormatoColumna("Palets", TiposColumna.Izquierda, True)
+                        .FormatoGeneral()
+                    Catch ex As Exception
+                    End Try
+                End If
+            End With
+        End If
+
+        If orden.addColumns Then agnadirColumnasPedidos()
+
+        Dim c As DataGridViewImageCell
+
+
+        For Each row As DataGridViewRow In dgvPedidos.Rows
+            row.Height = Convert.ToInt32(row.Height * 1.5)
+            If Not IsDBNull(row.Cells("Palets").Value) Then
+                Me.orden.palets = Me.orden.palets & row.Cells("Palets").Value.ToString & ", "
+                Me.orden.nPalets += Split(row.Cells("Palets").Value.ToString, ", ").Count
+            End If
+
+            If Convert.ToInt32(row.Cells("terminado").Value) = 0 Then
+                c = CType(row.Cells("s"), DataGridViewImageCell)
+                c.Value = My.Resources.package_halfgreen
+                c.ToolTipText = "Faltan contenidos para completar la orden de carga. Cantidad de cajas pendiente:" & row.Cells("pendiente").Value.ToString
+            Else
+                c = CType(row.Cells("s"), DataGridViewImageCell)
+                c.Value = My.Resources.package_green
+                c.ToolTipText = "La orden de carga esta completa"
+            End If
+        Next
+
+        If Me.orden.palets.Length > 0 And Me.orden.palets.Contains(",") Then Me.orden.palets = Me.orden.palets.Substring(0, Me.orden.palets.Length - 2)
+        dgvOrdenesCargafill(Me.orden.palets, Me.orden.nPalets.ToString)
+       
+    End Sub
 End Class

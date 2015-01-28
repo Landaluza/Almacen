@@ -55,6 +55,8 @@ Partial Class EscaneoSCC1
         Me.btnDown = New System.Windows.Forms.Button()
         Me.btnup = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.bwPedidos = New System.ComponentModel.BackgroundWorker()
+        Me.bwOrdenes = New System.ComponentModel.BackgroundWorker()
         Me.TabPage4.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -177,7 +179,7 @@ Partial Class EscaneoSCC1
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox2)
         Me.SplitContainer1.Size = New System.Drawing.Size(1000, 646)
-        Me.SplitContainer1.SplitterDistance = 314
+        Me.SplitContainer1.SplitterDistance = 313
         Me.SplitContainer1.SplitterIncrement = 3
         Me.SplitContainer1.SplitterWidth = 10
         Me.SplitContainer1.TabIndex = 3
@@ -188,7 +190,7 @@ Partial Class EscaneoSCC1
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1000, 314)
+        Me.GroupBox1.Size = New System.Drawing.Size(1000, 313)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pedidos"
@@ -203,7 +205,7 @@ Partial Class EscaneoSCC1
         Me.dgvPedidos.RowHeadersVisible = False
         Me.dgvPedidos.RowTemplate.Height = 24
         Me.dgvPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvPedidos.Size = New System.Drawing.Size(994, 295)
+        Me.dgvPedidos.Size = New System.Drawing.Size(994, 294)
         Me.dgvPedidos.TabIndex = 0
         '
         'ContextMenuStrip1
@@ -239,7 +241,7 @@ Partial Class EscaneoSCC1
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1000, 322)
+        Me.GroupBox2.Size = New System.Drawing.Size(1000, 323)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Ordenes de carga"
@@ -254,7 +256,7 @@ Partial Class EscaneoSCC1
         Me.dgvOrdenesCarga.RowHeadersVisible = False
         Me.dgvOrdenesCarga.RowTemplate.Height = 24
         Me.dgvOrdenesCarga.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvOrdenesCarga.Size = New System.Drawing.Size(994, 303)
+        Me.dgvOrdenesCarga.Size = New System.Drawing.Size(994, 304)
         Me.dgvOrdenesCarga.TabIndex = 0
         '
         'ContextMenuStrip2
@@ -373,6 +375,12 @@ Partial Class EscaneoSCC1
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 300000
         '
+        'bwPedidos
+        '
+        '
+        'bwOrdenes
+        '
+        '
         'EscaneoSCC1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -435,4 +443,6 @@ Partial Class EscaneoSCC1
     Private WithEvents btnRefrescar As System.Windows.Forms.Button
     Private WithEvents btnDown As System.Windows.Forms.Button
     Private WithEvents btnup As System.Windows.Forms.Button
+    Private WithEvents bwPedidos As System.ComponentModel.BackgroundWorker
+    Private WithEvents bwOrdenes As System.ComponentModel.BackgroundWorker
 End Class
