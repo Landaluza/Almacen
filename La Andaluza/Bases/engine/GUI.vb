@@ -6,6 +6,8 @@ Public Class GUI
     Protected frmIni As FrmInicio
     Protected frmNews As frmNews
     Protected Event extras_showed()
+    Private dataSourceAgenda As DataTable
+    Private datasourceNotificaciones As DataTable
 
     Public Sub New()
         InitializeComponent()
@@ -27,7 +29,6 @@ Public Class GUI
         Me.SuspendLayout()
         Me.frmNews = New frmNews
         añadirPestañaSinCierre(CType(frmNews, Form))
-        cargarAgenda()
         Me.ResumeLayout()
     End Sub
 
@@ -40,8 +41,6 @@ Public Class GUI
         Timer1.Enabled = True
         Timer1.Start()
         Me.Show()
-
-        Me.actualizarnotificaciones()
     End Sub
 
     Public Sub cerrarPestaña(sender As Object, e As FormClosedEventArgs)
@@ -173,7 +172,9 @@ Public Class GUI
 
     Private Sub cargarExtras(ByVal sender As System.Object, _
       ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
-
+        Dim dtb As New DataBase(Config.Server)
+        dataSourceAgenda = dtb.Consultar("exec ComunicacionesSelectDgv", True)
+        datasourceNotificaciones = LAengine.comprobarNotificaciones
         GUI.LAengine.Target_Cerrar_Pestana = CreateGraphics.MeasureString(TabManager.CIERRE_PESTAÑA, TabControl1.Font)
 
     End Sub
@@ -185,6 +186,9 @@ Public Class GUI
             frmNews.ocultarNotificaciones() 'Me.PanNot1.Visible = False
         End If
 
+        Me.actualizarnotificaciones()
+        cargarAgenda()
+
     End Sub
 
     Private Sub LAgenda_Click(sender As System.Object, e As System.EventArgs) Handles LAgenda.Click
@@ -192,13 +196,12 @@ Public Class GUI
     End Sub
 
     Protected Sub cargarAgenda()
-        Dim dtb As New DataBase(Config.Server)
-        Dim dt As DataTable = dtb.Consultar("exec ComunicacionesSelectDgv", True)
-        If Not dt Is Nothing Then
+        
+        If Not dataSourceAgenda Is Nothing Then
             Me.mAgenda.Items.Clear()
             Dim sms2 As ToolStripMenuItem
 
-            For Each row As DataRow In dt.Rows
+            For Each row As DataRow In dataSourceAgenda.Rows
                 sms2 = New ToolStripMenuItem
                 sms2.Text = Convert.ToString(row.Item(1)) & "  " & _
                         If(Convert.IsDBNull(row.Item(4)), "-", Convert.ToString(row.Item(4))) & " " & _
@@ -232,7 +235,6 @@ Public Class GUI
         End If
     End Sub
     Public Sub actualizarnotificaciones()
-        Dim notificacion As DataTable
 
         Me.cmsNotificaciones.Items.Clear()
 
@@ -246,15 +248,13 @@ Public Class GUI
         Me.cmsNotificaciones.Items.Add(sms2)
         AddHandler sms2.Click, AddressOf Escanear
 
-        notificacion = LAengine.comprobarNotificaciones
 
-
-        If notificacion.Rows.Count > 0 Then
+        If datasourceNotificaciones.Rows.Count > 0 Then
             Dim separador As New ToolStripSeparator
             Me.cmsNotificaciones.Items.Add(separador)
-            actualizarNotificaciones(notificacion.Rows.Count.ToString)
+            actualizarNotificaciones(datasourceNotificaciones.Rows.Count.ToString)
 
-            For Each row As DataRow In notificacion.Rows
+            For Each row As DataRow In datasourceNotificaciones.Rows
                 Dim sms As New ToolStripMenuItem
                 sms.Text = row.Item(0).ToString
                 sms.Image = My.Resources.emblem_documents
@@ -275,6 +275,7 @@ Public Class GUI
     End Sub
 
     Protected Sub TimerNotificaciones_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
+        datasourceNotificaciones = LAengine.comprobarNotificaciones
         actualizarNotificaciones()
     End Sub
 

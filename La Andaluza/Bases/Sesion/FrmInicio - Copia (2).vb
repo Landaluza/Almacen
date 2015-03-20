@@ -1,7 +1,4 @@
 Public Class FrmInicio
-    'Private ctrSes As New ctlUsuarios
-    'Public Const CAMBIO_SESION As Integer = 0
-    'Public Const acceso As Integer = 1    
     Private Gform As GUI
     Private Calendar As Calendar
     Public Sub New()
@@ -9,6 +6,7 @@ Public Class FrmInicio
         InitializeComponent()
         Calendar = New Calendar
         Calendar.testDateTime = False
+        DataBase.buildConnectionString(Config.Server)
         Me.Gform = New GUI(Me)
         AddHandler Gform.FormClosed, AddressOf cerrar
     End Sub
@@ -94,8 +92,7 @@ Public Class FrmInicio
         Me.txtPassword.SelectAll()
     End Sub
 
-    Private Sub BackgroundWorker1_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
-        DataBase.buildConnectionString(Config.Server)
+    Private Sub BackgroundWorker1_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork        
         Dim spUsuarios As New spUsuarios
 
         If Not Calendar.TestDate() Then
