@@ -28,7 +28,7 @@ Public Class spAlbaranesCarga
         If ordenCarga = Nothing Then
             transactDtb.Conectar()
             Try
-                Dim cmd As System.Data.SqlClient.SqlCommand = transactDtb.Comando("DeleteAlbaranCargaSeguridadAllPedido")
+                Dim cmd As System.Data.SqlClient.SqlCommand = transactDtb.ComAndalsoo("DeleteAlbaranCargaSeguridadAllPedido")
                 cmd.CommandType = CommandType.StoredProcedure
 
                 cmd.Parameters.AddWithValue("@pedido", pedido)
@@ -44,7 +44,7 @@ Public Class spAlbaranesCarga
         Else
             dtb.Conectar()
             Try
-                Dim cmd As System.Data.SqlClient.SqlCommand = transactDtb.Comando("DeleteAlbaranCargaSeguridadAllOC")
+                Dim cmd As System.Data.SqlClient.SqlCommand = transactDtb.ComAndalsoo("DeleteAlbaranCargaSeguridadAllOC")
                 cmd.CommandType = CommandType.StoredProcedure
                 cmd.Parameters.AddWithValue("@orden", pedido)
 
@@ -80,7 +80,7 @@ Public Class spAlbaranesCarga
 
         dtb.Conectar()
         Try
-            Dim cmd As System.Data.SqlClient.SqlCommand = dtb.Comando("InsertAlbaranCargaSeguridad4")
+            Dim cmd As System.Data.SqlClient.SqlCommand = dtb.ComAndalsoo("InsertAlbaranCargaSeguridad4")
             cmd.CommandType = CommandType.StoredProcedure
 
             cmd.Parameters.AddWithValue("@pedido", If(pedido = 0, Convert.DBNull, pedido))
@@ -115,8 +115,8 @@ Public Class spAlbaranesCarga
     Public Function spMaxAlbaranCargaProMaestro(ByRef transacDtb As DataBase) As Integer
         Dim MaxID As Integer = 0
 
-        Try            
-            Dim cmd As System.Data.SqlClient.SqlCommand = transacDtb.Comando("MaxAlbaranCargaProMaestro")
+        Try
+            Dim cmd As System.Data.SqlClient.SqlCommand = transacDtb.ComAndalsoo("MaxAlbaranCargaProMaestro")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.CommandText = "MaxAlbaranCargaProMaestro"
 

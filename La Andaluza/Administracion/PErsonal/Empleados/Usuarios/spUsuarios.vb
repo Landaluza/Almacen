@@ -34,7 +34,7 @@ Public Class spUsuarios
     Public Function CambiarContraseña(ByVal usuarioid As Integer, ByVal oldPass As String, ByVal newPass As String) As Boolean
         Dim dtb As New DataBase(Config.Server)
         dtb.Conectar()
-        Dim updateCommand As System.Data.SqlClient.SqlCommand = dtb.Comando("[dbo].[UsuariosupdateCriptedPassword]")
+        Dim updateCommand As System.Data.SqlClient.SqlCommand = dtb.ComAndalsoo("[dbo].[UsuariosupdateCriptedPassword]")
         'Dim connection As System.Data.SqlClient.SqlConnection  = Me.dtb.Conexion
         'Dim updateProcedure As String = "[dbo].[UsuariosupdateCriptedPassword]"
         'Dim updateCommand As New System.Data.SqlClient.SqlCommand(updateProcedure, connection)

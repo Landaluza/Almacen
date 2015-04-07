@@ -13,7 +13,7 @@
     Public Event AfterSave(sender As Object, e As EventArgs)
     Public Event AfterAdd(sender As Object, e As EventArgs)
     Public Event BeforeScan(ByRef sender As Object, ByVal scc As String)
-    Public EventHandled As Boolean
+    Public EventHAndalsoled As Boolean
     Private loteOriginal As String
     Private spPaletsProducidos2 As spPaletsProducidos2
     Private dtb As DataBase
@@ -157,9 +157,9 @@
                 End Select
 
                 If LongitudOK Then
-                    'EventHandled = False
+                    'EventHAndalsoled = False
                     'RaiseEvent BeforeScan(Me, txtSCC.Text)
-                    'If EventHandled Then
+                    'If EventHAndalsoled Then
                     btnOK.Enabled = True
 
 
@@ -191,9 +191,9 @@
                                             Me.Cursor = Cursors.Default
                                         Else
                                             Try
-                                                Dim mail As New Mail.Mail1And1(True, "Palet sin movimientos. Fecha" & Convert.ToString(Now.Date) & " SCC: " & txtSCC.Text, _
+                                                Dim mail As New Mail.Mail1Andalso1(True, "Palet sin movimientos. Fecha" & Convert.ToString(Now.Date) & " SCC: " & txtSCC.Text, _
                                                                                "El palet con matrícula " & txtSCC.Text & " se ha expedido sin movimientos sobre él (con 0 cajas).", String.Empty, _
-                                                                                Config.MailReportAddress, Config.MailReportPass, "control@landaluza.es", _
+                                                                                Config.MailReportAddress, Config.MailReportPass, "control@lAndalsoaluza.es", _
                                                                                 String.Empty, String.Empty, Config.MailClientHost, False)
 
                                                 Me.Cursor = Cursors.Default
@@ -300,7 +300,7 @@
     Private Sub borrarTextos()
         For Each oControl As Control In Me.Controls
             If TypeOf (oControl) Is TextBox Then
-                If oControl.Name <> "txtPaletsTotales" And oControl.Name <> "txtPesoTotal" Then
+                If oControl.Name <> "txtPaletsTotales" AndAlso oControl.Name <> "txtPesoTotal" Then
                     oControl.Text = ""
                 End If
             End If

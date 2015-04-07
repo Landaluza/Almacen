@@ -15,7 +15,7 @@ Public Class GUI
     Public Sub New(ByRef frm As FrmInicio)
         InitializeComponent()
         LAengine = New Engine_LA(Me)
-        Me.Icon = My.Resources.LogoBandejaLa21
+        Me.Icon = My.Resources.LogoBAndalsoejaLa21
         Me.frmIni = frm
 
         Me.NotifyIcon1 = New NotifyIcon
@@ -85,10 +85,10 @@ Public Class GUI
 
     Protected Sub Escanear(sender As Object, e As EventArgs)
         Dim frm As New EscaneoSCC1
-        GUI.añadirPestaña_standar(CType(frm, Form)) 'frm.ShowDialog()
+        GUI.añadirPestaña_stAndalsoar(CType(frm, Form)) 'frm.ShowDialog()
     End Sub
 
-    
+
 
     Protected Sub resetearMenuNotificaciones(mensaje As Boolean)
         If Not mensaje Then
@@ -162,7 +162,7 @@ Public Class GUI
         LAengine.añadirPestañaAutonoma(frmEnt)
     End Sub
 
-    Shared Sub añadirPestaña_standar(ByRef frmEnt As Form)
+    Shared Sub añadirPestaña_stAndalsoar(ByRef frmEnt As Form)
         LAengine.AñadirPestaña(frmEnt)
     End Sub
 
@@ -196,7 +196,7 @@ Public Class GUI
     End Sub
 
     Protected Sub cargarAgenda()
-        
+
         If Not dataSourceAgenda Is Nothing Then
             Me.mAgenda.Items.Clear()
             Dim sms2 As ToolStripMenuItem
@@ -279,7 +279,7 @@ Public Class GUI
         actualizarNotificaciones()
     End Sub
 
-    Private Sub GUIstandar_Shown(sender As System.Object, e As System.EventArgs) Handles Me.Shown
+    Private Sub GUIstAndalsoar_Shown(sender As System.Object, e As System.EventArgs) Handles Me.Shown
         BackgroundWorker1.RunWorkerAsync()
     End Sub
 End Class

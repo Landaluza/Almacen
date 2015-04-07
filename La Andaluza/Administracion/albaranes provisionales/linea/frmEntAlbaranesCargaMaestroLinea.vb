@@ -24,7 +24,7 @@ Public Class frmEntAlbaranesCargaMaestroLinea
     Private Sub frmEntAlbaranesCargaMaestroLinea_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         If (Me.mododeapertura = VISION) Then
         End If
-        If Config.userType <> 4 And Config.userType <> 9 Then
+        If Config.userType <> 4 AndAlso Config.userType <> 9 Then
         End If
 
     End Sub

@@ -26,7 +26,7 @@
             cborrar.HeaderText = ""
             cborrar.ToolTipText = "Borra el mensaje"
             cborrar.DisplayIndex = 0
-            cborrar.Width = 25            
+            cborrar.Width = 25
             Me.DataGridView1.Columns.Add(cborrar)
 
             Me.DataGridView1.Columns("id").Visible = False

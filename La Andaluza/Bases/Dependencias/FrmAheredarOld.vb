@@ -192,7 +192,7 @@ Public Class FrmAheredarOld
     Private Sub butImprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles butImprimir.Click
         Imprimir()
     End Sub
-  
+
     Private Sub butSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles butSalir.Click
         Me.Close()
     End Sub
@@ -215,23 +215,23 @@ Public Class FrmAheredarOld
 
     Public Sub gestionarEventosDeTeclado(ByVal e As System.Windows.Forms.KeyEventArgs)
         Try
-            If e.KeyCode = 27 And Me.Embebido = False And Me.butSalir.Visible = True Then
+            If e.KeyCode = 27 AndAlso Me.Embebido = False AndAlso Me.butSalir.Visible = True Then
                 Me.Close()
-            ElseIf e.KeyCode = 116 And Me.Embebido = False And Me.butGuardar.Visible And Me.butGuardar.Enabled Then
+            ElseIf e.KeyCode = 116 AndAlso Me.Embebido = False AndAlso Me.butGuardar.Visible AndAlso Me.butGuardar.Enabled Then
                 Me.Guardar()
-            ElseIf e.KeyCode = 112 And Me.butNuevo.Enabled Then
+            ElseIf e.KeyCode = 112 AndAlso Me.butNuevo.Enabled Then
                 Me.Insertar()
-            ElseIf (e.KeyCode = 113 Or e.KeyCode = 13) And Me.butModificar.Enabled Then
+            ElseIf (e.KeyCode = 113 Or e.KeyCode = 13) AndAlso Me.butModificar.Enabled Then
                 Modificar()
-            ElseIf e.KeyCode = 114 And Me.butEliminar.Enabled Then
+            ElseIf e.KeyCode = 114 AndAlso Me.butEliminar.Enabled Then
                 Me.Eliminar()
-            ElseIf e.KeyCode = 120 And Me.butImprimir.Enabled Then
+            ElseIf e.KeyCode = 120 AndAlso Me.butImprimir.Enabled Then
                 Me.Imprimir()
-            ElseIf e.KeyCode = 121 And Me.butWord.Enabled Then
+            ElseIf e.KeyCode = 121 AndAlso Me.butWord.Enabled Then
                 Me.ToWord()
-            ElseIf e.KeyCode = 122 And Me.butExcel.Enabled Then
+            ElseIf e.KeyCode = 122 AndAlso Me.butExcel.Enabled Then
                 Me.ToExcel()
-            ElseIf e.KeyCode = 123 And Me.butVer.Enabled Then
+            ElseIf e.KeyCode = 123 AndAlso Me.butVer.Enabled Then
                 Me.Ver()
             End If
         Catch ex As Exception

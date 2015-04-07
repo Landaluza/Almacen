@@ -17,6 +17,7 @@ C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\bin\Release\System.Window
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\bin\Release\System.Xml.dll
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\bin\Release\office.dll
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\bin\Release\Microsoft.Vbe.Interop.dll
+C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.vbprojResolveAssemblyReference.cache
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmAlbaranesNoDefinitivos.resources
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmEntAlbaranesNoDefinitivos.resources
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.AgnadirAcargaGrabada.resources
@@ -55,4 +56,3 @@ C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza A
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.application
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.exe
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.pdb
-C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.vbprojResolveAssemblyReference.cache

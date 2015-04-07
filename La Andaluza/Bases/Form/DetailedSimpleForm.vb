@@ -154,8 +154,8 @@ Public Class DetailedSimpleForm
         End If
     End Sub
 
-    Overridable Sub Salir()      
-            Me.Close()
+    Overridable Sub Salir()
+        Me.Close()
     End Sub
 
     Overridable Sub Imprimir()
@@ -182,15 +182,15 @@ Public Class DetailedSimpleForm
     End Sub
 
     Public Sub gestionarEventosDeTeclado(ByVal e As System.Windows.Forms.KeyEventArgs)
-        If e.KeyCode = 27 And Me.butSalir.Visible And Me.butSalir.Enabled Then
+        If e.KeyCode = 27 AndAlso Me.butSalir.Visible AndAlso Me.butSalir.Enabled Then
             Salir()
-        ElseIf e.KeyCode = 116 And Me.butGuardar.Visible And Me.butGuardar.Enabled Then
+        ElseIf e.KeyCode = 116 AndAlso Me.butGuardar.Visible AndAlso Me.butGuardar.Enabled Then
             Me.Guardar(sp.Database)
-        ElseIf e.KeyCode = 117 And Me.butImprimir.Visible And Me.butImprimir.Enabled Then
+        ElseIf e.KeyCode = 117 AndAlso Me.butImprimir.Visible AndAlso Me.butImprimir.Enabled Then
             Me.Imprimir()
-        ElseIf e.KeyCode = 118 And Me.butVer.Visible And Me.butVer.Enabled Then
+        ElseIf e.KeyCode = 118 AndAlso Me.butVer.Visible AndAlso Me.butVer.Enabled Then
             Me.Ver()
-        ElseIf e.KeyCode = 119 And Me.butExcel.Visible And Me.butExcel.Enabled Then
+        ElseIf e.KeyCode = 119 AndAlso Me.butExcel.Visible AndAlso Me.butExcel.Enabled Then
             Me.ExportToExcel()
         End If
     End Sub
@@ -214,7 +214,7 @@ Public Class DetailedSimpleForm
                     butGuardar.Visible = False
                     Me.Icon = My.Resources.window_duplicate1
                 Case Else
-                    Me.Icon = My.Resources.LogoBandejaLa21
+                    Me.Icon = My.Resources.LogoBAndalsoejaLa21
             End Select
         End If
 

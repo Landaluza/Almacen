@@ -44,7 +44,7 @@ Inherits StoredProcedure
     End Function
 
     Public Sub Detalles(ByVal formatoEnvasado As String, ByVal scc As String, ByRef descripcion As String, ByRef cajas As Integer)
-        Dim dt As DataTable = dtb.Consultar("select articulo from formatosenvasados, ArticulosEnvasadosHistoricoSinLinea where TipoFormatoEnvasadoID = tipoFormato and formatoEnvasadoid=" & formatoEnvasado, False)
+        Dim dt As DataTable = dtb.Consultar("select articulo from formatosenvasados, ArticulosEnvasadosHistoricoSinLinea where TipoFormatoEnvasadoID = tipoFormato Andalso formatoEnvasadoid=" & formatoEnvasado, False)
         descripcion = dt.Rows(0).Item(0).ToString
         dt = dtb.Consultar("[dbo].[PaletsProducidos4CalcularCajas] " & scc)
         cajas = Convert.ToInt32(dt.Rows(0).Item(0))

@@ -24,9 +24,9 @@ Namespace My
 
 #Region "Funcionalidad para autoguardar de My.Settings"
 #If _MyType = "WindowsForms" Then
-        Private Shared addedHandler As Boolean
+        Private Shared addedHAndalsoler As Boolean
 
-        Private Shared addedHandlerLockObject As New Object
+        Private Shared addedHAndalsolerLockObject As New Object
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
         Private Shared Sub AutoSaveSettings(ByVal sender As Global.System.Object, ByVal e As Global.System.EventArgs)
@@ -41,11 +41,11 @@ Namespace My
             Get
 
 #If _MyType = "WindowsForms" Then
-                If Not addedHandler Then
-                    SyncLock addedHandlerLockObject
-                        If Not addedHandler Then
+                If Not addedHAndalsoler Then
+                    SyncLock addedHAndalsolerLockObject
+                        If Not addedHAndalsoler Then
                             AddHandler My.Application.Shutdown, AddressOf AutoSaveSettings
-                            addedHandler = True
+                            addedHAndalsoler = True
                         End If
                     End SyncLock
                 End If
@@ -77,13 +77,13 @@ Namespace My
 End Namespace
 
 Namespace My
-    
-    <Global.Microsoft.VisualBasic.HideModuleNameAttribute(),  _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
+
+    <Global.Microsoft.VisualBasic.HideModuleNameAttribute(), _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
+     Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()> _
     Friend Module MySettingsProperty
-        
-        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
+
+        <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")> _
         Friend ReadOnly Property Settings() As Global.La_Andaluza_Almacen.My.MySettings
             Get
                 Return Global.La_Andaluza_Almacen.My.MySettings.Default

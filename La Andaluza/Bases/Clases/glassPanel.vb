@@ -31,7 +31,7 @@
         'Me.Size = New Size(padre.Size.Width + 200, padre.Size.Height + 150)
 
         If pantalla.isMultiScreen Then
-            If 0 <= padre.Location.X And padre.Location.X < der.Bounds.Location.X Then
+            If 0 <= padre.Location.X AndAlso padre.Location.X < der.Bounds.Location.X Then
 
                 Me.Location = New Point(izq.WorkingArea.Location.X, izq.WorkingArea.Location.Y)
                 Me.Size = izq.WorkingArea.Size

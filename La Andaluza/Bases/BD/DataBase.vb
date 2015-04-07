@@ -28,7 +28,7 @@ Public Class DataBase
         End Get
     End Property
 
-    Public Function Comando(ByVal procedure As String) As System.Data.SqlClient.SqlCommand
+    Public Function ComAndalsoo(ByVal procedure As String) As System.Data.SqlClient.SqlCommand
         Dim sc As System.Data.SqlClient.SqlCommand = New System.Data.SqlClient.SqlCommand(procedure, Me.Cnn)
         If Not Me.transaction Is Nothing Then sc.Transaction = Me.Transaccion
         sc.CommandTimeout = Me.time_out
@@ -87,11 +87,11 @@ Public Class DataBase
 
     Public Sub Conectar()
         If Me.transaction Is Nothing Then
-      
+
             If Not Me.Cnn Is Nothing Then If Me.Cnn.State = ConnectionState.Open Then Me.Desconectar()
-                Me.Cnn = New System.Data.SqlClient.SqlConnection
-                Me.Cnn.ConnectionString = Config.connectionString
-                Me.Cnn.Open()
+            Me.Cnn = New System.Data.SqlClient.SqlConnection
+            Me.Cnn.ConnectionString = Config.connectionString
+            Me.Cnn.Open()
         End If
     End Sub
 
@@ -126,21 +126,21 @@ Public Class DataBase
     Public Function Consultar(ByVal Cadena As String, Optional procedure As Boolean = True) As DataTable
         Dim dtsTabla As New DataTable
 
-            Me.Conectar()
-      
+        Me.Conectar()
+
 
         Dim dtsTemp As New DataSet
-        Dim cmd As System.Data.SqlClient.SqlCommand '= Comando(Cadena)
+        Dim cmd As System.Data.SqlClient.SqlCommand '= ComAndalsoo(Cadena)
 
-        Try            
+        Try
             If procedure Then
                 If Not Cadena.Contains("exec ") Then
                     Cadena = "exec " & Cadena
                 End If
 
-                cmd = Comando(Cadena)
+                cmd = ComAndalsoo(Cadena)
             Else
-                cmd = Comando(Cadena)
+                cmd = ComAndalsoo(Cadena)
             End If
 
             'If procedure Then cmd.CommandType = CommandType.StoredProcedure
@@ -159,8 +159,8 @@ Public Class DataBase
     End Function
 
     Public Function ConsultaAlteraciones(ByVal strrealizarConsulta As String) As Boolean
-                Me.Conectar()
-     
+        Me.Conectar()
+
 
         Dim cmd As System.Data.SqlClient.SqlCommand
         cmd = New System.Data.SqlClient.SqlCommand(strrealizarConsulta, Me.Cnn)
@@ -176,7 +176,7 @@ Public Class DataBase
             Return False
         Finally
             cmd.Dispose()
-                Me.Desconectar()
+            Me.Desconectar()
         End Try
     End Function
 End Class

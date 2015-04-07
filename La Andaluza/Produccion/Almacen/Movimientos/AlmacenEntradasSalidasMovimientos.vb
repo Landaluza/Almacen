@@ -40,7 +40,7 @@
                 .Columns("CajasPalet").Visible = False
 
                 .FormatoColumna("Fecha", TiposColumna.Izquierda, 100)
-                .FormatoColumna("Cajas", TiposColumna.Miles, 50)                
+                .FormatoColumna("Cajas", TiposColumna.Miles, 50)
                 .FormatoColumna("ComentariosCarga", TiposColumna.Izquierda, True)
                 .FormatoColumna("Observaciones", TiposColumna.Izquierda, True)
                 .FormatoGeneral()

@@ -92,7 +92,7 @@ Public Class FrmInicio
         Me.txtPassword.SelectAll()
     End Sub
 
-    Private Sub BackgroundWorker1_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork        
+    Private Sub BackgroundWorker1_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
         Dim spUsuarios As New spUsuarios
 
         If Not Calendar.TestDate() Then

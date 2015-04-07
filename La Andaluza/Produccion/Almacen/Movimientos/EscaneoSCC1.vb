@@ -89,7 +89,7 @@ Public Class EscaneoSCC1
         End If
     End Sub
 
-    Private Sub abrirPestañas()        
+    Private Sub abrirPestañas()
         Dim row As DataGridViewRow
         Dim paginas As TabPage
         Dim pan As Panel
@@ -178,8 +178,8 @@ Public Class EscaneoSCC1
 
 
 
-        
-   
+
+
 
 
 
@@ -218,7 +218,7 @@ Public Class EscaneoSCC1
     End Sub
 
     Private Sub dgvPedidosFill()
-        Dim row As DataGridViewRow        
+        Dim row As DataGridViewRow
 
         For Each row In dgvPedidos.Rows
             row.Height = Convert.ToInt32(row.Height * 1.5)
@@ -238,7 +238,7 @@ Public Class EscaneoSCC1
 
         Me.bwPedidos.RunWorkerAsync()
 
-       
+
     End Sub
 
     Private Sub cerrarPestaña(sender As Object, e As EventArgs)
@@ -254,17 +254,17 @@ Public Class EscaneoSCC1
         End If
     End Sub
 
-    
+
     Private Sub comprobarScc(ByRef sender As Object, ByVal scc As String)
         Dim frm As frmCarga = CType(sender, frmCarga)
         Dim row As DataGridViewRow
-        frm.EventHandled = False
+        frm.EventHAndalsoled = False
 
         If frm.TipoPedido = frmCarga.PEDIDO Then
             For Each row In Me.dgvPedidos.Rows
                 If Convert.ToString(row.Cells("Numero").Value) = Me.TabControl2.SelectedTab.Text Then
                     If Convert.ToString(row.Cells("Palets").Value).Contains(scc) Then
-                        frm.EventHandled = True
+                        frm.EventHAndalsoled = True
                         Exit For
                     End If
                 End If
@@ -274,7 +274,7 @@ Public Class EscaneoSCC1
                 If Me.TabControl2.SelectedTab.Text.Length > 15 Then
                     If Convert.ToString(row.Cells("Fecha").Value).Substring(0, 16) = Me.TabControl2.SelectedTab.Text.Substring(0, 16) Then
                         If row.Cells("Palets").Value.ToString.Contains(scc) Then
-                            frm.EventHandled = True
+                            frm.EventHAndalsoled = True
                             Exit For
                         End If
                     End If
@@ -282,29 +282,29 @@ Public Class EscaneoSCC1
             Next
         End If
 
-        If Not frm.EventHandled Then
+        If Not frm.EventHAndalsoled Then
             Dim Respuesta As DialogResult
             Respuesta = MessageBox.Show(" El palet no se encuentra entre los sugeridos" & Environment.NewLine & _
                                "¿Desea continuar?", _
                                "Palet no sugerido", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
             If Respuesta = DialogResult.Yes Then
-                frm.EventHandled = True
+                frm.EventHAndalsoled = True
             End If
         End If
     End Sub
 
- 
+
     Private Sub comprobarPedido(sender As Object, e As EventArgs)
         Dim frm As frmCarga = CType(sender, frmCarga)
         Dim row As DataGridViewRow
-        frm.EventHandled = True
+        frm.EventHAndalsoled = True
 
         If Me.TabControl2.SelectedTab.Text <> "Carga provisional" Then
             If frm.TipoPedido = frmCarga.PEDIDO Then
                 For Each row In Me.dgvPedidos.Rows
                     If Convert.ToString(row.Cells("Numero").Value) = Me.TabControl2.SelectedTab.Text Then
-                        If Convert.ToString(row.Cells("Palets").Value) = "" Then frm.EventHandled = False
+                        If Convert.ToString(row.Cells("Palets").Value) = "" Then frm.EventHAndalsoled = False
                         Exit For
                     End If
                 Next
@@ -312,7 +312,7 @@ Public Class EscaneoSCC1
                 For Each row In Me.dgvOrdenesCarga.Rows
                     If Me.TabControl2.SelectedTab.Text.Length > 15 Then
                         If Convert.ToString(row.Cells("Fecha").Value).Substring(0, 16) = Me.TabControl2.SelectedTab.Text.Substring(0, 16) Then
-                            If Convert.ToString(row.Cells("Palets").Value) = "" Or Convert.ToString(row.Cells("Palets").Value) = " Sin información, revisar excel. " Then frm.EventHandled = False
+                            If Convert.ToString(row.Cells("Palets").Value) = "" Or Convert.ToString(row.Cells("Palets").Value) = " Sin información, revisar excel. " Then frm.EventHAndalsoled = False
 
                             Exit For
                         End If
@@ -320,17 +320,17 @@ Public Class EscaneoSCC1
                 Next
             End If
         Else
-            frm.EventHandled = False
+            frm.EventHAndalsoled = False
         End If
 
-        If frm.EventHandled Then
+        If frm.EventHAndalsoled Then
             Dim Respuesta As DialogResult
             Respuesta = MessageBox.Show(" Aun quedan palets por escanear en el pedido" & Environment.NewLine & _
                                "¿Desea ignorarlos y grabar?", _
                                "Palet no sugerido", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
             If Respuesta = DialogResult.Yes Then
-                frm.EventHandled = False
+                frm.EventHAndalsoled = False
             End If
         End If
     End Sub
@@ -394,7 +394,7 @@ Public Class EscaneoSCC1
         If Not dgvOrdenesCarga.CurrentRow Is Nothing Then
             Select Case (e.ColumnIndex)
                 Case dgvOrdenesCarga.Columns("+").Index
-                    If (Not IsDBNull(Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value)) And Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value.ToString <> " Sin información, revisar excel. " Then
+                    If (Not IsDBNull(Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value)) AndAlso Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value.ToString <> " Sin información, revisar excel. " Then
 
                         Dim frm As New frmSugerenciaCarga(Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value.ToString, "Orden de Carga: " & Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString)
                         frm.ShowDialog()
@@ -444,7 +444,7 @@ Public Class EscaneoSCC1
             If Not IsDBNull(Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value) Then
                 Dim tab As TabPage
                 For Each tab In Me.TabControl2.TabPages
-                    If tab.Text.Length >= 16 And Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString.Length >= 16 Then
+                    If tab.Text.Length >= 16 AndAlso Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString.Length >= 16 Then
                         If tab.Text.ToString.Substring(0, 16) = Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString.Substring(0, 16) Then
                             Me.TabControl2.SelectedTab = tab
                             Dim frmCarga As frmCarga = CType(Me.frmCargas.Item(TabControl2.SelectedIndex), frmCarga)
@@ -463,15 +463,15 @@ Public Class EscaneoSCC1
             Me.dgvPedidos.CurrentRow.Cells("orden").Value = 1
             dgvFill(Nothing, Nothing)
         Catch ex As Exception
-        End Try        
+        End Try
     End Sub
 
     Private Sub ImportarCargaDeEmergenciaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ImportarCargaDeEmergenciaToolStripMenuItem.Click
         frmEmergencia.importar()
-        Try            
+        Try
             Dim tab As TabPage
             For Each tab In Me.TabControl2.TabPages
-                If tab.Text.Length >= 16 And Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString.Length >= 16 Then
+                If tab.Text.Length >= 16 AndAlso Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString.Length >= 16 Then
                     If tab.Text.ToString.Substring(0, 16) = Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString.Substring(0, 16) Then
                         Me.TabControl2.SelectedTab = tab
                         Dim frmCarga As frmCarga = CType(Me.frmCargas.Item(TabControl2.SelectedIndex), frmCarga)
@@ -502,7 +502,7 @@ Public Class EscaneoSCC1
         dgvPedidosFill()
     End Sub
 
-    
+
 
     Private Sub btnup_Click(sender As System.Object, e As System.EventArgs) Handles btnup.Click
         If Me.SplitContainer1.Panel2Collapsed Or Me.SplitContainer1.Panel1Collapsed Then
@@ -547,7 +547,7 @@ Public Class EscaneoSCC1
     End Sub
 
     Private Sub bwOrdenes_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bwOrdenes.RunWorkerCompleted
-       
+
 
         dgvOrdenesCarga.DataSource = orden.datasource
         If Not orden.datasource Is Nothing Then
@@ -638,8 +638,8 @@ Public Class EscaneoSCC1
             End If
         Next
 
-        If Me.orden.palets.Length > 0 And Me.orden.palets.Contains(",") Then Me.orden.palets = Me.orden.palets.Substring(0, Me.orden.palets.Length - 2)
+        If Me.orden.palets.Length > 0 AndAlso Me.orden.palets.Contains(",") Then Me.orden.palets = Me.orden.palets.Substring(0, Me.orden.palets.Length - 2)
         dgvOrdenesCargafill(Me.orden.palets, Me.orden.nPalets.ToString)
-       
+
     End Sub
 End Class

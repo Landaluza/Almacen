@@ -33,7 +33,7 @@
     Public Function ArmarFecha1(ByVal fecha As DateTime) As String
 
         'El problema es que tenemos diferentes opciones en el lenguaje del SQL server instalado en cada maquina.
-        '¿Se solucionaria cambiando todas las maquinas a ingles?
+        '¿Se solucionaria cambiAndalsoo todas las maquinas a ingles?
 
         ' mam1      
         'Microsoft SQL Server Management Studio Express	 	9.00.2047.00
@@ -44,7 +44,7 @@
         'Sistema operativo					                5.1.2600
         'Idioma                                             Ingles
 
-        'andaluza1
+        'Andalsoaluza1
         'Microsoft SQL Server Management Studio				9.00.1399.00
         'Microsoft Analysis Services Client Tools			2005.090.1399.00
         'Microsoft Data Access Components (MDAC)			2000.085.1132.00 (xpsp.080413-0852)
@@ -68,10 +68,10 @@
         'End Select
 
         Dim name As String = My.Computer.Name
-        If name = "DEALEJANDRO" Or name = "MAM1" Or name = "CALIDAD1" Or name = "ANDALUZA1" Then
+        If name = "DEALEJAndalsoRO" Or name = "MAM1" Or name = "CALIDAD1" Or name = "AndalsoALUZA1" Then
             Return fecha.Year & "/" & fecha.Month & "/" & fecha.Day & " " & fecha.Hour & ":" & fecha.Minute & ":" & fecha.Second
         Else
-            'If name = "ANDALUZA1" Then
+            'If name = "AndalsoALUZA1" Then
             '    Return fecha.Year & "/" & fecha.Day & "/" & fecha.Month & " " & fecha.Hour & ":" & fecha.Minute & ":" & fecha.Second ' & fecha.datetime.now.ToString
             '    'Return fecha.Year & "/" & fecha.Month & "/" & fecha.Day & " " & fecha.Hour & ":" & fecha.Minute & ":" & fecha.Second
             'Else
@@ -121,7 +121,7 @@
     End Function
 
     ' // This function will not convert dates to 19xx, only 20xx so if you need to consider 19xx dates
-    ' || you'll need to add some logic to incorporate a switch point and determine whether to add 1000 or
+    ' || you'll need to add some logic to incorporate a switch point Andalso determine whether to add 1000 or
     ' || 2000 in the calculation
     Public Function JulianToSerial(ByVal strJulian As String) As Date
         Try

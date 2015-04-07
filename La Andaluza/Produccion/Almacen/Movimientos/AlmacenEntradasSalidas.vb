@@ -86,7 +86,7 @@
     Private Sub recuperarDetalles()
         Dim LongitudOK As Boolean = True
 
-       If Not IsNumeric(txtSCCEscaneado.Text) Then
+        If Not IsNumeric(txtSCCEscaneado.Text) Then
             LongitudOK = False
         Else
             'Se escanea el codigo de la parte inferior

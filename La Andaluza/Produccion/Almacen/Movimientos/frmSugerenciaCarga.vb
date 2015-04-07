@@ -74,7 +74,7 @@
             If m.sendSimple("Palet " & Me.dgvSugeridos.CurrentRow.Cells("Scc").Value.ToString & _
                             " extraviado", "No se ha podido localizar el palet con scc " & _
                             Me.dgvSugeridos.CurrentRow.Cells("Scc").Value.ToString & _
-                            " en el almacen. La aplicacion lo ha marcado como extraviado y a expedido el siguiente palet.", "almacen@landaluza.es", "Almacen2008") Then
+                            " en el almacen. La aplicacion lo ha marcado como extraviado y a expedido el siguiente palet.", "almacen@lAndalsoaluza.es", "Almacen2008") Then
                 Return 1
             Else
                 Return 0

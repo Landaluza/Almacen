@@ -18,7 +18,7 @@ Partial Class GUI
     Private components As System.ComponentModel.IContainer
 
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
-    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'Se puede modificar usAndalsoo el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
@@ -289,7 +289,7 @@ Partial Class GUI
         Me.MainMenuStrip = Me.msMenu
         Me.Name = "GUImain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "04.04.2012  La Andaluza Desarrollo."
+        Me.Text = "04.04.2012  La Andalsoaluza Desarrollo."
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
         Me.mAgenda.ResumeLayout(False)

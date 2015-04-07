@@ -24,14 +24,14 @@ Public Class gridsimpleform
     Public Event BeforeModify(ByRef sender As Object, ByRef target As DetailedSimpleForm)
     'Public Event AfterView(ByRef sender As Object, ByRef target As DetailedSimpleForm)
     'Public Event BeforeView(ByRef sender As Object, ByRef target As DetailedSimpleForm)
-    Private handled As Boolean
+    Private hAndalsoled As Boolean
 
-    Protected Property EventHandeld As Boolean
+    Protected Property EventHAndalsoeld As Boolean
         Get
-            Return handled
+            Return hAndalsoled
         End Get
         Set(ByVal value As Boolean)
-            handled = value
+            hAndalsoled = value
         End Set
     End Property
 
@@ -152,9 +152,9 @@ Public Class gridsimpleform
     Overridable Sub Insertar()
         'Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor
         Me.Cursor = Cursors.WaitCursor
-        Me.handled = False
+        Me.hAndalsoled = False
         RaiseEvent BeforeInsert(Me, Me.newRegForm)
-        If Not Me.handled Then
+        If Not Me.hAndalsoled Then
             Try
                 If Me.butNuevo.Enabled Then
                     Action(ACCION_INSERTAR)
@@ -171,9 +171,9 @@ Public Class gridsimpleform
 
     Overridable Sub Modificar()
         Me.Cursor = Cursors.WaitCursor
-        Me.handled = False
+        Me.hAndalsoled = False
         RaiseEvent BeforeModify(Me, Me.newRegForm)
-        If Not Me.handled Then
+        If Not Me.hAndalsoled Then
             Try
                 If Me.butModificar.Enabled Then Action(ACCION_MODIFICAR)
             Catch ex As Exception
@@ -187,9 +187,9 @@ Public Class gridsimpleform
 
     Overridable Sub Ver()
         Me.Cursor = Cursors.WaitCursor
-        Me.handled = False
+        Me.hAndalsoled = False
         ' RaiseEvent BeforeView(Me, Me.newRegForm)
-        If Not Me.handled Then
+        If Not Me.hAndalsoled Then
             Try
                 If Me.butVer.Enabled Then Action(ACCION_VER)
             Catch ex As Exception
@@ -204,9 +204,9 @@ Public Class gridsimpleform
     Overridable Sub Eliminar(Optional ByVal campoId As String = "Id")
         If MessageBox.Show(" ¿Realmente quieres eliminar este/estos registro ? ", " Eliminar ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
 
-            Me.handled = False
+            Me.hAndalsoled = False
             RaiseEvent BeforeDelete(CType(dgvGeneral, Control), Me)
-            If Not Me.handled Then
+            If Not Me.hAndalsoled Then
                 If dgvGeneral.Rows.Count > 0 Then
                     For Each row As DataGridViewRow In dgvGeneral.SelectedRows
                         If Not row.DataGridView Is Nothing Then
@@ -285,23 +285,23 @@ Public Class gridsimpleform
 
     Public Sub gestionarEventosDeTeclado(ByVal e As System.Windows.Forms.KeyEventArgs)
         Try
-            If e.KeyCode = 27 And Me.Embebido = False And Me.butSalir.Visible = True Then
+            If e.KeyCode = 27 AndAlso Me.Embebido = False AndAlso Me.butSalir.Visible = True Then
                 Me.Close()
-            ElseIf e.KeyCode = 116 And Me.Embebido = False And Me.butGuardar.Visible And Me.butGuardar.Enabled Then
+            ElseIf e.KeyCode = 116 AndAlso Me.Embebido = False AndAlso Me.butGuardar.Visible AndAlso Me.butGuardar.Enabled Then
                 Me.Guardar()
-            ElseIf e.KeyCode = 112 And Me.butNuevo.Enabled Then
+            ElseIf e.KeyCode = 112 AndAlso Me.butNuevo.Enabled Then
                 Me.Insertar()
-            ElseIf (e.KeyCode = 113 Or e.KeyCode = 13) And Me.butModificar.Enabled Then
+            ElseIf (e.KeyCode = 113 Or e.KeyCode = 13) AndAlso Me.butModificar.Enabled Then
                 Modificar()
-            ElseIf e.KeyCode = 114 And Me.butEliminar.Enabled Then
+            ElseIf e.KeyCode = 114 AndAlso Me.butEliminar.Enabled Then
                 Me.Eliminar()
-            ElseIf e.KeyCode = 120 And Me.butImprimir.Enabled Then
+            ElseIf e.KeyCode = 120 AndAlso Me.butImprimir.Enabled Then
                 Me.Imprimir()
-            ElseIf e.KeyCode = 121 And Me.butWord.Enabled Then
+            ElseIf e.KeyCode = 121 AndAlso Me.butWord.Enabled Then
                 Me.ToWord()
-            ElseIf e.KeyCode = 122 And Me.butExcel.Enabled Then
+            ElseIf e.KeyCode = 122 AndAlso Me.butExcel.Enabled Then
                 Me.ToExcel()
-            ElseIf e.KeyCode = 123 And Me.butVer.Enabled Then
+            ElseIf e.KeyCode = 123 AndAlso Me.butVer.Enabled Then
                 Me.Ver()
             ElseIf e.KeyCode = 115 Then 'F4
                 MessageBox.Show(Me.Name)

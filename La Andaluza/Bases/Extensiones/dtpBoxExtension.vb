@@ -4,7 +4,7 @@
     <Extension()> _
     Public Sub activarFoco(ByVal dtp As DateTimePicker)
 
-        If dtp.Format <> DateTimePickerFormat.Short And dtp.Format <> DateTimePickerFormat.Long Then
+        If dtp.Format <> DateTimePickerFormat.Short AndAlso dtp.Format <> DateTimePickerFormat.Long Then
             AddHandler dtp.ValueChanged, AddressOf moverFoco
         End If
     End Sub

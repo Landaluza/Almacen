@@ -69,7 +69,7 @@ Public MustInherit Class StoredProcedure
             transactDtb.Conectar()
             'End If
 
-            selectCommand = transactDtb.Comando(proc)
+            selectCommand = transactDtb.ComAndalsoo(proc)
             selectCommand.CommandType = CommandType.StoredProcedure
 
             If Not transactDtb.Transaccion Is Nothing Then
@@ -102,7 +102,7 @@ Public MustInherit Class StoredProcedure
     Protected Function InsertProcedure(ByRef dbo As DataBussines, ByRef transactDtb As DataBase) As Boolean
         Try
             transactDtb.Conectar()
-            Dim insertCommand As System.Data.SqlClient.SqlCommand = transactDtb.Comando(insertProcedureName)
+            Dim insertCommand As System.Data.SqlClient.SqlCommand = transactDtb.ComAndalsoo(insertProcedureName)
             insertCommand.CommandType = CommandType.StoredProcedure
 
             If Not transactDtb.Transaccion Is Nothing Then
@@ -150,7 +150,7 @@ Public MustInherit Class StoredProcedure
     Protected Function UpdateProcedure(ByRef dbo As DataBussines, ByRef transactDtb As DataBase) As Boolean
         Try
             transactDtb.Conectar()
-            Dim updateCommand As System.Data.SqlClient.SqlCommand = transactDtb.Comando(updateProcedureName)
+            Dim updateCommand As System.Data.SqlClient.SqlCommand = transactDtb.ComAndalsoo(updateProcedureName)
             updateCommand.CommandType = CommandType.StoredProcedure
             If Not transactDtb.Transaccion Is Nothing Then
                 updateCommand.Transaction = transactDtb.Transaccion
@@ -200,7 +200,7 @@ Public MustInherit Class StoredProcedure
         Try
             transactDtb.Conectar()
 
-            deleteCommand = transactDtb.Comando(deleteProcedureName)
+            deleteCommand = transactDtb.ComAndalsoo(deleteProcedureName)
             deleteCommand.CommandType = CommandType.StoredProcedure
 
             If Not transactDtb.Transaccion Is Nothing Then

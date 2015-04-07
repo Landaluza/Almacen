@@ -3,7 +3,7 @@
 
 'ClosedXML makes it easier for developers to create Excel 2007/2010 files. 
 'It provides a nice object oriented way to manipulate the files (similar to VBA) without dealing with the hassles of XML Documents.
-'It can be used by any .NET language like C# and Visual Basic (VB).
+'It can be used by any .NET language like C# Andalso Visual Basic (VB).
 'http://closedxml.codeplex.com/
 
 Module ExcelExtension
@@ -17,7 +17,7 @@ Module ExcelExtension
     ''' <param name="fileNameCsv">Ruta del archivo de texto delimitado por comas.</param>
     ''' <remarks></remarks>
 
-    'Cuando desee llamar al procedimiento para crear un archivo CSV, lo haría de la siguiente manera:
+    'CuAndalsoo desee llamar al procedimiento para crear un archivo CSV, lo haría de la siguiente manera:
     'Try
     '    ExportToCsv("C:\Mis documentos\Libro1.xls", "Hoja1", "C:\Archivos\Archivo.csv")
     'Catch ex As Exception
@@ -52,7 +52,7 @@ Module ExcelExtension
 
             ws.SaveAs(fileNameCsv, Microsoft.Office.Interop.Excel.XlFileFormat.xlCSV)
 
-        Catch ex As Exception            
+        Catch ex As Exception
             Throw
         Finally
             If Not ws Is Nothing Then _

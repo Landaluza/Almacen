@@ -5,7 +5,7 @@ Public Class MicrosoftOfficeExporter
     Public Const MANY As String = "Many"
 
     Public Sub ExportToExcel(ByVal Type As String, ByVal Head As String, ByVal Grid As DataGridView)
-        Dim frm As New frmEspera("Preparando archivo")
+        Dim frm As New frmEspera("PreparAndalsoo archivo")
         frm.Show()
         Try
             If Grid.ColumnCount > 0 Then
@@ -64,7 +64,7 @@ Public Class MicrosoftOfficeExporter
     End Sub
 
     Public Sub ExportToWord(ByVal Type As String, ByVal Head As String, ByVal Grid As DataGridView)
-        Dim frm As New frmEspera("Preparando archivo")
+        Dim frm As New frmEspera("PreparAndalsoo archivo")
         frm.Show()
         Try
             If Grid.ColumnCount > 0 Then
@@ -242,7 +242,7 @@ Public Class MicrosoftOfficeExporter
             ' Recorremos todas las filas del objeto DataTable incluido en el conjunto de datos.
             For Each dr As DataRow In dt.Rows
                 For Each dc As DataColumn In dt.Columns
-                    If dc.DataType Is System.Type.GetType("System.String") And _
+                    If dc.DataType Is System.Type.GetType("System.String") AndAlso _
                        textDelimiter = True Then
                         ' Incluimos el dato alfanumérico entre el caracter delimitador de texto especificado.
                         value &= """" & dr.Item(col).ToString & """" & separatorChar

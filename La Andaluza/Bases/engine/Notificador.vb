@@ -6,8 +6,8 @@
         Dim dt As DataTable
 
         Try
-            dt = dtb.Consultar("Select texto, id from notificaciones where id_TipoUsuario = " & Config.UserType & " and leido = 0", False)
-            'dtb.ConsultaAlteraciones("update notificaciones set leido = 1 where id_TipoUsuario = " & Config.UserType & " and leido = 0")
+            dt = dtb.Consultar("Select texto, id from notificaciones where id_TipoUsuario = " & Config.UserType & " Andalso leido = 0", False)
+            'dtb.ConsultaAlteraciones("update notificaciones set leido = 1 where id_TipoUsuario = " & Config.UserType & " Andalso leido = 0")
 
         Catch ex As Exception
             Return Nothing

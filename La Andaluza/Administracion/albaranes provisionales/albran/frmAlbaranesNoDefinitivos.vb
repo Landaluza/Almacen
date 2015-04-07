@@ -14,7 +14,7 @@ Public Class frmAlbaranesNoDefinitivos
     End Sub
 
     Private Sub Insert_Before() Handles MyBase.BeforeInsert
-        Me.EventHandeld = True
+        Me.EventHAndalsoeld = True
     End Sub
 
     Private Sub modify_Before() Handles MyBase.BeforeModify
@@ -22,7 +22,7 @@ Public Class frmAlbaranesNoDefinitivos
         If Not dboAlbaranesNoDefinitivos Is Nothing Then
             newRegForm.SetDataBussinesObject(CType(Me.dboAlbaranesNoDefinitivos, databussines))
         Else
-            MyBase.EventHandeld = True
+            MyBase.EventHAndalsoeld = True
             Messagebox.show("No se pudo recuperar los datos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub

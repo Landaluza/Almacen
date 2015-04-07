@@ -14,7 +14,7 @@
     Public Event AfterSave(sender As Object, e As EventArgs)
     Public Event AfterAdd(sender As Object, e As EventArgs)
     Public Event BeforeScan(ByRef sender As Object, ByVal scc As String)
-    Public EventHandled As Boolean
+    Public EventHAndalsoled As Boolean
 
     Private m_TipoPedido As Byte
     Private camposEscaner As Collection
@@ -204,7 +204,7 @@
 
     End Sub
 
-    Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click        
+    Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
         O_Item = Nothing
 
         Me.Cursor = Cursors.WaitCursor
@@ -341,7 +341,7 @@
         End If
 
         RaiseEvent BeforeSave(Me, Nothing)
-        If Not EventHandled Then
+        If Not EventHAndalsoled Then
             'En la tabla existe un campo Numero, lo cree para tener un control de los albaranes ya que el campo ID que tambien es AutoNumerico, lo maneja SQl
             ' y puede ser que falten numeros porque se han borrado algun registro.
             Dim spAlbaran As New spAlbaranesCarga
@@ -406,9 +406,9 @@
                                                          "Sin asignar a definitivo", _
                                                          "", _
                                                          "", _
-                                                         Convert.ToInt32(Me.codigoMaestro), dtb) Then Throw New Exception("Error guardando el albaran provisional")
+                                                         Convert.ToInt32(Me.codigoMaestro), dtb) Then Throw New Exception("Error guardAndalsoo el albaran provisional")
 
-                    ConsultaLoteAlternativo = "select LoteAlternativo from albaranescargaseguridad where id_pedidoclientemaestro = " & Me.codigoMaestro & " and scc = "
+                    ConsultaLoteAlternativo = "select LoteAlternativo from albaranescargaseguridad where id_pedidoclientemaestro = " & Me.codigoMaestro & " Andalso scc = "
                 Else
                     If Not ctlAlb.GuardarAlbaranCargaProMaestroParaOrdenCarga(Numero, _
                                                         dtpFecha.Value, _
@@ -417,9 +417,9 @@
                                                         "Sin asignar a definitivo", _
                                                         "", _
                                                         "", _
-                                                        Convert.ToInt32(Me.codigoMaestro), dtb) Then Throw New Exception("Error guardando el albaran provisional")
+                                                        Convert.ToInt32(Me.codigoMaestro), dtb) Then Throw New Exception("Error guardAndalsoo el albaran provisional")
 
-                    ConsultaLoteAlternativo = "select LoteAlternativo from albaranescargaseguridad where id_ordencarga = " & Me.codigoMaestro & " and scc = "
+                    ConsultaLoteAlternativo = "select LoteAlternativo from albaranescargaseguridad where id_ordencarga = " & Me.codigoMaestro & " Andalso scc = "
                 End If
 
 
@@ -450,27 +450,27 @@
                                                               "Reserva1", _
                                                               "Reserva2", _
                                                               "Reserva3", _
-                                                              loteAlternativo, dtb) Then Throw New Exception("Error guardando los detalles del alabaran provisional")
+                                                              loteAlternativo, dtb) Then Throw New Exception("Error guardAndalsoo los detalles del alabaran provisional")
 
 
                     m_db = spPaletsProducidos.Select_RecordBySSCC(lvwPalets.Items(Contador).SubItems(0).Text, dtb)
                     m_db.EnAlmacen = False
-                    If Not spPaletsProducidos.Grabar(CType(m_db, DataBussines), dtb) Then Throw New Exception("Error actualizando los datos de los palets")
+                    If Not spPaletsProducidos.Grabar(CType(m_db, DataBussines), dtb) Then Throw New Exception("Error actualizAndalsoo los datos de los palets")
 
                     Contador += 1
                 Loop
 
                 'Borro los registros de seguridad                
                 If Me.TipoPedido = PEDIDO Then
-                    If Not spAlbaran.spDeleteAlbaranCargaSeguridadAllPedido(Convert.ToInt32(Me.codigoMaestro), dtb) Then Throw New Exception("Problema limpiando tras las operaciones")
+                    If Not spAlbaran.spDeleteAlbaranCargaSeguridadAllPedido(Convert.ToInt32(Me.codigoMaestro), dtb) Then Throw New Exception("Problema limpiAndalsoo tras las operaciones")
                 Else
-                    If Not spAlbaran.spDeleteAlbaranCargaSeguridadAllOrdenCarga(Convert.ToInt32(Me.codigoMaestro), dtb) Then Throw New Exception("Problema limpiando tras las operaciones")
+                    If Not spAlbaran.spDeleteAlbaranCargaSeguridadAllOrdenCarga(Convert.ToInt32(Me.codigoMaestro), dtb) Then Throw New Exception("Problema limpiAndalsoo tras las operaciones")
                 End If
 
 
                 dtb.TerminarTransaccion()
                 resultado = True
-            
+
             Catch ex As Exception
                 dtb.CancelarTransaccion()
 
@@ -564,9 +564,9 @@
 
             Try
                 If LongitudOK Then
-                    EventHandled = False
+                    EventHAndalsoled = False
                     RaiseEvent BeforeScan(Me, txtSCC.Text)
-                    If EventHandled Then
+                    If EventHAndalsoled Then
                         btnOK.Enabled = True
 
                         Tabla = dtb.Consultar("SelectSCC " & Me.txtSCC.Text)
@@ -670,7 +670,7 @@
                 MessageBox.Show("Error en txtSCCEscaneado_Validating", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End If
-        
+
     End Sub
 
     'Private Sub txtSCC_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles txtSCC.Validating
@@ -685,7 +685,7 @@
         'For Each oControl As Control In Me.TabControl1.TabPages(1).Controls
         For Each oControl As Control In Me.CamposEscaner
             If TypeOf (oControl) Is TextBox Then
-                If oControl.Name <> "txtPaletsTotales" And oControl.Name <> "txtPesoTotal" Then
+                If oControl.Name <> "txtPaletsTotales" AndAlso oControl.Name <> "txtPesoTotal" Then
                     oControl.Text = ""
                 End If
             End If
@@ -714,7 +714,7 @@
                 If m_Item.SubItems(2).Text = txtDescripcion.Text Then
                     PaletsPorArticulo += 1
                 End If
-                If m_Item.SubItems(9).Text <> "True" And m_Item.SubItems(9).Text <> "1" Then
+                If m_Item.SubItems(9).Text <> "True" AndAlso m_Item.SubItems(9).Text <> "1" Then
                     totalpal += 1
                 End If
 
@@ -801,7 +801,7 @@
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        If Me.codigoEscaneado = Me.txtSCCEscaneado.Text And Me.txtSCCEscaneado.Text <> "" Then
+        If Me.codigoEscaneado = Me.txtSCCEscaneado.Text AndAlso Me.txtSCCEscaneado.Text <> "" Then
             contTiempo += 200
 
             If contTiempo >= 1000 Then
@@ -845,9 +845,9 @@
             Me.Cursor = Cursors.Default
         Else
             Try
-                Dim mail As New Mail.Mail1And1(True, "Palet sin movimientos. Fecha" & Convert.ToString(Now.Date) & " SCC: " & txtSCC.Text, _
+                Dim mail As New Mail.Mail1Andalso1(True, "Palet sin movimientos. Fecha" & Convert.ToString(Now.Date) & " SCC: " & txtSCC.Text, _
                                                "El palet con matrícula " & txtSCC.Text & " se ha expedido sin movimientos sobre él (con 0 cajas).", String.Empty, _
-                                                Config.MailReportAddress, Config.MailReportPass, "control@landaluza.es", _
+                                                Config.MailReportAddress, Config.MailReportPass, "control@lAndalsoaluza.es", _
                                                 String.Empty, String.Empty, Config.MailClientHost, False)
 
                 Me.Cursor = Cursors.Default

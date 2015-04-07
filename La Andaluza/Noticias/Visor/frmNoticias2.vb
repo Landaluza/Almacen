@@ -35,7 +35,7 @@ Public Class frmNoticias2
 
 
     Private Sub Insert_Before() Handles MyBase.BeforeInsert
-        EventHandeld = True
+        EventHAndalsoeld = True
     End Sub
 
     Private Sub modify_Before() Handles MyBase.BeforeModify
@@ -43,7 +43,7 @@ Public Class frmNoticias2
         If Not dboNoticias2 Is Nothing Then
             newRegForm.SetDataBussinesObject(CType(Me.dboNoticias2, databussines))
         Else
-            MyBase.EventHandeld = True
+            MyBase.EventHAndalsoeld = True
             Messagebox.show("No se pudo recuperar los datos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
