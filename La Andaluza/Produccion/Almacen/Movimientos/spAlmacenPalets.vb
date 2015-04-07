@@ -21,7 +21,7 @@ Public Class spAlmacenPalets
 
     Public Function cargasSinServir(ByRef transacDtb As DataBase) As Integer
         Try
-            Return Convert.ToInt32(transacDtb.Consultar("select isnull(count(ordenesCarga.OrdenCargaID),0) from OrdenesCarga where servido = 'false' Andalso id_AlbaranCargaProMaestro is null group by ordenesCarga.OrdenCargaID", False).Rows(0).Item(0))
+            Return Convert.ToInt32(transacDtb.Consultar("select isnull(count(ordenesCarga.OrdenCargaID),0) from OrdenesCarga where servido = 'false' And id_AlbaranCargaProMaestro is null group by ordenesCarga.OrdenCargaID", False).Rows(0).Item(0))
         Catch ex As Exception
             Return 0
         End Try

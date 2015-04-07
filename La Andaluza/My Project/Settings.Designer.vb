@@ -24,9 +24,9 @@ Namespace My
 
 #Region "Funcionalidad para autoguardar de My.Settings"
 #If _MyType = "WindowsForms" Then
-        Private Shared addedHAndalsoler As Boolean
+        Private Shared addedHandler As Boolean
 
-        Private Shared addedHAndalsolerLockObject As New Object
+        Private Shared addedHandlerLockObject As New Object
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
         Private Shared Sub AutoSaveSettings(ByVal sender As Global.System.Object, ByVal e As Global.System.EventArgs)
@@ -41,11 +41,11 @@ Namespace My
             Get
 
 #If _MyType = "WindowsForms" Then
-                If Not addedHAndalsoler Then
-                    SyncLock addedHAndalsolerLockObject
-                        If Not addedHAndalsoler Then
+                If Not addedHandler Then
+                    SyncLock addedHandlerLockObject
+                        If Not addedHandler Then
                             AddHandler My.Application.Shutdown, AddressOf AutoSaveSettings
-                            addedHAndalsoler = True
+                            addedHandler = True
                         End If
                     End SyncLock
                 End If

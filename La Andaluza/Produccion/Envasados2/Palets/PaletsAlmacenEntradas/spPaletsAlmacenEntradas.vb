@@ -13,7 +13,7 @@ Class spPaletsAlmacenEntradas
         dtb.Conectar()
 
         Dim insertProcedure As String = "[dbo].[PaletsAlmacenEntradasInsert]"
-        Dim insertCommand As System.Data.SqlClient.SqlCommand = dtb.ComAndalsoo(insertProcedure)
+        Dim insertCommand As System.Data.SqlClient.SqlCommand = dtb.Comando(insertProcedure)
         insertCommand.CommandType = CommandType.StoredProcedure
 
         insertCommand.Parameters.AddWithValue("@SSCC", dbo_PaletsAlmacenEntradas.SSCC)
@@ -50,7 +50,7 @@ Class spPaletsAlmacenEntradas
             dtb.Conectar()
 
             deleteProcedure = "[dbo].[PaletsAlmacenEntradasDelete]"
-            deleteCommand = dtb.ComAndalsoo(deleteProcedure)
+            deleteCommand = dtb.Comando(deleteProcedure)
             deleteCommand.CommandType = CommandType.StoredProcedure
             '<Tag=[Four][Start]> -- please do not remove this line
             deleteCommand.Parameters.AddWithValue("@OldPaletAlmacenEntradaID", PaletAlmacenEntradaID)

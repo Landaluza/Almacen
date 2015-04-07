@@ -214,7 +214,7 @@ Public Class DetailedSimpleForm
                     butGuardar.Visible = False
                     Me.Icon = My.Resources.window_duplicate1
                 Case Else
-                    Me.Icon = My.Resources.LogoBAndalsoejaLa21
+                    Me.Icon = My.Resources.LogoBandejaLa21
             End Select
         End If
 

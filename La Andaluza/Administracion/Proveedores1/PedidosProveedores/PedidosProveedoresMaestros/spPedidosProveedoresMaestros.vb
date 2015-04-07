@@ -11,7 +11,7 @@ Class spPedidosProveedoresMaestros
     Public Function SelectProveedoresMailsPedidos(ByVal ProveedorID As Integer) As DataTable
         dtb.Conectar()
         Dim selectProcedure As String = "[dbo].[ProveedoresMailsPedidosSelectDgvByProveedorID]"
-        Dim selectCommand As System.Data.SqlClient.SqlCommand = dtb.comAndalsoo(selectProcedure)
+        Dim selectCommand As System.Data.SqlClient.SqlCommand = dtb.Comando(selectProcedure)
         selectCommand.CommandType = CommandType.StoredProcedure
         selectCommand.Parameters.AddWithValue("@ProveedorID", ProveedorID)
         Dim dt As New DataTable

@@ -9,7 +9,7 @@ Class spOrdenesCarga
     End Sub
 
     Public Function OrdenesCargaInsert(ByVal dbo_OrdenesCarga As DBO_OrdenesCarga, ByRef transacDtb As DataBase) As Boolean
-        Dim insertCommand As System.Data.SqlClient.SqlCommand = transacDtb.ComAndalsoo("[dbo].[OrdenesCargaInsert]")
+        Dim insertCommand As System.Data.SqlClient.SqlCommand = transacDtb.Comando("[dbo].[OrdenesCargaInsert]")
         insertCommand.CommandType = CommandType.StoredProcedure
         insertCommand.Parameters.AddWithValue("@Fecha", dbo_OrdenesCarga.Fecha)
         insertCommand.Parameters.AddWithValue("@Ruta", dbo_OrdenesCarga.Ruta)

@@ -17,14 +17,14 @@ Public Class frmAlbaranesCargaMaestroLinea
         AddHandler frm.AfterSave, AddressOf recargar
         frm.ShowDialog()
 
-        EventHAndalsoeld = True
+        EventHAndeld = True
     End Sub
 
     Private Sub recargar(sender As Object, e As EventArgs)
         dgvFill(Nothing, Nothing)
     End Sub
     Private Sub modify_Before() Handles MyBase.BeforeModify
-        EventHAndalsoeld = True
+        EventHAndeld = True
     End Sub
 
     Protected Overrides Sub BindDataSource() Implements Queriable.dataGridViewFill

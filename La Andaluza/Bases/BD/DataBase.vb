@@ -28,7 +28,7 @@ Public Class DataBase
         End Get
     End Property
 
-    Public Function ComAndalsoo(ByVal procedure As String) As System.Data.SqlClient.SqlCommand
+    Public Function Comando(ByVal procedure As String) As System.Data.SqlClient.SqlCommand
         Dim sc As System.Data.SqlClient.SqlCommand = New System.Data.SqlClient.SqlCommand(procedure, Me.Cnn)
         If Not Me.transaction Is Nothing Then sc.Transaction = Me.Transaccion
         sc.CommandTimeout = Me.time_out
@@ -130,7 +130,7 @@ Public Class DataBase
 
 
         Dim dtsTemp As New DataSet
-        Dim cmd As System.Data.SqlClient.SqlCommand '= ComAndalsoo(Cadena)
+        Dim cmd As System.Data.SqlClient.SqlCommand '= Comando(Cadena)
 
         Try
             If procedure Then
@@ -138,9 +138,9 @@ Public Class DataBase
                     Cadena = "exec " & Cadena
                 End If
 
-                cmd = ComAndalsoo(Cadena)
+                cmd = Comando(Cadena)
             Else
-                cmd = ComAndalsoo(Cadena)
+                cmd = Comando(Cadena)
             End If
 
             'If procedure Then cmd.CommandType = CommandType.StoredProcedure

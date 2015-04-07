@@ -13,7 +13,7 @@
     Public Event AfterSave(sender As Object, e As EventArgs)
     Public Event AfterAdd(sender As Object, e As EventArgs)
     Public Event BeforeScan(ByRef sender As Object, ByVal scc As String)
-    Public EventHAndalsoled As Boolean
+    Public EventHAndled As Boolean
     Private loteOriginal As String
     Private spPaletsProducidos2 As spPaletsProducidos2
     Private dtb As DataBase
@@ -157,9 +157,9 @@
                 End Select
 
                 If LongitudOK Then
-                    'EventHAndalsoled = False
+                    'EventHAndled = False
                     'RaiseEvent BeforeScan(Me, txtSCC.Text)
-                    'If EventHAndalsoled Then
+                    'If EventHAndled Then
                     btnOK.Enabled = True
 
 
@@ -191,9 +191,9 @@
                                             Me.Cursor = Cursors.Default
                                         Else
                                             Try
-                                                Dim mail As New Mail.Mail1Andalso1(True, "Palet sin movimientos. Fecha" & Convert.ToString(Now.Date) & " SCC: " & txtSCC.Text, _
+                                                Dim mail As New Mail.Mail1And1(True, "Palet sin movimientos. Fecha" & Convert.ToString(Now.Date) & " SCC: " & txtSCC.Text, _
                                                                                "El palet con matrícula " & txtSCC.Text & " se ha expedido sin movimientos sobre él (con 0 cajas).", String.Empty, _
-                                                                                Config.MailReportAddress, Config.MailReportPass, "control@lAndalsoaluza.es", _
+                                                                                Config.MailReportAddress, Config.MailReportPass, "control@landaluza.es", _
                                                                                 String.Empty, String.Empty, Config.MailClientHost, False)
 
                                                 Me.Cursor = Cursors.Default

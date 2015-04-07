@@ -13,7 +13,7 @@ Class spPedidosProveedoresDocumentos1
     '    Dim DBO_PedidosProveedoresDocumentos1 As New DBO_PedidosProveedoresDocumentos1
 
     '    Dim selectProcedure As String = "[dbo].[PedidosProveedoresDocumentos1Select]"
-    '    Dim selectCommand As System.Data.SqlClient.SqlCommand = dtb.ComAndalsoo(selectProcedure)
+    '    Dim selectCommand As System.Data.SqlClient.SqlCommand = dtb.Comando(selectProcedure)
     '    selectCommand.CommandType = CommandType.StoredProcedure
     '    selectCommand.Parameters.AddWithValue("@PedidoProveedorDocumentoID", PedidoProveedorDocumentoID)
     '    Try
@@ -43,7 +43,7 @@ Class spPedidosProveedoresDocumentos1
         dtb.Conectar()
 
         Dim insertProcedure As String = "[dbo].[PedidosProveedoresDocumentos1Insert]"
-        Dim insertCommand As System.Data.SqlClient.SqlCommand = dtb.ComAndalsoo(insertProcedure)
+        Dim insertCommand As System.Data.SqlClient.SqlCommand = dtb.Comando(insertProcedure)
         insertCommand.CommandType = CommandType.StoredProcedure
         insertCommand.Parameters.AddWithValue("@Descripcion", dbo_PedidosProveedoresDocumentos1.Descripcion)
         insertCommand.Parameters.AddWithValue("@Ruta", dbo_PedidosProveedoresDocumentos1.Ruta)

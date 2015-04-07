@@ -35,9 +35,9 @@ Partial Public Class dtsAlbaranesCargaProviDetalles
         MyBase.New
         Me.BeginInit
         Me.InitClass
-        Dim schemaChangedHAndalsoler As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
-        AddHandler MyBase.Tables.CollectionChanged, schemaChangedHAndalsoler
-        AddHandler MyBase.Relations.CollectionChanged, schemaChangedHAndalsoler
+        Dim schemaChangedHandler As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
+        AddHandler MyBase.Tables.CollectionChanged, schemaChangedHandler
+        AddHandler MyBase.Relations.CollectionChanged, schemaChangedHandler
         Me.EndInit()
     End Sub
 
@@ -47,9 +47,9 @@ Partial Public Class dtsAlbaranesCargaProviDetalles
         MyBase.New(info, context, False)
         If (Me.IsBinarySerialized(info, context) = True) Then
             Me.InitVars(False)
-            Dim schemaChangedHAndalsoler1 As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
-            AddHandler Me.Tables.CollectionChanged, schemaChangedHAndalsoler1
-            AddHandler Me.Relations.CollectionChanged, schemaChangedHAndalsoler1
+            Dim schemaChangedHandler1 As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
+            AddHandler Me.Tables.CollectionChanged, schemaChangedHandler1
+            AddHandler Me.Relations.CollectionChanged, schemaChangedHandler1
             Return
         End If
         Dim strSchema As String = CType(info.GetValue("XmlSchema", GetType(String)), String)
@@ -71,9 +71,9 @@ Partial Public Class dtsAlbaranesCargaProviDetalles
             Me.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
         End If
         Me.GetSerializationData(info, context)
-        Dim schemaChangedHAndalsoler As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
-        AddHandler MyBase.Tables.CollectionChanged, schemaChangedHAndalsoler
-        AddHandler Me.Relations.CollectionChanged, schemaChangedHAndalsoler
+        Dim schemaChangedHandler As Global.System.ComponentModel.CollectionChangeEventHandler = AddressOf Me.SchemaChanged
+        AddHandler MyBase.Tables.CollectionChanged, schemaChangedHandler
+        AddHandler Me.Relations.CollectionChanged, schemaChangedHandler
     End Sub
 
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
@@ -273,7 +273,7 @@ Partial Public Class dtsAlbaranesCargaProviDetalles
     End Function
 
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-    Public Delegate Sub AlbaranesCargaProviDetallesRowChangeEventHAndalsoler(ByVal sender As Object, ByVal e As AlbaranesCargaProviDetallesRowChangeEvent)
+    Public Delegate Sub AlbaranesCargaProviDetallesRowChangeEventHandler(ByVal sender As Object, ByVal e As AlbaranesCargaProviDetallesRowChangeEvent)
 
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -466,16 +466,16 @@ Partial Public Class dtsAlbaranesCargaProviDetalles
         End Property
 
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Event AlbaranesCargaProviDetallesRowChanging As AlbaranesCargaProviDetallesRowChangeEventHAndalsoler
+        Public Event AlbaranesCargaProviDetallesRowChanging As AlbaranesCargaProviDetallesRowChangeEventHandler
 
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Event AlbaranesCargaProviDetallesRowChanged As AlbaranesCargaProviDetallesRowChangeEventHAndalsoler
+        Public Event AlbaranesCargaProviDetallesRowChanged As AlbaranesCargaProviDetallesRowChangeEventHandler
 
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Event AlbaranesCargaProviDetallesRowDeleting As AlbaranesCargaProviDetallesRowChangeEventHAndalsoler
+        Public Event AlbaranesCargaProviDetallesRowDeleting As AlbaranesCargaProviDetallesRowChangeEventHandler
 
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Event AlbaranesCargaProviDetallesRowDeleted As AlbaranesCargaProviDetallesRowChangeEventHAndalsoler
+        Public Event AlbaranesCargaProviDetallesRowDeleted As AlbaranesCargaProviDetallesRowChangeEventHandler
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _

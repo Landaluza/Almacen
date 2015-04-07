@@ -258,13 +258,13 @@ Public Class EscaneoSCC1
     Private Sub comprobarScc(ByRef sender As Object, ByVal scc As String)
         Dim frm As frmCarga = CType(sender, frmCarga)
         Dim row As DataGridViewRow
-        frm.EventHAndalsoled = False
+        frm.EventHAndled = False
 
         If frm.TipoPedido = frmCarga.PEDIDO Then
             For Each row In Me.dgvPedidos.Rows
                 If Convert.ToString(row.Cells("Numero").Value) = Me.TabControl2.SelectedTab.Text Then
                     If Convert.ToString(row.Cells("Palets").Value).Contains(scc) Then
-                        frm.EventHAndalsoled = True
+                        frm.EventHAndled = True
                         Exit For
                     End If
                 End If
@@ -274,7 +274,7 @@ Public Class EscaneoSCC1
                 If Me.TabControl2.SelectedTab.Text.Length > 15 Then
                     If Convert.ToString(row.Cells("Fecha").Value).Substring(0, 16) = Me.TabControl2.SelectedTab.Text.Substring(0, 16) Then
                         If row.Cells("Palets").Value.ToString.Contains(scc) Then
-                            frm.EventHAndalsoled = True
+                            frm.EventHAndled = True
                             Exit For
                         End If
                     End If
@@ -282,14 +282,14 @@ Public Class EscaneoSCC1
             Next
         End If
 
-        If Not frm.EventHAndalsoled Then
+        If Not frm.EventHAndled Then
             Dim Respuesta As DialogResult
             Respuesta = MessageBox.Show(" El palet no se encuentra entre los sugeridos" & Environment.NewLine & _
                                "¿Desea continuar?", _
                                "Palet no sugerido", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
             If Respuesta = DialogResult.Yes Then
-                frm.EventHAndalsoled = True
+                frm.EventHAndled = True
             End If
         End If
     End Sub
@@ -298,13 +298,13 @@ Public Class EscaneoSCC1
     Private Sub comprobarPedido(sender As Object, e As EventArgs)
         Dim frm As frmCarga = CType(sender, frmCarga)
         Dim row As DataGridViewRow
-        frm.EventHAndalsoled = True
+        frm.EventHAndled = True
 
         If Me.TabControl2.SelectedTab.Text <> "Carga provisional" Then
             If frm.TipoPedido = frmCarga.PEDIDO Then
                 For Each row In Me.dgvPedidos.Rows
                     If Convert.ToString(row.Cells("Numero").Value) = Me.TabControl2.SelectedTab.Text Then
-                        If Convert.ToString(row.Cells("Palets").Value) = "" Then frm.EventHAndalsoled = False
+                        If Convert.ToString(row.Cells("Palets").Value) = "" Then frm.EventHAndled = False
                         Exit For
                     End If
                 Next
@@ -312,7 +312,7 @@ Public Class EscaneoSCC1
                 For Each row In Me.dgvOrdenesCarga.Rows
                     If Me.TabControl2.SelectedTab.Text.Length > 15 Then
                         If Convert.ToString(row.Cells("Fecha").Value).Substring(0, 16) = Me.TabControl2.SelectedTab.Text.Substring(0, 16) Then
-                            If Convert.ToString(row.Cells("Palets").Value) = "" Or Convert.ToString(row.Cells("Palets").Value) = " Sin información, revisar excel. " Then frm.EventHAndalsoled = False
+                            If Convert.ToString(row.Cells("Palets").Value) = "" Or Convert.ToString(row.Cells("Palets").Value) = " Sin información, revisar excel. " Then frm.EventHAndled = False
 
                             Exit For
                         End If
@@ -320,17 +320,17 @@ Public Class EscaneoSCC1
                 Next
             End If
         Else
-            frm.EventHAndalsoled = False
+            frm.EventHAndled = False
         End If
 
-        If frm.EventHAndalsoled Then
+        If frm.EventHAndled Then
             Dim Respuesta As DialogResult
             Respuesta = MessageBox.Show(" Aun quedan palets por escanear en el pedido" & Environment.NewLine & _
                                "¿Desea ignorarlos y grabar?", _
                                "Palet no sugerido", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
             If Respuesta = DialogResult.Yes Then
-                frm.EventHAndalsoled = False
+                frm.EventHAndled = False
             End If
         End If
     End Sub

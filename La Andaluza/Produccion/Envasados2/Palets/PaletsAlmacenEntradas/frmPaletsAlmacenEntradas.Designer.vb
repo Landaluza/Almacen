@@ -15,7 +15,7 @@ Partial Class frmPaletsAlmacenEntradas
     Private components As System.ComponentModel.IContainer
 
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
-    'Se puede modificar usAndalsoo el Diseñador de Windows Forms.  
+    'Se puede modificar usAndo el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Overloads Sub InitializeComponent()

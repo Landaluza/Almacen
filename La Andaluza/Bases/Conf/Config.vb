@@ -28,9 +28,9 @@
     Public Shared Sub Cargar_Ajustes_Predeterminados()
         Config.Server = DataBase.SERVIDOR
         Config.MailReportPass = "Administracion2008"
-        Config.ventasPath = "Z:\Informatica\La Andalsoaluza app\ExcelFile\Book1.xlsx"
-        Config.MailReportAddress = "administracion@lAndalsoaluza.es"
-        Config.MailClientHost = "smtp.1Andalso1.es"
+        Config.ventasPath = "Z:\Informatica\La Andaluza app\ExcelFile\Book1.xlsx"
+        Config.MailReportAddress = "administracion@landaluza.es"
+        Config.MailClientHost = "smtp.1and1.es"
         Config.QS_Sesion = "Sesión A - [24 x 80]"
         'Config.QS_Sesion = "Sesión A"
         Config.load()

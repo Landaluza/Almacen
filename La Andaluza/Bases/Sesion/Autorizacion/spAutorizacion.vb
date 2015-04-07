@@ -7,7 +7,7 @@ Public Class spAutorizacion
         Dim dtb As New DataBase(Config.Server)
 
         dtb.Conectar()
-        Dim selectCommand As System.Data.SqlClient.SqlCommand = dtb.ComAndalsoo("[dbo].[UsuariosVerificar]")
+        Dim selectCommand As System.Data.SqlClient.SqlCommand = dtb.Comando("[dbo].[UsuariosVerificar]")
         selectCommand.CommandType = CommandType.StoredProcedure
         selectCommand.Parameters.AddWithValue("@usuarioId", usuarioId)
         selectCommand.Parameters.AddWithValue("@pass", pass)

@@ -44,7 +44,7 @@
         'Sistema operativo					                5.1.2600
         'Idioma                                             Ingles
 
-        'Andalsoaluza1
+        'Andaluza1
         'Microsoft SQL Server Management Studio				9.00.1399.00
         'Microsoft Analysis Services Client Tools			2005.090.1399.00
         'Microsoft Data Access Components (MDAC)			2000.085.1132.00 (xpsp.080413-0852)
@@ -68,10 +68,10 @@
         'End Select
 
         Dim name As String = My.Computer.Name
-        If name = "DEALEJAndalsoRO" Or name = "MAM1" Or name = "CALIDAD1" Or name = "AndalsoALUZA1" Then
+        If name = "DEALEJANDRO" Or name = "MAM1" Or name = "CALIDAD1" Or name = "ANDALUZA1" Then
             Return fecha.Year & "/" & fecha.Month & "/" & fecha.Day & " " & fecha.Hour & ":" & fecha.Minute & ":" & fecha.Second
         Else
-            'If name = "AndalsoALUZA1" Then
+            'If name = "Andaluza1" Then
             '    Return fecha.Year & "/" & fecha.Day & "/" & fecha.Month & " " & fecha.Hour & ":" & fecha.Minute & ":" & fecha.Second ' & fecha.datetime.now.ToString
             '    'Return fecha.Year & "/" & fecha.Month & "/" & fecha.Day & " " & fecha.Hour & ":" & fecha.Minute & ":" & fecha.Second
             'Else

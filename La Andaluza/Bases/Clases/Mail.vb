@@ -149,7 +149,7 @@ Module Mail
 
             Try
                 'client.Send(message)
-                'client.SendCompleted += New SendCompletedEventHAndalsoler(SendCompletedCallback)
+                'client.SendCompleted += New SendCompletedEventHandler(SendCompletedCallback)
                 'Dim userState As String = "test message1"
                 'client.SendAsync(message, userState)
                 'AddHAndler client.SendComplete, AddressOf SendCompletedCallback   
@@ -164,7 +164,7 @@ Module Mail
         End Function
     End Class
 
-    Public Class Mail1Andalso1
+    Public Class Mail1And1
         Inherits Mail
 
         Public Sub New(ByVal a As Boolean, ByVal subject As String, ByVal messageBody As String, ByVal attachmentFile As String, _
@@ -323,7 +323,7 @@ Module Mail
                        "<html>"
                     Me.addAtachmentsFromDataBase(dgvGrilla)
                     Dim sAttachmentFile As String = PDFFile & m_NumeroPedido & ".PDF"
-                    Me.SendEmail(sSubject, sHTMLBody, Nothing, "administracion@lAndalsoaluza.es", "Administracion2008", "gerente@lAndalsoaluza.es", "calidad@lAndalsoaluza.es", Nothing, "smtp.1Andalso1.es")
+                    Me.SendEmail(sSubject, sHTMLBody, Nothing, "administracion@landaluza.es", "Administracion2008", "gerente@landaluza.es", "calidad@landaluza.es", Nothing, "smtp.1and1.es")
                 Else
                     messagebox.show("El PDF File: " & m_NumeroPedido & ".PDF" & " no existe.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 End If
@@ -342,8 +342,8 @@ Module Mail
                    "   <body>" & _
                    "<html>"
                 '"Administracion2008"
-                '"almacen@lAndalsoaluza.es"
-                Return Me.SendEmail(asunto, sHTMLBody, Nothing, fromAdress, fromPass, "gerente@lAndalsoaluza.es", "calidad@lAndalsoaluza.es", Nothing, "smtp.1Andalso1.es")
+                '"almacen@landaluza.es"
+                Return Me.SendEmail(asunto, sHTMLBody, Nothing, fromAdress, fromPass, "gerente@landaluza.es", "calidad@landaluza.es", Nothing, "smtp.1and1.es")
             Catch ex As Exception
                 Return False
             End Try
@@ -381,7 +381,7 @@ Module Mail
                         ccAddress = ccAddress & Convert.ToString(dt.Rows(j).Item("Mail")) & "; "
                     End If
                 Next
-                ccAddress = ccAddress & "gerente@lAndalsoaluza.eses"
+                ccAddress = ccAddress & "gerente@landaluza.eses"
 
                 If Not ccAddress Is Nothing Then
                     ccAddress = Mid(ccAddress, 1, (ccAddress.Length - 2))
@@ -389,7 +389,7 @@ Module Mail
 
                 If Not toAddress Is Nothing Then
                     sConfirm = _
-                    "Confirmas el envio de mail solicitAndalsoo pedido número " & m_NumeroPedido & Environment.NewLine & Environment.NewLine & _
+                    "Confirmas el envio de mail solicitando pedido número " & m_NumeroPedido & Environment.NewLine & Environment.NewLine & _
                     "Para: " & toAddress & Environment.NewLine & _
                     "CC : " & ccAddress & Environment.NewLine
 
@@ -405,7 +405,7 @@ Module Mail
                                                       "Si existen nuevas versiones de las fichas técnicas que adjuntamos, deben enviarnos<br> " &
                                                       "las versiones actualizadas.<br><br> " &
                                                       "Cualquier variación en las condiciones economicas acordadas previamente debe <br>" &
-                                                      "ser autorizada por Vinagreria La Andalsoaluza, S.L.<br><br></body></html>"
+                                                      "ser autorizada por Vinagreria La Andaluza, S.L.<br><br></body></html>"
 
 
                             'Dim sHTMLBody As String = "<html><head><meta content=""text/html; charset=ISO-8859-1 http-equiv=""content-type""title></title>" &
@@ -414,11 +414,11 @@ Module Mail
                             '                           "Confirmar que no existen problemas para cumplir el plazo de entrega solicitado.<br>" &
                             '                           "<br>" &
                             '                           "Cualquier variación en las condiciones economicas acordadas previamente debe ser autorizada <br>" &
-                            '                           "por Vinagreria La Andalsoaluza, S.L.</body></html>"
+                            '                           "por Vinagreria La Andaluza, S.L.</body></html>"
 
                             Me.addAtachmentsFromDataBase(dgvGrilla)
                             Dim sAttachmentFile As String = PDFFile & m_NumeroPedido & ".PDF"
-                            SendEmail(sSubject, sHTMLBody, sAttachmentFile, "administracion@lAndalsoaluza.es", "Administracion2008", toAddress, ccAddress, "administracion@lAndalsoaluza.es", "smtp.1Andalso1.es")
+                            SendEmail(sSubject, sHTMLBody, sAttachmentFile, "administracion@landaluza.es", "Administracion2008", toAddress, ccAddress, "administracion@landaluza.es", "smtp.1and1.es")
                         Else
                             messagebox.show("El fichero PDF: " & PDFFile & m_NumeroPedido & ".PDF" & " no existe.", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                         End If
@@ -436,7 +436,7 @@ Module Mail
             Dim spUsuarios As New spUsuarios
             Dim dbo_usuarios As DBO_Usuarios = spUsuarios.select_record_by_usuario(usuarioNotificacion, New DataBase(Config.Server))
 
-            Dim mail As New Mail1Andalso1(True, "Error " & Convert.ToString(DateTime.Now.Date) & " Usuario: " & dbo_usuarios.Usuario, textoNotificacion, Nothing, _
+            Dim mail As New Mail1And1(True, "Error " & Convert.ToString(DateTime.Now.Date) & " Usuario: " & dbo_usuarios.Usuario, textoNotificacion, Nothing, _
                             Config.MailReportAddress, Config.MailReportPass, Config.MailReportAddress, _
                             String.Empty, String.Empty, Config.MailClientHost)
 

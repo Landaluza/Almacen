@@ -24,14 +24,14 @@ Public Class gridsimpleform
     Public Event BeforeModify(ByRef sender As Object, ByRef target As DetailedSimpleForm)
     'Public Event AfterView(ByRef sender As Object, ByRef target As DetailedSimpleForm)
     'Public Event BeforeView(ByRef sender As Object, ByRef target As DetailedSimpleForm)
-    Private hAndalsoled As Boolean
+    Private handled As Boolean
 
-    Protected Property EventHAndalsoeld As Boolean
+    Protected Property EventHandeld As Boolean
         Get
-            Return hAndalsoled
+            Return handled
         End Get
         Set(ByVal value As Boolean)
-            hAndalsoled = value
+            handled = value
         End Set
     End Property
 
@@ -152,16 +152,16 @@ Public Class gridsimpleform
     Overridable Sub Insertar()
         'Windows.Forms.Cursor.Current = System.Windows.Forms.Cursors.WaitCursor
         Me.Cursor = Cursors.WaitCursor
-        Me.hAndalsoled = False
+        Me.handled = False
         RaiseEvent BeforeInsert(Me, Me.newRegForm)
-        If Not Me.hAndalsoled Then
+        If Not Me.handled Then
             Try
                 If Me.butNuevo.Enabled Then
                     Action(ACCION_INSERTAR)
                     GeneralBindingSource.MoveLast()
                 End If
             Catch ex As Exception
-                messagebox.show("Error al insertar el registro. Detalles:" & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Error al insertar el registro. Detalles:" & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         End If
         RaiseEvent AfterInsert(Me, Me.newRegForm)
@@ -171,13 +171,13 @@ Public Class gridsimpleform
 
     Overridable Sub Modificar()
         Me.Cursor = Cursors.WaitCursor
-        Me.hAndalsoled = False
+        Me.handled = False
         RaiseEvent BeforeModify(Me, Me.newRegForm)
-        If Not Me.hAndalsoled Then
+        If Not Me.handled Then
             Try
                 If Me.butModificar.Enabled Then Action(ACCION_MODIFICAR)
             Catch ex As Exception
-                messagebox.show("Error al modificar el registro. Detalles:" & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Error al modificar el registro. Detalles:" & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
 
             RaiseEvent AfterModify(Me, Me.newRegForm)
@@ -187,13 +187,13 @@ Public Class gridsimpleform
 
     Overridable Sub Ver()
         Me.Cursor = Cursors.WaitCursor
-        Me.hAndalsoled = False
+        Me.handled = False
         ' RaiseEvent BeforeView(Me, Me.newRegForm)
-        If Not Me.hAndalsoled Then
+        If Not Me.handled Then
             Try
                 If Me.butVer.Enabled Then Action(ACCION_VER)
             Catch ex As Exception
-                messagebox.show("Error al ver el registro. Detalles:" & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Error al ver el registro. Detalles:" & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
 
             'RaiseEvent AfterView(Me, Me.newRegForm)
@@ -204,9 +204,9 @@ Public Class gridsimpleform
     Overridable Sub Eliminar(Optional ByVal campoId As String = "Id")
         If MessageBox.Show(" ¿Realmente quieres eliminar este/estos registro ? ", " Eliminar ", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = DialogResult.Yes Then
 
-            Me.hAndalsoled = False
+            Me.handled = False
             RaiseEvent BeforeDelete(CType(dgvGeneral, Control), Me)
-            If Not Me.hAndalsoled Then
+            If Not Me.handled Then
                 If dgvGeneral.Rows.Count > 0 Then
                     For Each row As DataGridViewRow In dgvGeneral.SelectedRows
                         If Not row.DataGridView Is Nothing Then

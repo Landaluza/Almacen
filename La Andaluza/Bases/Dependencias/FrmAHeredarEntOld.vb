@@ -436,7 +436,7 @@ Public Class FrmAHeredarEntOld
                     butGuardar.Visible = False
                     Me.Icon = My.Resources.window_duplicate1
                 Case Else
-                    Me.Icon = My.Resources.LogoBAndalsoejaLa21
+                    Me.Icon = My.Resources.LogoBandejaLa21
             End Select
         Else
             Select Case Me.Text.Substring(0, 3)
@@ -451,7 +451,7 @@ Public Class FrmAHeredarEntOld
                     butGuardar.Visible = False
                     Me.Icon = My.Resources.window_duplicate1
                 Case Else
-                    Me.Icon = My.Resources.LogoBAndalsoejaLa21
+                    Me.Icon = My.Resources.LogoBandejaLa21
             End Select
         End If
 

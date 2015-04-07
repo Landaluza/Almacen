@@ -20,7 +20,7 @@
 
             file.saveImage(Me.bitmap, captura)
 
-            Dim mail As New Mail.Mail1Andalso1(True, "Error " & Convert.ToString(Now.Date) & " Usuario: " & usuario, Me.txtErrorMessage.Text, captura, _
+            Dim mail As New Mail.Mail1And1(True, "Error " & Convert.ToString(Now.Date) & " Usuario: " & usuario, Me.txtErrorMessage.Text, captura, _
                 Config.MailReportAddress, Config.MailReportPass, Config.MailReportAddress, _
                 String.Empty, String.Empty, Config.MailClientHost)
 
