@@ -126,7 +126,7 @@ Public Class EscaneoSCC1
                 pan.Dock = DockStyle.Fill
                 AddHandler frm.AfterSave, AddressOf cerrarPestaña
                 AddHandler frm.BeforeScan, AddressOf comprobarScc
-                AddHandler frm.AfterAdd, AddressOf dgvFill
+                AddHandler frm.AfterAdd, AddressOf actualizarPedidos
                 AddHandler frm.BeforeSave, AddressOf comprobarPedido
 
                 paginas.Controls.Add(pan)
@@ -164,6 +164,16 @@ Public Class EscaneoSCC1
         End Try
     End Sub
 
+    Private Sub actualizarPedidos(sender As Object, e As EventArgs)
+        Dim res As DialogResult
+        res = MessageBox.Show("¿Recargar la lista de pedidos?" & Environment.NewLine & " (Si, para volver a comprobar la disponibilidad de palets; No para continuar con la lista actual)", _
+                              "Actualizar", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+        If res = Windows.Forms.DialogResult.Yes Then
+            dgvFill(False)
+            Return
+        End If
+
+    End Sub
     Private Sub dgvFill(sender As Object, e As EventArgs)
         dgvFill(False)
     End Sub
