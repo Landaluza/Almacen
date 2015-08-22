@@ -32,7 +32,7 @@ Partial Class frmAlbaranesCargaMaestroLinea
         Me.MinimumSize = New System.Drawing.Size(0, 0)
         Me.Name = "frmAlbaranesCargaMaestroLinea"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Albaranescargamaestrolinea
+        Me.Text = "Albaranescargamaestrolinea"
         CType(Me.GeneralBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

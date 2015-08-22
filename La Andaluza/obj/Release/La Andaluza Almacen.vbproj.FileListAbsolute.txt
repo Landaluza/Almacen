@@ -56,3 +56,64 @@ C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza A
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.application
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.exe
 C:\Users\Administrador\Desktop\git\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.pdb
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\La Andaluza Almacen.exe.config
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.exe
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.pdb
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.vbprojResolveAssemblyReference.cache
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmAlbaranesNoDefinitivos.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmEntAlbaranesNoDefinitivos.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.AgnadirAcargaGrabada.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmAlbaranesCargaMaestroLinea.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmEntAlbaranesCargaMaestroLinea.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.glassPanel.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.FrmAHeredarEntOld.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.FrmAheredarOld.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmNews.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.GUI.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.DetailedSimpleForm.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmEspera.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.gridsimpleform.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmAutorizacion.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.FrmInicio.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmEntNoticias2.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmNoticias2.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmMensajesPendientes.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmEntrada.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.SplashScreen1.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmReporteErrores.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.Resources.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.AlmacenEntradasSalidas.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.AlmacenEntradasSalidasMovimientos.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.AgnadirAcargaEnCurso.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.EscaneoSCC1.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmCarga.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmSugerenciaCarga.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmPaletsAlmacenEntradas.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.FrmAheredarOld.es.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.gridsimpleform.es.resources
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.vbproj.GenerateResource.Cache
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\La Andaluza Almacen.exe.manifest
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\La Andaluza Almacen.application
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\La Andaluza Almacen.exe
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\La Andaluza Almacen.pdb
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\es\La Andaluza Almacen.resources.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\DgvFilterPopup.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\Microsoft.Office.Interop.Excel.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\Microsoft.Office.Interop.Word.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\Microsoft.VisualBasic.PowerPacks.Vs.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\System.Data.DataSetExtensions.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\System.Data.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\System.Deployment.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\System.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\System.Drawing.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\System.Windows.Forms.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\System.Xml.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\office.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\Microsoft.Vbe.Interop.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\stdole.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\Microsoft.VisualBasic.PowerPacks.Vs.xml
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\bin\Release\es\Microsoft.VisualBasic.PowerPacks.Vs.resources.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\es\La Andaluza Almacen.resources.dll
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.TrustInfo.xml
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.exe.manifest
+C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La Andaluza Almacen.application
