@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="La Andaluza Almacen.exe" size="1307136">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="La Andaluza Almacen.exe" size="1306624">
       <assemblyIdentity name="La Andaluza Almacen" version="2014.2.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>teSzMIyNANZGVSbPHV5R7BUXpESZVZ2IbtM5IMRMPJI=</dsig:DigestValue>
+        <dsig:DigestValue>XXCpY1AgjXvwmTr8Ohz/sNjx/5XxA+cJGQTW0KXQHKc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>U4Aj8FY2BzBKm/X7vVB/EaWysL8uTg61n0gkgL2ncq0=</dsig:DigestValue>
+        <dsig:DigestValue>rml6K4c2jtxEvg/YQPGDd4LNshgK3A0b3Ox/qX6h3lM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

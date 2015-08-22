@@ -42,25 +42,25 @@ Public Class DataBase
 
         bd = "LA"
 
-        If server = SERVIDOR Then
-            'Name = "192.168.1.101\SQLEXPRESS,1608"
-            Name = "192.168.10.200"
-            Config.connectionString = "User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"
-        Else
+        'If server = SERVIDOR Then
+        '    'Name = "192.168.1.101\SQLEXPRESS,1608"
+        '    Name = "192.168.10.200"
+        '    Config.connectionString = "User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"
+        'Else
 
-            If server = LOCAL Then
-                Config.connectionString = "User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"
-                Name = My.Computer.Name & "\SQLEXPRESS" '"VMDESARROLLO\SQLEXPRESS"
-            Else
-                If My.Computer.Name = "MAMVAIO" Then
-                    Config.connectionString = "User ID=mamvaio\mam;Trusted_Connection=True;"
-                    Name = "MAMVAIO\SQLEXPRESS"
-                Else
-                    Name = "192.168.10.124\SQLEXPRESS"
-                    Config.connectionString = "User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"
-                End If
-            End If
-        End If
+        '    If server = LOCAL Then
+        '        Config.connectionString = "User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"
+        '        Name = My.Computer.Name & "\SQLEXPRESS" '"VMDESARROLLO\SQLEXPRESS"
+        '    Else
+        '        If My.Computer.Name = "MAMVAIO" Then
+        Config.connectionString = "User ID=mamvaio\mam;Trusted_Connection=True;"
+        Name = "MAMVAIO\SQL2012"
+        '        Else
+        '            Name = "192.168.10.124\SQLEXPRESS"
+        '            Config.connectionString = "User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"
+        '        End If
+        '    End If
+        'End If
 
         Config.connectionString = "workstation id=" & Name & ";packet size=4096;Connect Timeout = 200;" & Config.connectionString & "data source= " _
             & Name & ";persist security info=False;initial catalog=" & bd
