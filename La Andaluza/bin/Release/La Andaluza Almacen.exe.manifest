@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="La Andaluza Almacen.exe" size="1306624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="La Andaluza Almacen.exe" size="1285120">
       <assemblyIdentity name="La Andaluza Almacen" version="2014.2.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>XXCpY1AgjXvwmTr8Ohz/sNjx/5XxA+cJGQTW0KXQHKc=</dsig:DigestValue>
+        <dsig:DigestValue>lp5tEqrLpCHH5Dpnp5GolVpB1Y9EPdcOSyiLvLxvPig=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>rml6K4c2jtxEvg/YQPGDd4LNshgK3A0b3Ox/qX6h3lM=</dsig:DigestValue>
+        <dsig:DigestValue>33Cu4R0PKpyMUqxZhYvmJB9s6S9jHncNySTftnpUqRM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -138,13 +138,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="La Andaluza Almacen.exe.config" size="26306">
+  <file name="La Andaluza Almacen.exe.config" size="26309">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>YkY+sf+EIGzWlx+4Bpe8ntpglBvZmqcLkb11Cg1wask=</dsig:DigestValue>
+      <dsig:DigestValue>AesKtu2rW3N+7ix0fKx6G/5W3AQ053IyxwTjPG2OzMw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\application-exit-3_256.png" size="16260">
