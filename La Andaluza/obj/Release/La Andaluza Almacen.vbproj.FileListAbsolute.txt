@@ -73,7 +73,6 @@ C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Relea
 C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.DetailedSimpleForm.resources
 C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmEspera.resources
 C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.gridsimpleform.resources
-C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmAutorizacion.resources
 C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.FrmInicio.resources
 C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmEntNoticias2.resources
 C:\Users\mam\Documents\Visual Studio 2015\Projects\Almacen\La Andaluza\obj\Release\La_Andaluza_Almacen.frmNoticias2.resources

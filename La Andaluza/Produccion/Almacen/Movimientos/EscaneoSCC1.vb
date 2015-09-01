@@ -357,13 +357,11 @@ Public Class EscaneoSCC1
         st.SelectionForeColor = Color.White
         dgvPedidos.DefaultCellStyle = st
         Me.Timer1.Start()
-
     End Sub
 
     Private Sub dgvPedidos_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvPedidos.CellClick
         'OrElse Not e.ColumnIndex = dgvPedidos.Columns("+").Index OrElse Not e.ColumnIndex = dgvPedidos.Columns("orden").Index Then Return
         If Not e.RowIndex < 0 Then
-
 
             If e.ColumnIndex = dgvPedidos.Columns("+").Index Then
                 If Not IsDBNull(Me.dgvPedidos.CurrentRow.Cells("Palets").Value) Then
@@ -380,11 +378,11 @@ Public Class EscaneoSCC1
             Select Case (e.ColumnIndex)
                 Case dgvOrdenesCarga.Columns("+").Index
                     If (Not IsDBNull(Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value)) AndAlso Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value.ToString <> " Sin información, revisar excel. " Then
-
                         Dim frm As New frmSugerenciaCarga(Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value.ToString, "Orden de Carga: " & Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString)
                         frm.ShowDialog()
                         dgvFill(Nothing, Nothing)
                     End If
+
                 Case dgvOrdenesCarga.Columns("e").Index
                     If Not IsDBNull(Me.dgvOrdenesCarga.CurrentRow.Cells("ruta").Value) Then
                         Try
@@ -417,6 +415,7 @@ Public Class EscaneoSCC1
                 aux = New frmSugerenciaCarga(Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value.ToString, "Orden de Carga: " & Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString)
                 aux.dgvFill(Me.dgvPedidos.CurrentRow.Cells("Palets").Value.ToString)
             End If
+
             'Dim aux As New frmSugerenciaCarga(Me.dgvPedidos.CurrentRow.Cells("PedidoClienteMaestroID").Value, Me.dgvPedidos.CurrentRow.Cells("Palets").Value, "Pedido: " & Me.dgvPedidos.CurrentRow.Cells("Numero").Value & ", " & "Cliente: " & Me.dgvPedidos.CurrentRow.Cells("Cliente").Value)
             aux.PrintGrilla.Print()
         Catch ex As Exception
