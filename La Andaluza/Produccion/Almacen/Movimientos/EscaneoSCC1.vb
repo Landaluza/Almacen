@@ -224,6 +224,10 @@ Public Class EscaneoSCC1
     End Sub
 
     Private Sub dgvOrdenesCargafill(ByVal palets As String, ByVal nPalets As String)
+        While bwOrdenes.IsBusy
+            Threading.Thread.Sleep(100)
+        End While
+
         bwOrdenes.RunWorkerAsync()
     End Sub
 
@@ -231,7 +235,7 @@ Public Class EscaneoSCC1
         Dim row As DataGridViewRow
 
         For Each row In dgvPedidos.Rows
-            row.Height = Convert.ToInt32(row.Height * 1.5)
+            'row.Height = Convert.ToInt32(row.Height * 1.5)
             If Not IsDBNull(row.Cells("orden").Value) Then
                 Me.pedido.orden = Me.pedido.orden & If(row.Cells("orden").Value Is Nothing, "9999", row.Cells("orden").Value.ToString) & ", "
             Else
@@ -239,6 +243,8 @@ Public Class EscaneoSCC1
             End If
             Me.pedido.ordenIds = Me.pedido.ordenIds & row.Cells("PedidoClienteMaestroID").Value.ToString & ", "
             Me.pedido.nPaletsOrden += 1
+
+            'MsgBox(row.Cells("PedidoClienteMaestroID").Value.ToString & " | " & row.Cells("Palets").Value.ToString)
         Next
 
         If Me.pedido.orden <> "" Then
@@ -246,8 +252,11 @@ Public Class EscaneoSCC1
             Me.pedido.ordenIds = Me.pedido.ordenIds.Substring(0, Me.pedido.ordenIds.Length - 2)
         End If
 
-        Me.bwPedidos.RunWorkerAsync()
+        While bwOrdenes.IsBusy
+            Threading.Thread.Sleep(100)
+        End While
 
+        Me.bwPedidos.RunWorkerAsync()
 
     End Sub
 
@@ -313,8 +322,19 @@ Public Class EscaneoSCC1
         If Me.TabControl2.SelectedTab.Text <> "Carga provisional" Then
             If frm.TipoPedido = frmCarga.PEDIDO Then
                 For Each row In Me.dgvPedidos.Rows
-                    If Convert.ToString(row.Cells("Numero").Value) = Me.TabControl2.SelectedTab.Text Then
-                        If Convert.ToString(row.Cells("Palets").Value) = "" Then frm.EventHAndled = False
+                    Dim numeroAux As String
+                    If row.Cells("Numero").Value.ToString.Trim = "" Then
+                        numeroAux = "Sin numero " & row.Index
+                    Else
+                        numeroAux = row.Cells("Numero").Value.ToString.Trim
+                    End If
+
+                    'MsgBox(numeroAux & " _ " & Me.TabControl2.SelectedTab.Text)
+                    If numeroAux = Me.TabControl2.SelectedTab.Text Then
+                        MsgBox("'" & Convert.ToString(row.Cells("Palets").Value.ToString.Trim) & "'")
+                        If Convert.ToString(row.Cells("Palets").Value.ToString.Trim) = "" Then
+                            frm.EventHAndled = False
+                        End If
                         Exit For
                     End If
                 Next
@@ -322,7 +342,9 @@ Public Class EscaneoSCC1
                 For Each row In Me.dgvOrdenesCarga.Rows
                     If Me.TabControl2.SelectedTab.Text.Length > 15 Then
                         If Convert.ToString(row.Cells("Fecha").Value).Substring(0, 16) = Me.TabControl2.SelectedTab.Text.Substring(0, 16) Then
-                            If Convert.ToString(row.Cells("Palets").Value) = "" Or Convert.ToString(row.Cells("Palets").Value) = " Sin información, revisar excel. " Then frm.EventHAndled = False
+                            If Convert.ToString(row.Cells("Palets").Value) = "" Or Convert.ToString(row.Cells("Palets").Value) = " Sin información, revisar excel. " Then
+                                frm.EventHAndled = False
+                            End If
 
                             Exit For
                         End If
@@ -335,8 +357,8 @@ Public Class EscaneoSCC1
 
         If frm.EventHAndled Then
             Dim Respuesta As DialogResult
-            Respuesta = MessageBox.Show(" Aun quedan palets por escanear en el pedido" & Environment.NewLine & _
-                               "¿Desea ignorarlos y grabar?", _
+            Respuesta = MessageBox.Show(" Aun quedan palets por escanear en el pedido" & Environment.NewLine &
+                               "¿Desea ignorarlos y grabar?",
                                "Palet no sugerido", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
             If Respuesta = DialogResult.Yes Then
@@ -593,6 +615,8 @@ Public Class EscaneoSCC1
                 c.ToolTipText = "La orden de carga esta completa"
             End If
         Next
+
+        MsgBox("Background complete")
 
         If Me.orden.addColumns Then abrirPestañas()
     End Sub
