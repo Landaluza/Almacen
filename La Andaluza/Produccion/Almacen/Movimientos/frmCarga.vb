@@ -335,8 +335,9 @@
     End Sub
 
     Private Sub btnGrabar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnGrabar.Click
+        'MsgBox("btnGrabar Click " & EventHAndled)
         If Me.lvwPalets.Items.Count = 0 Then
-            messagebox.show("La carga no contiene palets", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MessageBox.Show("La carga no contiene palets", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             Return
         End If
 
@@ -377,10 +378,10 @@
                             Dim m_DBO_OrdenesCarga As New DBO_OrdenesCarga
                             'crear orden de carga maestro
                             m_DBO_OrdenesCarga.Fecha = New Date(Now.Year, Now.Month, Now.Day, Now.Hour, Now.Minute, Now.Second)
-                            m_DBO_OrdenesCarga.Ruta = "Z:\Almacen\Ordenes de carga\" & Now.Year & "." & _
-                                                                                        Convert.ToString(Now.Month) & "." & _
-                                                                                        Convert.ToString(Now.Day) & " " & _
-                                                                                        Convert.ToString(Now.Hour) & "-" & _
+                            m_DBO_OrdenesCarga.Ruta = "Z:\Almacen\Ordenes de carga\" & Now.Year & "." &
+                                                                                        Convert.ToString(Now.Month) & "." &
+                                                                                        Convert.ToString(Now.Day) & " " &
+                                                                                        Convert.ToString(Now.Hour) & "-" &
                                                                                         Convert.ToString(Now.Minute)
                             m_DBO_OrdenesCarga.Observaciones = "Generada en almacen para una carga de emergencia"
                             If Not spOrdenesCarga.GrabarOrdenesCarga(m_DBO_OrdenesCarga, dtb) Then Throw New Exception("No se pudo guardar la orden de carga")
@@ -399,24 +400,24 @@
 
 
                 If Me.TipoPedido = PEDIDO Then
-                    If Not ctlAlb.GuardarAlbaranCargaProMaestroParaPedido(Numero, _
-                                                         dtpFecha.Value, _
-                                                         1, _
-                                                         NumeroPedido, _
-                                                         "Sin asignar a definitivo", _
-                                                         "", _
-                                                         "", _
+                    If Not ctlAlb.GuardarAlbaranCargaProMaestroParaPedido(Numero,
+                                                         dtpFecha.Value,
+                                                         1,
+                                                         NumeroPedido,
+                                                         "Sin asignar a definitivo",
+                                                         "",
+                                                         "",
                                                          Convert.ToInt32(Me.codigoMaestro), dtb) Then Throw New Exception("Error guardando el albaran provisional")
 
                     ConsultaLoteAlternativo = "select LoteAlternativo from albaranescargaseguridad where id_pedidoclientemaestro = " & Me.codigoMaestro & " And scc = "
                 Else
-                    If Not ctlAlb.GuardarAlbaranCargaProMaestroParaOrdenCarga(Numero, _
-                                                        dtpFecha.Value, _
-                                                        1, _
-                                                        NumeroPedido, _
-                                                        "Sin asignar a definitivo", _
-                                                        "", _
-                                                        "", _
+                    If Not ctlAlb.GuardarAlbaranCargaProMaestroParaOrdenCarga(Numero,
+                                                        dtpFecha.Value,
+                                                        1,
+                                                        NumeroPedido,
+                                                        "Sin asignar a definitivo",
+                                                        "",
+                                                        "",
                                                         Convert.ToInt32(Me.codigoMaestro), dtb) Then Throw New Exception("Error guardando el albaran provisional")
 
                     ConsultaLoteAlternativo = "select LoteAlternativo from albaranescargaseguridad where id_ordencarga = " & Me.codigoMaestro & " And scc = "
@@ -438,18 +439,18 @@
 
                     Tabla = dtb.Consultar(Linea)
 
-                    If Not ctlAlbDet.GuardarAlbaranCargaProviDetalle(Numero, _
-                                                               Convert.ToInt32(lvwPalets.Items(Contador).SubItems(0).Text), _
-                                                             Convert.ToInt32(Tabla.Rows(0).Item("CodigoQS")), _
-                                                              lvwPalets.Items(Contador).SubItems(2).Text, _
-                                                               Convert.ToInt32(lvwPalets.Items(Contador).SubItems(3).Text), _
-                                                              33, _
-                                                              lvwPalets.Items(Contador).SubItems(4).Text, _
-                                                              44, _
-                                                              lvwPalets.Items(Contador).SubItems(5).Text, _
-                                                              "Reserva1", _
-                                                              "Reserva2", _
-                                                              "Reserva3", _
+                    If Not ctlAlbDet.GuardarAlbaranCargaProviDetalle(Numero,
+                                                               Convert.ToInt32(lvwPalets.Items(Contador).SubItems(0).Text),
+                                                             Convert.ToInt32(Tabla.Rows(0).Item("CodigoQS")),
+                                                              lvwPalets.Items(Contador).SubItems(2).Text,
+                                                               Convert.ToInt32(lvwPalets.Items(Contador).SubItems(3).Text),
+                                                              33,
+                                                              lvwPalets.Items(Contador).SubItems(4).Text,
+                                                              44,
+                                                              lvwPalets.Items(Contador).SubItems(5).Text,
+                                                              "Reserva1",
+                                                              "Reserva2",
+                                                              "Reserva3",
                                                               loteAlternativo, dtb) Then Throw New Exception("Error guardando los detalles del alabaran provisional")
 
 
@@ -722,18 +723,13 @@
                 CajasTotal += If(m_Item.SubItems(3).Text = "", 0, Convert.ToInt32(m_Item.SubItems(3).Text))
             Next
 
-            'Esto mismo en Linq
-            'Dim resultado As Integer = (From item In lvwPalets.Items.Cast(Of ListViewItem)() _
-            '                            Where item.SubItems(2).Text = txtDescripcion.Text _
-            '                            Select item).Count
-            'messagebox.show(resultado)
 
             txtPaletsPorArticulo.Text = Convert.ToString(PaletsPorArticulo + 1)
-            'txtPaletsTotales.Text = lvwPalets.Items.Count + 1
+
             txtPaletsTotales.Text = totalpal.ToString
+
             If txtPesoPalet.Text = "" Then txtPesoPalet.Text = "0"
-            ' If PesoTotal = 0 Then PesoTotal = "0"
-            '  If CajasTotal = 0 Then CajasTotal = "0"
+
             txtPesoTotal.Text = Format(Convert.ToDecimal(PesoTotal) + Convert.ToDecimal(txtPesoPalet.Text), "0#,0##")
             txtCajasTotal.Text = Format(CajasTotal, "0#")
             txtKilosCargadosTotal.Text = Format(Convert.ToDecimal(PesoTotal), "0#,0##")

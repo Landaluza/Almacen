@@ -370,6 +370,10 @@ Public Class gridsimpleform
     Protected Sub dgvFill(sender As Object, e As EventArgs)
         If Not BackgroundWorker1.IsBusy Then
             dgvGeneral.Cursor = Cursors.WaitCursor
+
+            While BackgroundWorker1.IsBusy
+                Threading.Thread.Sleep(100)
+            End While
             BackgroundWorker1.RunWorkerAsync()
         End If
     End Sub

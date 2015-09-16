@@ -26,7 +26,7 @@
     Public Shared activeScreen As Integer
 
     Public Shared Sub Cargar_Ajustes_Predeterminados()
-        Config.Server = DataBase.SERVIDOR
+        Config.Server = 2
         Config.MailReportPass = "Administracion2008"
         Config.ventasPath = "Z:\Informatica\La Andaluza app\ExcelFile\Book1.xlsx"
         Config.MailReportAddress = "administracion@landaluza.es"

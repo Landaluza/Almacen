@@ -26,7 +26,7 @@
 <Assembly: System.Runtime.InteropServices.ComVisible(False)> 
 
 'El siguiente GUID sirve como identificador de la biblioteca de tipos si este proyecto se expone a COM
-<Assembly: System.Runtime.InteropServices.Guid("80086634-131c-4c21-9328-7a2b72171a17")> 
+<Assembly: System.Runtime.InteropServices.Guid("80086634-131c-4c21-9328-7a2b72171a17")>
 
 ' La información de versión de un ensamblado consta de los cuatro valores siguientes:
 '      Versión principal
@@ -38,5 +38,5 @@
 ' mediante el asterisco ('*'), como se muestra a continuación:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: System.Reflection.AssemblyVersion("2014.02.01.0")> 
-<Assembly: System.Reflection.AssemblyFileVersion("2014.02.01.0")> 
+<Assembly: Reflection.AssemblyVersion("2014.02.01.1")>
+<Assembly: Reflection.AssemblyFileVersion("2014.02.01.1")>
