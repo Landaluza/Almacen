@@ -26,10 +26,12 @@ Public Class FrmInicio
     Private Sub iniciar()
         If comprobarCampos() Then
             Me.Enabled = False
-            If Not Me.BackgroundWorker1.IsBusy Then
-                Me.BackgroundWorker1.RunWorkerAsync()
-            End If
-        Else
+            While BackgroundWorker1.IsBusy
+                    Threading.Thread.Sleep(100)
+            End While
+
+            Me.BackgroundWorker1.RunWorkerAsync()
+            Else
             MessageBox.Show("Error. Los datos no son correctos", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub

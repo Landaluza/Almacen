@@ -280,6 +280,9 @@ Public Class GUI
     End Sub
 
     Private Sub GUIstandar_Shown(sender As System.Object, e As System.EventArgs) Handles Me.Shown
+        While BackgroundWorker1.IsBusy
+            Threading.Thread.Sleep(100)
+        End While
         BackgroundWorker1.RunWorkerAsync()
     End Sub
 End Class

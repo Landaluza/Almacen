@@ -154,7 +154,7 @@ Partial Class frmCarga
         Me.TabControl1.Multiline = True
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1013, 633)
+        Me.TabControl1.Size = New System.Drawing.Size(1021, 644)
         Me.TabControl1.TabIndex = 72
         '
         'tabCamion
@@ -163,7 +163,7 @@ Partial Class frmCarga
         Me.tabCamion.Location = New System.Drawing.Point(23, 4)
         Me.tabCamion.Name = "tabCamion"
         Me.tabCamion.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabCamion.Size = New System.Drawing.Size(986, 625)
+        Me.tabCamion.Size = New System.Drawing.Size(994, 636)
         Me.tabCamion.TabIndex = 2
         Me.tabCamion.Text = "Camión"
         Me.tabCamion.UseVisualStyleBackColor = True
@@ -257,7 +257,7 @@ Partial Class frmCarga
         Me.TabPage1.Location = New System.Drawing.Point(23, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(986, 625)
+        Me.TabPage1.Size = New System.Drawing.Size(994, 636)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Escanear"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -271,7 +271,7 @@ Partial Class frmCarga
         Me.Panel17.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel17.Location = New System.Drawing.Point(3, 105)
         Me.Panel17.Name = "Panel17"
-        Me.Panel17.Size = New System.Drawing.Size(980, 435)
+        Me.Panel17.Size = New System.Drawing.Size(988, 446)
         Me.Panel17.TabIndex = 91
         '
         'Panel15
@@ -284,7 +284,7 @@ Partial Class frmCarga
         Me.Panel15.Location = New System.Drawing.Point(0, 161)
         Me.Panel15.Name = "Panel15"
         Me.Panel15.Padding = New System.Windows.Forms.Padding(0, 0, 0, 5)
-        Me.Panel15.Size = New System.Drawing.Size(980, 213)
+        Me.Panel15.Size = New System.Drawing.Size(988, 224)
         Me.Panel15.TabIndex = 89
         '
         'txtDescripcion
@@ -295,7 +295,7 @@ Partial Class frmCarga
         Me.txtDescripcion.Location = New System.Drawing.Point(163, 21)
         Me.txtDescripcion.Multiline = True
         Me.txtDescripcion.Name = "txtDescripcion"
-        Me.txtDescripcion.Size = New System.Drawing.Size(817, 187)
+        Me.txtDescripcion.Size = New System.Drawing.Size(825, 198)
         Me.txtDescripcion.TabIndex = 1
         Me.txtDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -309,7 +309,7 @@ Partial Class frmCarga
         Me.cboTipoPalet.Location = New System.Drawing.Point(163, 0)
         Me.cboTipoPalet.Margin = New System.Windows.Forms.Padding(2)
         Me.cboTipoPalet.Name = "cboTipoPalet"
-        Me.cboTipoPalet.Size = New System.Drawing.Size(817, 21)
+        Me.cboTipoPalet.Size = New System.Drawing.Size(825, 21)
         Me.cboTipoPalet.TabIndex = 0
         '
         'Panel25
@@ -317,7 +317,7 @@ Partial Class frmCarga
         Me.Panel25.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel25.Location = New System.Drawing.Point(151, 0)
         Me.Panel25.Name = "Panel25"
-        Me.Panel25.Size = New System.Drawing.Size(12, 208)
+        Me.Panel25.Size = New System.Drawing.Size(12, 219)
         Me.Panel25.TabIndex = 82
         '
         'Panel24
@@ -329,7 +329,7 @@ Partial Class frmCarga
         Me.Panel24.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panel24.Location = New System.Drawing.Point(0, 0)
         Me.Panel24.Name = "Panel24"
-        Me.Panel24.Size = New System.Drawing.Size(151, 208)
+        Me.Panel24.Size = New System.Drawing.Size(151, 219)
         Me.Panel24.TabIndex = 81
         '
         'Label8
@@ -385,9 +385,9 @@ Partial Class frmCarga
         Me.Panel18.Controls.Add(Me.txtObsEnvasado)
         Me.Panel18.Controls.Add(Me.Label10)
         Me.Panel18.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel18.Location = New System.Drawing.Point(0, 374)
+        Me.Panel18.Location = New System.Drawing.Point(0, 385)
         Me.Panel18.Name = "Panel18"
-        Me.Panel18.Size = New System.Drawing.Size(980, 30)
+        Me.Panel18.Size = New System.Drawing.Size(988, 30)
         Me.Panel18.TabIndex = 78
         '
         'txtObsEnvasado
@@ -398,7 +398,7 @@ Partial Class frmCarga
         Me.txtObsEnvasado.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtObsEnvasado.Location = New System.Drawing.Point(97, 0)
         Me.txtObsEnvasado.Name = "txtObsEnvasado"
-        Me.txtObsEnvasado.Size = New System.Drawing.Size(883, 29)
+        Me.txtObsEnvasado.Size = New System.Drawing.Size(891, 29)
         Me.txtObsEnvasado.TabIndex = 1
         '
         'Label10
@@ -420,7 +420,7 @@ Partial Class frmCarga
         Me.Panel14.Location = New System.Drawing.Point(0, 0)
         Me.Panel14.Name = "Panel14"
         Me.Panel14.Padding = New System.Windows.Forms.Padding(0, 0, 0, 10)
-        Me.Panel14.Size = New System.Drawing.Size(980, 161)
+        Me.Panel14.Size = New System.Drawing.Size(988, 161)
         Me.Panel14.TabIndex = 88
         '
         'Panel22
@@ -431,7 +431,7 @@ Partial Class frmCarga
         Me.Panel22.Location = New System.Drawing.Point(331, 0)
         Me.Panel22.Name = "Panel22"
         Me.Panel22.Padding = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Panel22.Size = New System.Drawing.Size(353, 151)
+        Me.Panel22.Size = New System.Drawing.Size(361, 151)
         Me.Panel22.TabIndex = 81
         '
         'txtLote
@@ -443,7 +443,7 @@ Partial Class frmCarga
         Me.txtLote.Location = New System.Drawing.Point(5, 24)
         Me.txtLote.Multiline = True
         Me.txtLote.Name = "txtLote"
-        Me.txtLote.Size = New System.Drawing.Size(343, 127)
+        Me.txtLote.Size = New System.Drawing.Size(351, 127)
         Me.txtLote.TabIndex = 0
         Me.txtLote.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -455,7 +455,7 @@ Partial Class frmCarga
         Me.Panel27.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel27.Location = New System.Drawing.Point(5, 0)
         Me.Panel27.Name = "Panel27"
-        Me.Panel27.Size = New System.Drawing.Size(343, 24)
+        Me.Panel27.Size = New System.Drawing.Size(351, 24)
         Me.Panel27.TabIndex = 64
         '
         'btnNoMultilote
@@ -464,7 +464,7 @@ Partial Class frmCarga
         Me.btnNoMultilote.FlatAppearance.BorderSize = 0
         Me.btnNoMultilote.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNoMultilote.Image = Global.La_Andaluza_Almacen.My.Resources.Resources.brick_delete
-        Me.btnNoMultilote.Location = New System.Drawing.Point(54, 0)
+        Me.btnNoMultilote.Location = New System.Drawing.Point(62, 0)
         Me.btnNoMultilote.Name = "btnNoMultilote"
         Me.btnNoMultilote.Size = New System.Drawing.Size(156, 24)
         Me.btnNoMultilote.TabIndex = 1
@@ -479,7 +479,7 @@ Partial Class frmCarga
         Me.btnMultilote.FlatAppearance.BorderSize = 0
         Me.btnMultilote.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnMultilote.Image = Global.La_Andaluza_Almacen.My.Resources.Resources.brick_add
-        Me.btnMultilote.Location = New System.Drawing.Point(210, 0)
+        Me.btnMultilote.Location = New System.Drawing.Point(218, 0)
         Me.btnMultilote.Name = "btnMultilote"
         Me.btnMultilote.Size = New System.Drawing.Size(133, 24)
         Me.btnMultilote.TabIndex = 2
@@ -536,7 +536,7 @@ Partial Class frmCarga
         Me.Panel23.Controls.Add(Me.txtCajas)
         Me.Panel23.Controls.Add(Me.Label6)
         Me.Panel23.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel23.Location = New System.Drawing.Point(684, 0)
+        Me.Panel23.Location = New System.Drawing.Point(692, 0)
         Me.Panel23.Name = "Panel23"
         Me.Panel23.Size = New System.Drawing.Size(296, 151)
         Me.Panel23.TabIndex = 81
@@ -568,9 +568,9 @@ Partial Class frmCarga
         Me.Panel19.Controls.Add(Me.txtObsCarga)
         Me.Panel19.Controls.Add(Me.Label5)
         Me.Panel19.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel19.Location = New System.Drawing.Point(0, 404)
+        Me.Panel19.Location = New System.Drawing.Point(0, 415)
         Me.Panel19.Name = "Panel19"
-        Me.Panel19.Size = New System.Drawing.Size(980, 31)
+        Me.Panel19.Size = New System.Drawing.Size(988, 31)
         Me.Panel19.TabIndex = 79
         '
         'txtObsCarga
@@ -580,7 +580,7 @@ Partial Class frmCarga
         Me.txtObsCarga.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtObsCarga.Location = New System.Drawing.Point(97, 0)
         Me.txtObsCarga.Name = "txtObsCarga"
-        Me.txtObsCarga.Size = New System.Drawing.Size(883, 29)
+        Me.txtObsCarga.Size = New System.Drawing.Size(891, 29)
         Me.txtObsCarga.TabIndex = 1
         '
         'Label5
@@ -601,9 +601,9 @@ Partial Class frmCarga
         Me.Panel10.Controls.Add(Me.btnOK)
         Me.Panel10.Controls.Add(Me.Panel13)
         Me.Panel10.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel10.Location = New System.Drawing.Point(3, 540)
+        Me.Panel10.Location = New System.Drawing.Point(3, 551)
         Me.Panel10.Name = "Panel10"
-        Me.Panel10.Size = New System.Drawing.Size(980, 82)
+        Me.Panel10.Size = New System.Drawing.Size(988, 82)
         Me.Panel10.TabIndex = 87
         '
         'panNoConforme
@@ -672,7 +672,7 @@ Partial Class frmCarga
         Me.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBorrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBorrar.Image = Global.La_Andaluza_Almacen.My.Resources.Resources.edit_clear_21
-        Me.btnBorrar.Location = New System.Drawing.Point(658, 6)
+        Me.btnBorrar.Location = New System.Drawing.Point(666, 6)
         Me.btnBorrar.Name = "btnBorrar"
         Me.btnBorrar.Size = New System.Drawing.Size(151, 69)
         Me.btnBorrar.TabIndex = 0
@@ -690,7 +690,7 @@ Partial Class frmCarga
         Me.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOK.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnOK.Image = Global.La_Andaluza_Almacen.My.Resources.Resources.dialog_apply
-        Me.btnOK.Location = New System.Drawing.Point(827, 6)
+        Me.btnOK.Location = New System.Drawing.Point(835, 6)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(152, 69)
         Me.btnOK.TabIndex = 1
@@ -741,7 +741,7 @@ Partial Class frmCarga
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel7.Location = New System.Drawing.Point(3, 3)
         Me.Panel7.Name = "Panel7"
-        Me.Panel7.Size = New System.Drawing.Size(980, 102)
+        Me.Panel7.Size = New System.Drawing.Size(988, 102)
         Me.Panel7.TabIndex = 0
         '
         'Label1
@@ -764,7 +764,7 @@ Partial Class frmCarga
         Me.Panel6.Location = New System.Drawing.Point(0, 32)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Padding = New System.Windows.Forms.Padding(0, 0, 0, 6)
-        Me.Panel6.Size = New System.Drawing.Size(980, 70)
+        Me.Panel6.Size = New System.Drawing.Size(988, 70)
         Me.Panel6.TabIndex = 84
         '
         'txtSCCEscaneado
@@ -774,7 +774,7 @@ Partial Class frmCarga
         Me.txtSCCEscaneado.Font = New System.Drawing.Font("Tahoma", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSCCEscaneado.Location = New System.Drawing.Point(57, 0)
         Me.txtSCCEscaneado.Name = "txtSCCEscaneado"
-        Me.txtSCCEscaneado.Size = New System.Drawing.Size(923, 65)
+        Me.txtSCCEscaneado.Size = New System.Drawing.Size(931, 65)
         Me.txtSCCEscaneado.TabIndex = 0
         Me.txtSCCEscaneado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -798,7 +798,7 @@ Partial Class frmCarga
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(793, 6)
+        Me.Label2.Location = New System.Drawing.Point(801, 6)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(69, 24)
         Me.Label2.TabIndex = 1
@@ -809,7 +809,7 @@ Partial Class frmCarga
         Me.txtFecha.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtFecha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFecha.Location = New System.Drawing.Point(884, 2)
+        Me.txtFecha.Location = New System.Drawing.Point(892, 2)
         Me.txtFecha.Name = "txtFecha"
         Me.txtFecha.Size = New System.Drawing.Size(96, 29)
         Me.txtFecha.TabIndex = 2
@@ -823,7 +823,7 @@ Partial Class frmCarga
         Me.TabPage2.Location = New System.Drawing.Point(23, 4)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(986, 625)
+        Me.TabPage2.Size = New System.Drawing.Size(994, 636)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Palets cargados"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -835,7 +835,7 @@ Partial Class frmCarga
         Me.lvwPalets.Dock = System.Windows.Forms.DockStyle.Fill
         Me.lvwPalets.Location = New System.Drawing.Point(3, 46)
         Me.lvwPalets.Name = "lvwPalets"
-        Me.lvwPalets.Size = New System.Drawing.Size(980, 423)
+        Me.lvwPalets.Size = New System.Drawing.Size(988, 434)
         Me.lvwPalets.TabIndex = 53
         Me.lvwPalets.UseCompatibleStateImageBehavior = False
         '
@@ -845,7 +845,7 @@ Partial Class frmCarga
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(3, 3)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(980, 43)
+        Me.Panel2.Size = New System.Drawing.Size(988, 43)
         Me.Panel2.TabIndex = 71
         '
         'Label4
@@ -865,9 +865,9 @@ Partial Class frmCarga
         Me.Panel1.Controls.Add(Me.btnGrabar)
         Me.Panel1.Controls.Add(Me.btnAnular)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(3, 469)
+        Me.Panel1.Location = New System.Drawing.Point(3, 480)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(980, 153)
+        Me.Panel1.Size = New System.Drawing.Size(988, 153)
         Me.Panel1.TabIndex = 70
         '
         'Panel5
@@ -955,7 +955,7 @@ Partial Class frmCarga
         Me.btnGrabar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnGrabar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGrabar.Image = Global.La_Andaluza_Almacen.My.Resources.Resources.document_save_5
-        Me.btnGrabar.Location = New System.Drawing.Point(842, 76)
+        Me.btnGrabar.Location = New System.Drawing.Point(850, 76)
         Me.btnGrabar.Name = "btnGrabar"
         Me.btnGrabar.Size = New System.Drawing.Size(130, 67)
         Me.btnGrabar.TabIndex = 65
@@ -988,7 +988,7 @@ Partial Class frmCarga
         Me.TabPage3.Location = New System.Drawing.Point(23, 4)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(986, 625)
+        Me.TabPage3.Size = New System.Drawing.Size(994, 636)
         Me.TabPage3.TabIndex = 3
         Me.TabPage3.Text = "TOTALES"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -1010,8 +1010,8 @@ Partial Class frmCarga
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label19)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Panel29)
         Me.SplitContainer1.Panel2.Controls.Add(Me.lvwCajasCargaPorReferencia)
-        Me.SplitContainer1.Size = New System.Drawing.Size(980, 571)
-        Me.SplitContainer1.SplitterDistance = 471
+        Me.SplitContainer1.Size = New System.Drawing.Size(988, 582)
+        Me.SplitContainer1.SplitterDistance = 474
         Me.SplitContainer1.TabIndex = 73
         '
         'Button4
@@ -1019,7 +1019,7 @@ Partial Class frmCarga
         Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopRight
-        Me.Button4.Location = New System.Drawing.Point(614, 255)
+        Me.Button4.Location = New System.Drawing.Point(617, 266)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(18, 21)
         Me.Button4.TabIndex = 70
@@ -1036,7 +1036,7 @@ Partial Class frmCarga
         Me.dgvTotales.Name = "dgvTotales"
         Me.dgvTotales.RowHeadersVisible = False
         Me.dgvTotales.RowTemplate.Height = 24
-        Me.dgvTotales.Size = New System.Drawing.Size(471, 571)
+        Me.dgvTotales.Size = New System.Drawing.Size(474, 582)
         Me.dgvTotales.TabIndex = 69
         '
         'dgvTotalesPalets
@@ -1053,7 +1053,7 @@ Partial Class frmCarga
         Me.dgvTotalesPalets.RowHeadersVisible = False
         Me.dgvTotalesPalets.RowTemplate.Height = 24
         Me.dgvTotalesPalets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvTotalesPalets.Size = New System.Drawing.Size(505, 241)
+        Me.dgvTotalesPalets.Size = New System.Drawing.Size(510, 252)
         Me.dgvTotalesPalets.TabIndex = 72
         '
         'Label19
@@ -1071,10 +1071,10 @@ Partial Class frmCarga
         '
         Me.Panel29.Controls.Add(Me.Button5)
         Me.Panel29.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel29.Location = New System.Drawing.Point(0, 254)
+        Me.Panel29.Location = New System.Drawing.Point(0, 265)
         Me.Panel29.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel29.Name = "Panel29"
-        Me.Panel29.Size = New System.Drawing.Size(505, 28)
+        Me.Panel29.Size = New System.Drawing.Size(510, 28)
         Me.Panel29.TabIndex = 74
         '
         'Button5
@@ -1093,9 +1093,9 @@ Partial Class frmCarga
         '
         Me.lvwCajasCargaPorReferencia.CausesValidation = False
         Me.lvwCajasCargaPorReferencia.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.lvwCajasCargaPorReferencia.Location = New System.Drawing.Point(0, 282)
+        Me.lvwCajasCargaPorReferencia.Location = New System.Drawing.Point(0, 293)
         Me.lvwCajasCargaPorReferencia.Name = "lvwCajasCargaPorReferencia"
-        Me.lvwCajasCargaPorReferencia.Size = New System.Drawing.Size(505, 289)
+        Me.lvwCajasCargaPorReferencia.Size = New System.Drawing.Size(510, 289)
         Me.lvwCajasCargaPorReferencia.TabIndex = 71
         Me.lvwCajasCargaPorReferencia.UseCompatibleStateImageBehavior = False
         '
@@ -1105,7 +1105,7 @@ Partial Class frmCarga
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(3, 3)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(980, 48)
+        Me.Panel3.Size = New System.Drawing.Size(988, 48)
         Me.Panel3.TabIndex = 72
         '
         'Label16
@@ -1127,7 +1127,7 @@ Partial Class frmCarga
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1013, 633)
+        Me.ClientSize = New System.Drawing.Size(1021, 644)
         Me.Controls.Add(Me.TabControl1)
         Me.Name = "frmCarga"
         Me.Text = "frmCarga"

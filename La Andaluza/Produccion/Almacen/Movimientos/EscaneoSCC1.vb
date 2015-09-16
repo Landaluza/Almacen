@@ -185,42 +185,6 @@ Public Class EscaneoSCC1
         Me.orden.addColumns = addcolumns
         dgvPedidosFill()
 
-
-
-
-
-
-
-
-
-        'Dim row As DataGridViewRow
-
-
-        'For Each row In dgvOrdenesCarga.Rows
-        '    If row.Cells("terminado").Value = 0 Then
-        '        c = row.Cells("s")
-        '        c.Value = My.Resources.package_halfgreen
-        '        c.ToolTipText = "Faltan contenidos para completar la orden de carga. Cantidad de cajas pendiente:" & row.Cells("pendiente").Value
-        '    Else
-        '        c = row.Cells("s")
-        '        c.Value = My.Resources.package_green
-        '        c.ToolTipText = "La orden de carga esta completa"
-        '    End If
-        'Next
-
-        'For Each row In dgvPedidos.Rows
-        '    If row.Cells("terminado").Value = 0 Then
-        '        c = row.Cells("s")
-        '        c.Value = My.Resources.package_halfgreen
-        '        c.ToolTipText = "Faltan contenidos para completar la orden de carga. Cantidad de cajas pendiente:" & row.Cells("pendiente").Value
-        '    Else
-        '        c = row.Cells("s")
-        '        c.Value = My.Resources.package_green
-        '        c.ToolTipText = "La orden de carga esta completa"
-        '    End If
-        'Next
-
-
     End Sub
 
     Private Sub dgvOrdenesCargafill(ByVal palets As String, ByVal nPalets As String)
@@ -252,7 +216,7 @@ Public Class EscaneoSCC1
             Me.pedido.ordenIds = Me.pedido.ordenIds.Substring(0, Me.pedido.ordenIds.Length - 2)
         End If
 
-        While bwOrdenes.IsBusy
+        While bwPedidos.IsBusy
             Threading.Thread.Sleep(100)
         End While
 
@@ -331,7 +295,7 @@ Public Class EscaneoSCC1
 
                     'MsgBox(numeroAux & " _ " & Me.TabControl2.SelectedTab.Text)
                     If numeroAux = Me.TabControl2.SelectedTab.Text Then
-                        MsgBox("'" & Convert.ToString(row.Cells("Palets").Value.ToString.Trim) & "'")
+                        'MsgBox("'" & Convert.ToString(row.Cells("Palets").Value.ToString.Trim) & "'")
                         If Convert.ToString(row.Cells("Palets").Value.ToString.Trim) = "" Then
                             frm.EventHAndled = False
                         End If
@@ -580,7 +544,6 @@ Public Class EscaneoSCC1
 
     Private Sub bwOrdenes_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bwOrdenes.RunWorkerCompleted
 
-
         dgvOrdenesCarga.DataSource = orden.datasource
         If Not orden.datasource Is Nothing Then
             With dgvOrdenesCarga
@@ -616,7 +579,7 @@ Public Class EscaneoSCC1
             End If
         Next
 
-        MsgBox("Background complete")
+        'MsgBox("Background complete")
 
         If Me.orden.addColumns Then abrirPestañas()
     End Sub
