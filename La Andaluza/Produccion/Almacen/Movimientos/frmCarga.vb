@@ -76,6 +76,7 @@
 
         dtb = New DataBase(Config.Server)
     End Sub
+
     Private Sub EscaneoSCC_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.ToolTip1.SetToolTip(Me.btnClear, "Limpia de información los campos")
         Me.ToolTip1.SetToolTip(Me.btnBorrar, "Limpia de información los campos")
@@ -126,15 +127,11 @@
             .Columns(7).Width = 55
             .Columns(7).TextAlign = HorizontalAlignment.Right
 
-
             .FullRowSelect = True
             .GridLines = True
         End With
 
-
         dgvTotalesFill()
-
-
         txtSCCEscaneado.Focus()
     End Sub
 
@@ -397,8 +394,6 @@
                     Me.m_TipoPedido = ORDEN_DE_CARGA
                 End If
 
-
-
                 If Me.TipoPedido = PEDIDO Then
                     If Not ctlAlb.GuardarAlbaranCargaProMaestroParaPedido(Numero,
                                                          dtpFecha.Value,
@@ -422,7 +417,6 @@
 
                     ConsultaLoteAlternativo = "select LoteAlternativo from albaranescargaseguridad where id_ordencarga = " & Me.codigoMaestro & " And scc = "
                 End If
-
 
                 Dim spPaletsProducidos As New spPaletsProducidos
                 Dim m_db As DBO_PaletsProducidos
@@ -468,13 +462,11 @@
                     If Not spAlbaran.spDeleteAlbaranCargaSeguridadAllOrdenCarga(Convert.ToInt32(Me.codigoMaestro), dtb) Then Throw New Exception("Problema limpiando tras las operaciones")
                 End If
 
-
                 dtb.TerminarTransaccion()
                 resultado = True
 
             Catch ex As Exception
                 dtb.CancelarTransaccion()
-
                 MessageBox.Show("Hubo un problema al realizar las operaciones. Detalles:" & Environment.NewLine & Environment.NewLine & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Finally
                 If resultado Then
@@ -529,7 +521,6 @@
     Private Sub rellenarForm()
         Dim LongitudOK As Boolean = True
         Dim spPaletsProducidos As New spPaletsProducidos
-
 
         If txtSCCEscaneado.Text <> "" Then
             txtSCCEscaneado.BackColor = Color.White
