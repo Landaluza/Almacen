@@ -51,8 +51,11 @@ x64/
 build/
 [Bb]in/
 [Oo]bj/
+<<<<<<< HEAD
 /obj/
 /obj/Releas/
+=======
+>>>>>>> 768c507898a2a8ac83707fbb45a3644c46361f57
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -218,8 +221,11 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+<<<<<<< HEAD
 *.cache
 *.cache
 *.cache
 *.Cache
 La Andaluza/bin/Release/La Andaluza Almacen.application
+=======
+>>>>>>> 768c507898a2a8ac83707fbb45a3644c46361f57

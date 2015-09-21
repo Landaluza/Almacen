@@ -2,16 +2,14 @@
     Private c As Config
 
     Public Sub New()
-
         InitializeComponent()
-
         Version.Text = My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor & "." & My.Application.Info.Version.Build   'System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor, My.Application.Info.Version.MajorRevision)
         Copyright.Text = My.Application.Info.Copyright
     End Sub
     Private Sub SplashScreen1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Me.ProgressBar1.Enabled Then
             'If source <> LOCAL Then
-            Config.Cargar_Ajustes_Predeterminados()
+            'Config.Cargar_Ajustes_Predeterminados()
             c = New Config
             c.calcular_version()
         End If

@@ -6,7 +6,8 @@ Public Class FrmInicio
         InitializeComponent()
         Calendar = New Calendar
         Calendar.testDateTime = False
-        DataBase.buildConnectionString(Config.Server)
+        'DataBase.buildConnectionString(Config.Server)
+        Config.Cargar_Ajustes_Predeterminados()
         Me.Gform = New GUI(Me)
         AddHandler Gform.FormClosed, AddressOf cerrar
     End Sub
@@ -24,20 +25,24 @@ Public Class FrmInicio
     End Sub
 
     Private Sub iniciar()
+        If My.Computer.Name = "MAMVAIO" Then
+            txtLogin.Text = "almacen"
+            txtPassword.Text = "almacen"
+        End If
+
         If comprobarCampos() Then
             Me.Enabled = False
             While BackgroundWorker1.IsBusy
-                    Threading.Thread.Sleep(100)
+                Threading.Thread.Sleep(100)
             End While
 
             Me.BackgroundWorker1.RunWorkerAsync()
-            Else
+        Else
             MessageBox.Show("Error. Los datos no son correctos", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 
     Private Function comprobarCampos() As Boolean
-
         Dim respuesta As Boolean = True
         If txtLogin.Text.Contains("'") Then
             If Me.LblLoginIssue.Visible = False Then Me.LblLoginIssue.Visible = True
@@ -118,7 +123,7 @@ Public Class FrmInicio
                 Me.Hide()
                 SplashScreen1.show_loading()
 
-                Gform.terminarDeIniciar("LA", "Servidor", Me.txtLogin.Text, txtLogin.Text)
+                Gform.terminarDeIniciar("LA", Config.ServerName, Me.txtLogin.Text, txtLogin.Text)
 
                 Me.Enabled = True
                 Me.DialogResult = Windows.Forms.DialogResult.OK
