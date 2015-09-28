@@ -3,6 +3,7 @@
     'Public Const SOCKET_SERVER_IP As String = "192.168.10.47"
 
     Public Shared Server As Integer
+    Public Shared ServerName As String
     Public Shared QS_Sesion As String
     Public Shared User As Integer
     Public Shared UserType As Integer
@@ -26,13 +27,48 @@
     Public Shared activeScreen As Integer
 
     Public Shared Sub Cargar_Ajustes_Predeterminados()
-        Config.Server = 2
+        'Config.Server = 2
+        Config.Server = DataBase.SERVIDOR
         Config.MailReportPass = "Administracion2008"
         Config.ventasPath = "Z:\Informatica\La Andaluza app\ExcelFile\Book1.xlsx"
         Config.MailReportAddress = "administracion@landaluza.es"
         Config.MailClientHost = "smtp.1and1.es"
         Config.QS_Sesion = "Sesión A - [24 x 80]"
         'Config.QS_Sesion = "Sesión A"
+
+        Select Case Convert.ToString(My.Application.Info.Version).Length
+            Case Is > 11
+                Config.versionApp = "LA " & Convert.ToString(My.Application.Info.Version).Substring(0, 10) '& " -- " & String.Format("Version {0}", NumeroVersion())
+            Case Is = 11
+                Config.versionApp = "LA " & Convert.ToString(My.Application.Info.Version).Substring(0, 9) '& " -- " & String.Format("Version {0}", NumeroVersion())
+            Case Is = 10
+                Config.versionApp = "LA " & Convert.ToString(My.Application.Info.Version).Substring(0, 8) '& " -- " & String.Format("Version {0}", NumeroVersion())
+            Case Else
+                Config.versionApp = "LA " & Convert.ToString(My.Application.Info.Version).Substring(0, 7) '& " -- " & String.Format("Version {0}", NumeroVersion())
+        End Select
+
+        'If Server = 1 Then 'SERVIDOR
+        '    ServerName = "192.168.10.200"
+        '    Config.connectionString = "User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"
+        'End If
+
+        'If My.Computer.Name = "RUBENPC" Then
+        '    Config.connectionString = "User ID=RUBENPC\Ruben;Trusted_Connection=True;"
+        '    ServerName = "RUBENPC\SQLEXPRESS2"
+        'End If
+
+        If My.Computer.Name = "MAMVAIO" Then
+            versionApp = "--------- LOCAL ----------------- " & Config.versionApp & " --------- LOCAL -----------------"
+            Config.connectionString = "User ID=mamvaio\mam;Trusted_Connection=True;"
+            ServerName = "MAMVAIO\SQL2012"
+            MsgBox("------ Trabajand en LOCAL ------  " & My.Computer.Name & "  -  " & ServerName.ToString)
+        End If
+
+        Config.connectionString = "workstation id=" & ServerName & ";packet size=4096;Connect Timeout = 200;" & Config.connectionString & "data source= " _
+            & ServerName & ";persist security info=False;initial catalog=LA"
+
+        My.Settings.Item("LAConnectionString1") = Config.connectionString
+
         Config.load()
     End Sub
 
@@ -105,8 +141,8 @@
     Public Shared Sub save()
         Dim options As New UserOptions
         Dim fil As New File
-
         options.Screen = Config.activeScreen
+
         Try
             fil.saveObject(CType(options, Object), Environment.SpecialFolder.MyDocuments & "options.opt")
         Catch ex As Exception

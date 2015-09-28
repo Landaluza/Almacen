@@ -42,9 +42,12 @@ Public Class DataBase
 
         bd = "LA"
 
+        'server se define en Public Class Config
+
         If server = SERVIDOR Then
-            Name = "192.168.1.101\SQLEXPRESS,1608"
-            Name = "192.168.1.247"
+            'Name = "192.168.1.101\SQLEXPRESS,1608"
+            'Name = "192.168.1.247"
+            Name = "192.168.10.200"
             Config.connectionString = "User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"
         Else
             '    Config.connectionString = "User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"
@@ -52,7 +55,8 @@ Public Class DataBase
             'Else
             If My.Computer.Name = "MAMVAIO" Then
                 Config.connectionString = "User ID=mamvaio\mam;Trusted_Connection=True;"
-                Name = "MAMVAIO\SQLEXPRESS"
+                MsgBox("Trabajando en LOCAL")
+                Name = "MAMVAIO\SQL2012"
             ElseIf My.Computer.Name = "RUBENPC" Then
                 Config.connectionString = "User ID=RUBENPC\Ruben;Trusted_Connection=True;"
                 Name = "RUBENPC\SQLEXPRESS2"
@@ -134,7 +138,6 @@ Public Class DataBase
 
         Me.Conectar()
 
-
         Dim dtsTemp As New DataSet
         Dim cmd As System.Data.SqlClient.SqlCommand '= Comando(Cadena)
 
@@ -166,7 +169,6 @@ Public Class DataBase
 
     Public Function ConsultaAlteraciones(ByVal strrealizarConsulta As String) As Boolean
         Me.Conectar()
-
 
         Dim cmd As System.Data.SqlClient.SqlCommand
         cmd = New System.Data.SqlClient.SqlCommand(strrealizarConsulta, Me.Cnn)
