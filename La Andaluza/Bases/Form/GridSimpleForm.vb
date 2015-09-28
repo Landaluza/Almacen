@@ -371,10 +371,18 @@ Public Class gridsimpleform
         If Not BackgroundWorker1.IsBusy Then
             dgvGeneral.Cursor = Cursors.WaitCursor
 
-            While BackgroundWorker1.IsBusy
+            Dim times As Integer = 0
+            While BackgroundWorker1.IsBusy And times < 40
                 Threading.Thread.Sleep(100)
+                times += 1
             End While
-            BackgroundWorker1.RunWorkerAsync()
+
+            If Not BackgroundWorker1.IsBusy Then
+                BackgroundWorker1.RunWorkerAsync()
+            Else
+                MsgBox("No se pudo completar una tarea en segundo plano (dgvFill).", MsgBoxStyle.Critical)
+            End If
+
         End If
     End Sub
 

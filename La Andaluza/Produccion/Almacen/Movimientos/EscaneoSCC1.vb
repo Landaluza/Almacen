@@ -188,11 +188,17 @@ Public Class EscaneoSCC1
     End Sub
 
     Private Sub dgvOrdenesCargafill(ByVal palets As String, ByVal nPalets As String)
-        While bwOrdenes.IsBusy
+        Dim times As Integer = 0
+        While bwOrdenes.IsBusy And times < 40
+            times += 1
             Threading.Thread.Sleep(100)
         End While
 
-        bwOrdenes.RunWorkerAsync()
+        If Not bwOrdenes.IsBusy Then
+            Me.bwOrdenes.RunWorkerAsync()
+        Else
+            MsgBox("No se pudo completar una tarea en segundo plano (dgvOrdenesCargafill).", MsgBoxStyle.Critical)
+        End If
     End Sub
 
     Private Sub dgvPedidosFill()
@@ -216,11 +222,17 @@ Public Class EscaneoSCC1
             Me.pedido.ordenIds = Me.pedido.ordenIds.Substring(0, Me.pedido.ordenIds.Length - 2)
         End If
 
-        While bwPedidos.IsBusy
+        Dim times As Integer = 0
+        While bwPedidos.IsBusy And times < 40
+            times += 1
             Threading.Thread.Sleep(100)
         End While
 
-        Me.bwPedidos.RunWorkerAsync()
+        If Not bwPedidos.IsBusy Then
+            Me.bwPedidos.RunWorkerAsync()
+        Else
+            MsgBox("No se pudo completar una tarea en segundo plano (dgvPedidosFill).", MsgBoxStyle.Critical)
+        End If
 
     End Sub
 
