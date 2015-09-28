@@ -456,12 +456,9 @@
     <EmbeddedResource Include="Bases\Form\GridSimpleForm.resx">
       <DependentUpon>GridSimpleForm.vb</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="Bases\Sesion\Autorizacion\frmAutorizacion.resx">
       <DependentUpon>frmAutorizacion.vb</DependentUpon>
     </EmbeddedResource>
-=======
->>>>>>> MAM2015.08.22
     <EmbeddedResource Include="Bases\Sesion\FrmInicio.resx">
       <DependentUpon>FrmInicio.vb</DependentUpon>
       <SubType>Designer</SubType>
