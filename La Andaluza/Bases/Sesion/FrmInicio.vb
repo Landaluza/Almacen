@@ -15,6 +15,7 @@ Public Class FrmInicio
     Private Sub cerrar(sender As Object, e As FormClosedEventArgs)
         Me.Close()
     End Sub
+
     Private Sub btnAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAceptar.Click
         iniciar()
     End Sub

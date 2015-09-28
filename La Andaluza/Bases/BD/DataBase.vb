@@ -61,8 +61,18 @@ Public Class DataBase
                 Config.connectionString = "User ID=RUBENPC\Ruben;Trusted_Connection=True;"
                 Name = "RUBENPC\SQLEXPRESS2"
             Else
+<<<<<<< HEAD
                 Name = "192.168.10.124\SQLEXPRESS"
                 Config.connectionString = "User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"
+=======
+                If My.Computer.Name = "MAMVAIO" Then
+                    Config.connectionString = "User ID=mamvaio\mam;Trusted_Connection=True;"
+                    Name = "MAMVAIO\SQL2012"
+                Else
+                    Name = "192.168.10.124\SQLEXPRESS"
+                    Config.connectionString = "User ID=ssa;Password=Trucha0122;Trusted_Connection=False;"
+                End If
+>>>>>>> MAM2015.08.22
             End If
             'End If
         End If

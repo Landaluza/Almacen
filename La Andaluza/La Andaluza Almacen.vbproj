@@ -258,13 +258,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Bases\DataBase\StoredProcedureComp.vb" />
-    <Compile Include="Bases\Sesion\Autorizacion\frmAutorizacion.Designer.vb">
-      <DependentUpon>frmAutorizacion.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Bases\Sesion\Autorizacion\frmAutorizacion.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bases\Sesion\Autorizacion\spAutorizacion.vb" />
     <Compile Include="Bases\Clases\Calendar.vb" />
     <Compile Include="Bases\Clases\MicrosoftOfficeExporter.vb" />
     <Compile Include="Bases\Clases\Printer.vb" />
@@ -463,9 +456,12 @@
     <EmbeddedResource Include="Bases\Form\GridSimpleForm.resx">
       <DependentUpon>GridSimpleForm.vb</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Bases\Sesion\Autorizacion\frmAutorizacion.resx">
       <DependentUpon>frmAutorizacion.vb</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> MAM2015.08.22
     <EmbeddedResource Include="Bases\Sesion\FrmInicio.resx">
       <DependentUpon>FrmInicio.vb</DependentUpon>
       <SubType>Designer</SubType>

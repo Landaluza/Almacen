@@ -1,6 +1,5 @@
 ﻿Imports System.Linq
 
-
 Public Class EscaneoSCC1
     Inherits Windows.Forms.Form
 
@@ -13,7 +12,6 @@ Public Class EscaneoSCC1
     Private frmCargas As Collection
     ''Private WithEvents WinSockServer As New WinSockServer()
     Private frmEmergencia As frmCarga
-
     Private pedido As Pedido
     Private orden As Orden
 
@@ -31,14 +29,11 @@ Public Class EscaneoSCC1
     End Sub
 
     Private Sub EscaneoSCC_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
         Me.ToolTip1.SetToolTip(btnup, "Muestra/oculta los paneles")
         Me.ToolTip1.SetToolTip(btnDown, "Muestra/oculta los paneles")
-        dgvFill(True)
-
-
         Me.TabControl2.Refresh()
         Me.TabControl2.SelectedIndex = 0
+        dgvFill(True)
     End Sub
 
     Private Sub agnadirColumnasPedidos()
@@ -60,7 +55,6 @@ Public Class EscaneoSCC1
             dgvPedidos.Columns.Add(buttonstatus)
         End If
     End Sub
-
 
     Private Sub agnadirColumnasOrdenes()
         If dgvOrdenesCarga.RowCount > 0 Then
@@ -112,7 +106,6 @@ Public Class EscaneoSCC1
         Engine_LA.FormEnPestaña(frmEmergencia, pan)
         Me.TabControl2.Controls.Add(paginas)
         Me.frmCargas.Add(frmEmergencia)
-
         Me.TabControl2.TabPages(Me.TabControl2.TabPages.IndexOf(paginas)).ImageKey = "emergencia"
 
         Try
@@ -144,7 +137,6 @@ Public Class EscaneoSCC1
                 paginas = New TabPage
                 pan = New Panel
                 frm = New frmCarga(row.Cells("OrdenCargaId").Value.ToString, row.Cells("Fecha").Value.ToString, frmCarga.ORDEN_DE_CARGA)
-
 
                 paginas.Name = If(IsDBNull(row.Cells("Fecha").Value), "Sin fecha " & row.Index, row.Cells("Fecha").Value.ToString)
                 paginas.Text = paginas.Name
@@ -179,12 +171,40 @@ Public Class EscaneoSCC1
     End Sub
 
     Private Sub dgvFill(ByVal addcolumns As Boolean)
-
         Me.orden = New Orden
         Me.pedido = New Pedido
         Me.orden.addColumns = addcolumns
         dgvPedidosFill()
 
+<<<<<<< HEAD
+=======
+        'Dim row As DataGridViewRow
+
+        'For Each row In dgvOrdenesCarga.Rows
+        '    If row.Cells("terminado").Value = 0 Then
+        '        c = row.Cells("s")
+        '        c.Value = My.Resources.package_halfgreen
+        '        c.ToolTipText = "Faltan contenidos para completar la orden de carga. Cantidad de cajas pendiente:" & row.Cells("pendiente").Value
+        '    Else
+        '        c = row.Cells("s")
+        '        c.Value = My.Resources.package_green
+        '        c.ToolTipText = "La orden de carga esta completa"
+        '    End If
+        'Next
+
+        'For Each row In dgvPedidos.Rows
+        '    If row.Cells("terminado").Value = 0 Then
+        '        c = row.Cells("s")
+        '        c.Value = My.Resources.package_halfgreen
+        '        c.ToolTipText = "Faltan contenidos para completar la orden de carga. Cantidad de cajas pendiente:" & row.Cells("pendiente").Value
+        '    Else
+        '        c = row.Cells("s")
+        '        c.Value = My.Resources.package_green
+        '        c.ToolTipText = "La orden de carga esta completa"
+        '    End If
+        'Next
+
+>>>>>>> MAM2015.08.22
     End Sub
 
     Private Sub dgvOrdenesCargafill(ByVal palets As String, ByVal nPalets As String)
@@ -222,6 +242,7 @@ Public Class EscaneoSCC1
             Me.pedido.ordenIds = Me.pedido.ordenIds.Substring(0, Me.pedido.ordenIds.Length - 2)
         End If
 
+<<<<<<< HEAD
         Dim times As Integer = 0
         While bwPedidos.IsBusy And times < 40
             times += 1
@@ -234,6 +255,9 @@ Public Class EscaneoSCC1
             MsgBox("No se pudo completar una tarea en segundo plano (dgvPedidosFill).", MsgBoxStyle.Critical)
         End If
 
+=======
+        Me.bwPedidos.RunWorkerAsync()
+>>>>>>> MAM2015.08.22
     End Sub
 
     Private Sub cerrarPestaña(sender As Object, e As EventArgs)
@@ -248,7 +272,6 @@ Public Class EscaneoSCC1
             frm.Codigo = "0"
         End If
     End Sub
-
 
     Private Sub comprobarScc(ByRef sender As Object, ByVal scc As String)
         Dim frm As frmCarga = CType(sender, frmCarga)
@@ -288,7 +311,6 @@ Public Class EscaneoSCC1
             End If
         End If
     End Sub
-
 
     Private Sub comprobarPedido(sender As Object, e As EventArgs)
         Dim frm As frmCarga = CType(sender, frmCarga)
@@ -351,7 +373,6 @@ Public Class EscaneoSCC1
         Me.Close()
     End Sub
 
-
     Private Sub dgvPedidos_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvPedidos.CellDoubleClick
         If Not Me.dgvPedidos.CurrentRow Is Nothing Then
             If Not IsDBNull(Me.dgvPedidos.CurrentRow.Cells("Numero").Value) Then
@@ -372,7 +393,6 @@ Public Class EscaneoSCC1
         imprimirSCC(0)
     End Sub
 
-
     Private Sub EscaneoSCC1_Shown(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Shown
         '        abrirPestañas()
         Dim st As DataGridViewCellStyle = dgvPedidos.DefaultCellStyle
@@ -380,13 +400,11 @@ Public Class EscaneoSCC1
         st.SelectionForeColor = Color.White
         dgvPedidos.DefaultCellStyle = st
         Me.Timer1.Start()
-
     End Sub
 
     Private Sub dgvPedidos_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvPedidos.CellClick
         'OrElse Not e.ColumnIndex = dgvPedidos.Columns("+").Index OrElse Not e.ColumnIndex = dgvPedidos.Columns("orden").Index Then Return
         If Not e.RowIndex < 0 Then
-
 
             If e.ColumnIndex = dgvPedidos.Columns("+").Index Then
                 If Not IsDBNull(Me.dgvPedidos.CurrentRow.Cells("Palets").Value) Then
@@ -403,11 +421,11 @@ Public Class EscaneoSCC1
             Select Case (e.ColumnIndex)
                 Case dgvOrdenesCarga.Columns("+").Index
                     If (Not IsDBNull(Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value)) AndAlso Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value.ToString <> " Sin información, revisar excel. " Then
-
                         Dim frm As New frmSugerenciaCarga(Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value.ToString, "Orden de Carga: " & Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString)
                         frm.ShowDialog()
                         dgvFill(Nothing, Nothing)
                     End If
+
                 Case dgvOrdenesCarga.Columns("e").Index
                     If Not IsDBNull(Me.dgvOrdenesCarga.CurrentRow.Cells("ruta").Value) Then
                         Try
@@ -440,6 +458,7 @@ Public Class EscaneoSCC1
                 aux = New frmSugerenciaCarga(Me.dgvOrdenesCarga.CurrentRow.Cells("Palets").Value.ToString, "Orden de Carga: " & Me.dgvOrdenesCarga.CurrentRow.Cells("Fecha").Value.ToString)
                 aux.dgvFill(Me.dgvPedidos.CurrentRow.Cells("Palets").Value.ToString)
             End If
+
             'Dim aux As New frmSugerenciaCarga(Me.dgvPedidos.CurrentRow.Cells("PedidoClienteMaestroID").Value, Me.dgvPedidos.CurrentRow.Cells("Palets").Value, "Pedido: " & Me.dgvPedidos.CurrentRow.Cells("Numero").Value & ", " & "Cliente: " & Me.dgvPedidos.CurrentRow.Cells("Cliente").Value)
             aux.PrintGrilla.Print()
         Catch ex As Exception
@@ -464,7 +483,6 @@ Public Class EscaneoSCC1
             End If
         End If
     End Sub
-
 
     Private Sub DarPrioridadAltaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DarPrioridadAltaToolStripMenuItem.Click
         Try
@@ -510,8 +528,6 @@ Public Class EscaneoSCC1
         dgvPedidosFill()
     End Sub
 
-
-
     Private Sub btnup_Click(sender As System.Object, e As System.EventArgs) Handles btnup.Click
         If Me.SplitContainer1.Panel2Collapsed Or Me.SplitContainer1.Panel1Collapsed Then
             Me.SplitContainer1.Panel1Collapsed = False
@@ -539,15 +555,11 @@ Public Class EscaneoSCC1
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
-
         dgvFill(False)
-
     End Sub
 
     Private Sub btnRefrescar_Click(sender As System.Object, e As System.EventArgs) Handles btnRefrescar.Click
-
         dgvFill(False)
-
     End Sub
 
     Private Sub bwOrdenes_DoWork(sender As Object, e As System.ComponentModel.DoWorkEventArgs) Handles bwOrdenes.DoWork
@@ -555,7 +567,10 @@ Public Class EscaneoSCC1
     End Sub
 
     Private Sub bwOrdenes_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bwOrdenes.RunWorkerCompleted
+<<<<<<< HEAD
 
+=======
+>>>>>>> MAM2015.08.22
         dgvOrdenesCarga.DataSource = orden.datasource
         If Not orden.datasource Is Nothing Then
             With dgvOrdenesCarga
@@ -574,7 +589,6 @@ Public Class EscaneoSCC1
         End If
 
         If Me.orden.addColumns Then agnadirColumnasOrdenes()
-
         Dim c As DataGridViewImageCell
 
         For Each row As DataGridViewRow In dgvOrdenesCarga.Rows
@@ -625,9 +639,7 @@ Public Class EscaneoSCC1
         End If
 
         If orden.addColumns Then agnadirColumnasPedidos()
-
         Dim c As DataGridViewImageCell
-
 
         For Each row As DataGridViewRow In dgvPedidos.Rows
             row.Height = Convert.ToInt32(row.Height * 1.5)
