@@ -32,11 +32,18 @@ Public Class FrmInicio
 
         If comprobarCampos() Then
             Me.Enabled = False
-            While BackgroundWorker1.IsBusy
+
+            Dim times As Integer = 0
+            While BackgroundWorker1.IsBusy And times < 40
                 Threading.Thread.Sleep(100)
+                times += 1
             End While
 
-            Me.BackgroundWorker1.RunWorkerAsync()
+            If Not Me.BackgroundWorker1.IsBusy Then
+                Me.BackgroundWorker1.RunWorkerAsync()
+            Else
+                MsgBox("No se pudo completar una tarea en segundo plano (iniciar).", MsgBoxStyle.Critical)
+            End If
         Else
             MessageBox.Show("Error. Los datos no son correctos", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
